@@ -29,7 +29,7 @@ def subscribe_to_all_public_streams(client):
         raise RuntimeError(f"Failed to fetch streams: {streams_response}")
 
     # Get streams bot is already subscribed to
-    subs_response = client.list_subscriptions()
+    subs_response = client.get_subscriptions()
     if subs_response["result"] != "success":
         raise RuntimeError(f"Failed to fetch subscriptions: {subs_response}")
 

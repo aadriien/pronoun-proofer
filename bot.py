@@ -37,6 +37,7 @@ if __name__ == "__main__":
     print("\n\n")
     message = result["messages"][0]
     print(message["content"])
+    print("\n")
 
     scan_for_mentions(message["content"])
 

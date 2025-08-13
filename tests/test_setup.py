@@ -32,7 +32,7 @@ def test_subscribe_to_all_public_streams():
     }
 
     # Simulate current subscriptions 
-    mock_client.list_subscriptions.return_value = {
+    mock_client.get_subscriptions.return_value = {
         "result": "success",
         "subscriptions": [
             {"name": "general"}
