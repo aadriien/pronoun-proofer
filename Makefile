@@ -4,7 +4,7 @@ POETRY = poetry
 VENV_DIR = .venv
 PYTHON_VERSION = python3.10
 
-.PHONY: setup run format clean 
+.PHONY: setup run tests format clean 
 
 all: setup run 
 
@@ -20,6 +20,9 @@ setup:
 
 run: 
 	@$(POETRY) run python bot.py
+
+tests:
+	@$(POETRY) run pytest tests/
 
 # Auto-format Python code
 format:
