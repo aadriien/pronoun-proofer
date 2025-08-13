@@ -31,6 +31,16 @@ def test_subscribe_to_all_public_streams():
         ]
     }
 
+    # Simulate current subscriptions 
+    mock_client.list_subscriptions.return_value = {
+        "result": "success",
+        "subscriptions": [
+            {"name": "general"}
+        ]
+    }
+
+    # Simulate successful subscription call
+    mock_client.add_subscriptions.return_value = {"result": "success"}
     subscribe_to_all_public_streams(mock_client)
 
     # Should attempt to subscribe only to unsubscribed streams

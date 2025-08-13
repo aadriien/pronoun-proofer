@@ -23,19 +23,31 @@ def create_client():
 
 
 def subscribe_to_all_public_streams(client):
-    # Get all streams bot can see 
+    # Get all streams bot can see
     streams_response = client.get_streams()
-
     if streams_response["result"] != "success":
         raise RuntimeError(f"Failed to fetch streams: {streams_response}")
 
-    streams = streams_response["streams"]
+    # Get streams bot is already subscribed to
+    subs_response = client.list_subscriptions()
+    if subs_response["result"] != "success":
+        raise RuntimeError(f"Failed to fetch subscriptions: {subs_response}")
+
+    current_subs = {s["name"] for s in subs_response["subscriptions"]}
+
+    # Only include streams bot isn't already subscribed to
     streams_to_subscribe = [
         {"name": stream["name"]}
-        for stream in streams
+        for stream in streams_response["streams"]
+        if stream["name"] not in current_subs
     ]
 
     if streams_to_subscribe:
-        client.add_subscriptions(streams_to_subscribe)
+        add_resp = client.add_subscriptions(streams_to_subscribe)
+        if add_resp["result"] != "success":
+            raise RuntimeError(f"Failed to subscribe: {add_resp}")
+        return [s["name"] for s in streams_to_subscribe]
+
+    return []
 
 

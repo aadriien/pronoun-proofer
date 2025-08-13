@@ -12,8 +12,7 @@ from src.reader import scan_for_mentions
 class PronounBot:
     def __init__(self):
         self.client = create_client()
-        self.subscribed_streams = []
-        subscribe_to_all_public_streams(self.client)
+        self.subscribed_streams = subscribe_to_all_public_streams(self.client)
 
     def run(self):
         self.client.call_on_each_message(scan_for_mentions)
