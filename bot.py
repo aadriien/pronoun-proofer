@@ -15,7 +15,9 @@ class PronounBot:
         self.subscribed_streams = subscribe_to_all_public_streams(self.client)
 
     def run(self):
-        self.client.call_on_each_message(scan_for_mentions)
+        self.client.call_on_each_message(
+            lambda msg: scan_for_mentions(msg, self.client)
+        )
 
 
 if __name__ == "__main__":
@@ -36,8 +38,18 @@ if __name__ == "__main__":
     print(result)
     print("\n\n")
     message = result["messages"][0]
+    # print(message["content"])
+    # print("\n")
+
+    message["content"] += " testing with @**Adrien Lynch (he/they) (S2'25)**"
+    message["content"] += " testing she pronouns for Adrien to see her outcome"
+
+    message["content"] += " now testing with @**Test Person (she/ze) (W1'17)**"
+    message["content"] += " now testing he pronouns for Test to see their outcome"
+
     print(message["content"])
     print("\n")
 
-    scan_for_mentions(message["content"])
+    scan_for_mentions(message, bot.client)
+
 
