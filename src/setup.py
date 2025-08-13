@@ -25,14 +25,14 @@ def create_client():
 def subscribe_to_all_public_streams(client):
     # Get all streams bot can see 
     streams_response = client.get_streams()
-    
+
     if streams_response["result"] != "success":
         raise RuntimeError(f"Failed to fetch streams: {streams_response}")
 
+    streams = streams_response["streams"]
     streams_to_subscribe = [
         {"name": stream["name"]}
-        for stream in streams_response["streams"]
-        if not stream["subscribed"]
+        for stream in streams
     ]
 
     if streams_to_subscribe:
