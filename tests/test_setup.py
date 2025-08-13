@@ -7,11 +7,11 @@
 
 import pytest
 from unittest.mock import MagicMock
-from src.setup import create_client, subscribe_to_all_public_streams
+from src import setup 
 
 
 def test_create_client():
-    client = create_client()
+    client = setup.create_client()
     assert client is not None 
 
     from zulip import Client
@@ -41,7 +41,7 @@ def test_subscribe_to_all_public_streams():
 
     # Simulate successful subscription call
     mock_client.add_subscriptions.return_value = {"result": "success"}
-    subscribe_to_all_public_streams(mock_client)
+    setup.subscribe_to_all_public_streams(mock_client)
 
     # Should attempt to subscribe only to unsubscribed streams
     mock_client.add_subscriptions.assert_called_once_with([

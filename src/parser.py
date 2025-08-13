@@ -18,7 +18,19 @@ PRONOUN_GROUPS = {
 ALL_PRONOUNS = sorted({p for forms in PRONOUN_GROUPS.values() for p in forms})
 
 
-def validate_mentions_in_text(content, mentions):
+def sanitize_content(content, mentions):
+    sanitized = content
+
+    # Remove exact full name mention from content
+    for m in mentions:
+        sanitized = sanitized.replace(m["full_match"], "")
+        
+    return sanitized
+
+
+def validate_mentions_in_text(original_content, mentions):
+    # Remove name tags from content text for easier validation later
+    content = sanitize_content(original_content, mentions)
     results = []
 
     for mention in mentions:
@@ -59,6 +71,9 @@ def find_all_name_appearances(content, name):
 
 
 def check_nearby_pronouns(content, pronouns, positions):
+    if not positions:
+        return [{"snippet": "", "pronouns_match": True}]
+    
     nearby_checks = []
 
     if pronouns:
@@ -68,9 +83,6 @@ def check_nearby_pronouns(content, pronouns, positions):
             pronouns_list.extend(PRONOUN_GROUPS.get(p, [p]))
     else:
         pronouns_list = []
-
-    if not positions:
-        return [{"snippet": "", "pronouns_match": False}]
 
     for pos in positions:
         # 50 chars before / after
