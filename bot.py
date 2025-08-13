@@ -6,7 +6,7 @@
 
 
 from src.setup import create_client, subscribe_to_all_public_streams
-from src.reader import handle_message_event
+from src.reader import scan_for_mentions
 
 
 class PronounBot:
@@ -16,7 +16,7 @@ class PronounBot:
         subscribe_to_all_public_streams(self.client)
 
     def run(self):
-        self.client.call_on_each_message(handle_message_event)
+        self.client.call_on_each_message(scan_for_mentions)
 
 
 if __name__ == "__main__":
@@ -38,4 +38,6 @@ if __name__ == "__main__":
     print("\n\n")
     message = result["messages"][0]
     print(message["content"])
+
+    scan_for_mentions(message["content"])
 
