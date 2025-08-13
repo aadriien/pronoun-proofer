@@ -8,34 +8,14 @@
 import re 
 
 
-PRONOUNS_BANK = [
-    "he", "him", "his", "himself",
-    "she", "her", "hers", "herself",
-    "they", "them", "their", "theirs", "themself",
-    "xe", "xem", "xyr", "xyrs", "xemself",
-    "ze", "hir", "hirs", "hirself",
-]
-
-# @**First Last (pronoun/pronoun) (batch'year)**
-# e.g. @**Adrien Lynch (he/they) (S2'25)**
-MENTION_PATTERN = re.compile(
-    r"@"
-    r"\*\*(?P<name>[^(]+)\s*(\((?P<pronouns>[^)]+)\))?.*?\*\*"
-)
-
-def parse_mention(content):
-    mentions = []
-
-    for match in MENTION_PATTERN.finditer(content):
-        name = match.group("name").strip()
-        pronouns = match.group("pronouns")
-        
-        if pronouns:
-            pronouns = pronouns.strip()
-            
-        mentions.append({"name": name, "pronouns": pronouns})
-
-    return mentions
+PRONOUN_GROUPS = {
+    "he": ["he", "him", "his", "himself"],
+    "she": ["she", "her", "hers", "herself"],
+    "they": ["they", "them", "their", "theirs", "themself"],
+    "xe": ["xe", "xem", "xyr", "xyrs", "xemself"],
+    "ze": ["ze", "hir", "hirs", "hirself"],
+}
+ALL_PRONOUNS = sorted({p for forms in PRONOUN_GROUPS.values() for p in forms})
 
 
 def validate_mentions_in_text(content, mentions):
@@ -81,21 +61,35 @@ def find_all_name_appearances(content, name):
 def check_nearby_pronouns(content, pronouns, positions):
     nearby_checks = []
 
+    if pronouns:
+        pronouns_list = []
+        for p in pronouns.split("/"):
+            p = p.lower()
+            pronouns_list.extend(PRONOUN_GROUPS.get(p, [p]))
+    else:
+        pronouns_list = []
+
+    if not positions:
+        return [{"snippet": "", "pronouns_match": False}]
+
     for pos in positions:
         # 50 chars before / after
-        window_start = max(0, pos - 50) 
-        window_end = min(len(content), pos + 50) 
-        snippet = content[window_start:window_end]
-        
-        # If no known pronouns in text block, consider it a match
-        pronouns_present = any(p in snippet for p in PRONOUNS_BANK)
-        if not pronouns_present:
+        window_start = max(0, pos - 50)
+        window_end = min(len(content), pos + 50)
+        snippet = content[window_start:window_end].lower()
+
+        # Extract all pronouns in snippet
+        snippet_pronouns = [p for p in ALL_PRONOUNS if re.search(rf'\b{p}\b', snippet)]
+
+        if not pronouns_list or "any" in pronouns_list:
             pronouns_match = True
+
+        elif not snippet_pronouns:
+            pronouns_match = True 
+
         else:
-            # Otherwise, check if any expected pronouns in snippet
-            pronouns_match = all(
-                p.strip().lower() in snippet for p in pronouns.split("/")
-            ) if pronouns else True
+            # Ensure pronouns in snippet match person's viable pronouns
+            pronouns_match = any(p in pronouns_list for p in snippet_pronouns)
 
         nearby_checks.append({
             "snippet": snippet,
