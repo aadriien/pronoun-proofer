@@ -1,0 +1,17 @@
+[project]
+name = "pronoun-proofer"
+version = "0.1.0"
+description = "A Zulip bot that validates pronouns for any tagged user in a message"
+authors = [
+    {name = "Adrien Lynch",email = "me@adrienlynch.com"}
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+requests = "^2.31.0"
+python-dotenv = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
