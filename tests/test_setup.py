@@ -6,7 +6,8 @@
 
 
 import pytest
-from src.setup import create_client
+from unittest.mock import MagicMock
+from src.setup import create_client, subscribe_to_all_public_streams
 
 
 def test_create_client():
@@ -15,4 +16,26 @@ def test_create_client():
 
     from zulip import Client
     assert isinstance(client, Client)
+
+
+def test_subscribe_to_all_public_streams():
+    mock_client = MagicMock()
+
+    # Simulate get_streams response with some unsubscribed streams
+    mock_client.get_streams.return_value = {
+        "result": "success",
+        "streams": [
+            {"name": "general", "subscribed": True},
+            {"name": "random", "subscribed": False},
+            {"name": "social", "subscribed": False},
+        ]
+    }
+
+    subscribe_to_all_public_streams(mock_client)
+
+    # Should attempt to subscribe only to unsubscribed streams
+    mock_client.add_subscriptions.assert_called_once_with([
+        {"name": "random"},
+        {"name": "social"}
+    ])
 

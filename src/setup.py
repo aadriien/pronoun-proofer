@@ -22,3 +22,20 @@ def create_client():
     return zulip.Client(email=email, api_key=api_key)
 
 
+def subscribe_to_all_public_streams(client):
+    # Get all streams bot can see 
+    streams_response = client.get_streams()
+    
+    if streams_response["result"] != "success":
+        raise RuntimeError(f"Failed to fetch streams: {streams_response}")
+
+    streams_to_subscribe = [
+        {"name": stream["name"]}
+        for stream in streams_response["streams"]
+        if not stream["subscribed"]
+    ]
+
+    if streams_to_subscribe:
+        client.add_subscriptions(streams_to_subscribe)
+
+
