@@ -94,7 +94,7 @@ def check_nearby_pronouns(content, pronouns, positions):
         # Extract all pronouns in snippet
         snippet_pronouns = [p for p in ALL_PRONOUNS if re.search(rf'\b{p}\b', snippet)]
 
-        if not pronouns_list or "any" in pronouns_list:
+        if not pronouns_list or "any" in pronouns_list or "indifferent" in pronouns_list:
             pronouns_match = True
 
         elif not snippet_pronouns:
