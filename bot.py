@@ -22,6 +22,8 @@ class PronounBot:
 
 if __name__ == "__main__":
     bot = PronounBot()
+    bot.run()
+
 
 
     result = bot.client.get_messages({
