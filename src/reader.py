@@ -51,7 +51,16 @@ def scan_for_mentions(message, client):
             print(f"Full Match: {full_match} ... Name: {name} ... Pronouns: {pronouns}\n")
 
         results = validate_mentions_in_text(content, mentions)
-        print(results)
+        for r in results:
+            print(f"Name: {r['name']}")
+            print(f"Pronouns: {r['pronouns']}")
+            print(f"Positions: {r['positions']}")
+            print("Checks:")
+            for i, check in enumerate(r["checks"], 1):
+                print(f"  Check {i}:")
+                print(f"    Snippet: {check['snippet']!r}")
+                print(f"    Pronouns match: {check['pronouns_match']}")
+            print("-" * 50)
 
         for r in results:
             if not all(check["pronouns_match"] for check in r["checks"]):

@@ -23,8 +23,9 @@ def sanitize_content(content, mentions):
 
     # Remove exact full name mention from content
     for m in mentions:
-        sanitized = sanitized.replace(m["full_match"], "")
-        
+        full_match = re.escape(m["full_match"])
+        sanitized = re.sub(rf'\(\s*{re.escape(m["pronouns"])}\s*\)', '', sanitized)
+
     return sanitized
 
 
