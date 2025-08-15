@@ -44,6 +44,16 @@ def notify_writer_of_mismatch(content, result, client):
     zulip_message_link = get_message_link(content)
     content_lines.append(f"You can review your original message here: {zulip_message_link}")
 
+    testing_bot_disclaimer = [
+        f"\n—\n"
+        f"**Note from the creator:** This bot is very new, and its approach to " 
+        f"pronoun detection is still a work in progress. Please reach out to "
+        f"@**Adrien Lynch (he/they) (S2'25)** if you notice any bugs or have questions. "
+        f"Adrien is actively working on NLP for the bot and would love to pair!"
+    ]
+
+    content_lines.append(testing_bot_disclaimer)
+
     client.send_message({
         "type": "private",
         "to": [sender_email],
