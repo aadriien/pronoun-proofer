@@ -52,7 +52,7 @@ def notify_writer_of_mismatch(content, result, client):
         f"Adrien is actively working on NLP for the bot and would love to pair!"
     ]
 
-    content_lines.append(testing_bot_disclaimer)
+    content_lines.extend(testing_bot_disclaimer)
 
     client.send_message({
         "type": "private",
