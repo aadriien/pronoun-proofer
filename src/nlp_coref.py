@@ -9,12 +9,16 @@ import re
 from fastcoref import FCoref
 
 
-def extract_name_pronoun_mapping(text):
+def apply_nlp(text):
     model = FCoref(device='cpu')  # can use 'cuda:0' for GPU
 
     preds = model.predict(texts=[text])
     clusters = preds[0].get_clusters()
 
+    return clusters
+
+
+def extract_name_pronoun_mapping(clusters):
     pronouns = {"he", "him", "his", "she", "her", "hers", "they", "them", "their", "theirs"}
     name_to_pronouns = {}
 
@@ -39,11 +43,13 @@ if __name__ == "__main__":
     text = (
         "John met Sarah at the cafe. He ordered coffee, and she chose tea. "
         "Sarah thanked him. Later, John waved at her as he left."
+        "The two of them had a good time together."
     )
 
-    mapping = extract_name_pronoun_mapping(text)
+    clusters = apply_nlp(text)
+    mappings = extract_name_pronoun_mapping(clusters)
 
     print("\nName —> Pronouns Mapping:\n")
 
-    for name, pronouns in mapping.items():
+    for name, pronouns in mappings.items():
         print(f"{name}: {pronouns}")

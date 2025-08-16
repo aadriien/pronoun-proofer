@@ -27,6 +27,9 @@ tests:
 nlp:
 	@$(POETRY) run python src/nlp_coref.py
 
+spacy:
+	@$(POETRY) run python src/nlp_spacy.py
+
 # Auto-format Python code
 format:
 	@which black > /dev/null || (echo "black not found. Installing..."; $(POETRY) add black)
