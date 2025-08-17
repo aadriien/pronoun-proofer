@@ -1,0 +1,1193 @@
+#begin document (doc1); part 000
+doc1 0 0 John NNP (NP* - - - Speaker#1 B-PER (1
+doc1 0 1 went VBD (VP*) - - - Speaker#1 O -
+doc1 0 2 to TO (PP* - - - Speaker#1 O -
+doc1 0 3 the DT (NP*) - - - Speaker#1 O -
+doc1 0 4 park NN (NP*)) - - - Speaker#1 O -
+doc1 0 5 . . )) - - - Speaker#1 O -
+doc1 1 0 He PRP (NP) - - - Speaker#1 O (1)
+doc1 1 1 enjoys VBD (VP*)) - - - Speaker#1 O -
+doc1 1 2 jogging VBG (NP*)) - - - Speaker#1 O -
+doc1 1 3 there RB (ADVP*)) - - - Speaker#1 O -
+doc1 1 4 . . )) - - - Speaker#1 O -
+doc1 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc1 2 1 brought VBD (VP*) - - - Speaker#1 O -
+doc1 2 2 her PRP$ (NP) - - - Speaker#1 O (2)
+doc1 2 3 dog NN (NP*)) - - - Speaker#1 O -
+doc1 2 4 along RB (ADVP*)) - - - Speaker#1 O -
+doc1 2 5 . . )) - - - Speaker#1 O -
+doc1 3 0 She PRP (NP) - - - Speaker#1 O (2)
+doc1 3 1 was VBD (VP*) - - - Speaker#1 O -
+doc1 3 2 happy JJ (ADJP*) - - - Speaker#1 O -
+doc1 3 3 to TO (VP*) - - - Speaker#1 O -
+doc1 3 4 meet VB (VP*)) - - - Speaker#1 O -
+doc1 3 5 John NNP (NP*)) - - - Speaker#1 B-PER (1)
+doc1 3 6 . . )) - - - Speaker#1 O -
+doc1 4 0 Xeon NNP (NP* - - - Speaker#1 B-PER (3
+doc1 4 1 brought VBD (VP*) - - - Speaker#1 O -
+doc1 4 2 their PRP$ (NP) - - - Speaker#1 O (3)
+doc1 4 3 skateboard NN (NP*)) - - - Speaker#1 O -
+doc1 4 4 . . )) - - - Speaker#1 O -
+doc1 5 0 They PRP (NP) - - - Speaker#1 O (3)
+doc1 5 1 practiced VBD (VP*)) - - - Speaker#1 O -
+doc1 5 2 tricks NNS (NP*)) - - - Speaker#1 O -
+doc1 5 3 while IN (PP*) - - - Speaker#1 O -
+doc1 5 4 John NNP (NP*)) - - - Speaker#1 B-PER (1)
+doc1 5 5 watched VBD (VP*)) - - - Speaker#1 O -
+doc1 5 6 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc2); part 000
+doc2 0 0 Avery NNP (NP* - - - Speaker#1 B-PER (1
+doc2 0 1 works VBZ (VP*) - - - Speaker#1 O -
+doc2 0 2 at IN (PP* - - - Speaker#1 O -
+doc2 0 3 the DT (NP*) - - - Speaker#1 O -
+doc2 0 4 library NN (NP*)) - - - Speaker#1 O -
+doc2 0 5 . . )) - - - Speaker#1 O -
+doc2 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc2 1 1 help VBZ (VP*) - - - Speaker#1 O -
+doc2 1 2 students NNS (NP*)) - - - Speaker#1 O -
+doc2 1 3 find VB (VP*) - - - Speaker#1 O -
+doc2 1 4 books NNS (NP*)) - - - Speaker#1 O -
+doc2 1 5 . . )) - - - Speaker#1 O -
+doc2 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc2 2 1 visited VBD (VP*) - - - Speaker#1 O -
+doc2 2 2 the DT (NP*) - - - Speaker#1 O -
+doc2 2 3 library NN (NP*)) - - - Speaker#1 O -
+doc2 2 4 yesterday RB (ADVP*)) - - - Speaker#1 O -
+doc2 2 5 . . )) - - - Speaker#1 O -
+doc2 3 0 She PRP (NP) - - - Speaker#1 O (2)
+doc2 3 1 borrowed VBD (VP*)) - - - Speaker#1 O -
+doc2 3 2 a DT (NP*) - - - Speaker#1 O -
+doc2 3 3 book NN (NP*)) - - - Speaker#1 O -
+doc2 3 4 about IN (PP*) - - - Speaker#1 O -
+doc2 3 5 history NN (NP*)) - - - Speaker#1 O -
+doc2 3 6 . . )) - - - Speaker#1 O -
+doc2 4 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (3
+doc2 4 1 joined VBD (VP*) - - - Speaker#1 O -
+doc2 4 2 her PRP (NP) - - - Speaker#1 O (2)
+doc2 4 3 later RB (ADVP*)) - - - Speaker#1 O -
+doc2 4 4 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc3); part 000
+doc3 0 0 Fae NNP (NP* - - - Speaker#1 B-PER (1
+doc3 0 1 likes VBZ (VP*) - - - Speaker#1 O -
+doc3 0 2 painting VBG (NP*)) - - - Speaker#1 O -
+doc3 0 3 . . )) - - - Speaker#1 O -
+doc3 1 0 She PRP (NP) - - - Speaker#1 O (1)
+doc3 1 1 often RB (ADVP*)) - - - Speaker#1 O -
+doc3 1 2 creates VBZ (VP*) - - - Speaker#1 O -
+doc3 1 3 landscapes NNS (NP*)) - - - Speaker#1 O -
+doc3 1 4 . . )) - - - Speaker#1 O -
+doc3 2 0 John NNP (NP* - - - Speaker#1 B-PER (2
+doc3 2 1 admired VBD (VP*) - - - Speaker#1 O -
+doc3 2 2 her PRP$ (NP) - - - Speaker#1 O (1)
+doc3 2 3 work NN (NP*)) - - - Speaker#1 O -
+doc3 2 4 . . )) - - - Speaker#1 O -
+doc3 3 0 Xeon NNP (NP* - - - Speaker#1 B-PER (3
+doc3 3 1 offered VBD (VP*) - - - Speaker#1 O -
+doc3 3 2 to TO (VP*) - - - Speaker#1 O -
+doc3 3 3 help VB (VP*)) - - - Speaker#1 O -
+doc3 3 4 her PRP (NP) - - - Speaker#1 O (1)
+doc3 3 5 with IN (PP*) - - - Speaker#1 O -
+doc3 3 6 a DT (NP*) - - - Speaker#1 O -
+doc3 3 7 mural NN (NP*)) - - - Speaker#1 O -
+doc3 3 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc4); part 000
+doc4 0 0 Taylor NNP (NP* - - - Speaker#1 B-PER (1
+doc4 0 1 enjoys VBZ (VP*) - - - Speaker#1 O -
+doc4 0 2 running VBG (NP*)) - - - Speaker#1 O -
+doc4 0 3 in IN (PP*) - - - Speaker#1 O -
+doc4 0 4 the DT (NP*) - - - Speaker#1 O -
+doc4 0 5 mornings NNS (NP*)) - - - Speaker#1 O -
+doc4 0 6 . . )) - - - Speaker#1 O -
+doc4 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc4 1 1 meet VBZ (VP*) - - - Speaker#1 O -
+doc4 1 2 friends NNS (NP*)) - - - Speaker#1 O -
+doc4 1 3 there RB (ADVP*)) - - - Speaker#1 O -
+doc4 1 4 . . )) - - - Speaker#1 O -
+doc4 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc4 2 1 often RB (ADVP*)) - - - Speaker#1 O -
+doc4 2 2 joins VBZ (VP*) - - - Speaker#1 O -
+doc4 2 3 them PRP (NP) - - - Speaker#1 O (1)
+doc4 2 4 for IN (PP*) - - - Speaker#1 O -
+doc4 2 5 coffee NN (NP*)) - - - Speaker#1 O -
+doc4 2 6 . . )) - - - Speaker#1 O -
+doc4 3 0 John NNP (NP* - - - Speaker#1 B-PER (3
+doc4 3 1 prefers VBZ (VP*) - - - Speaker#1 O -
+doc4 3 2 tea NN (NP*)) - - - Speaker#1 O -
+doc4 3 3 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc5); part 000
+doc5 0 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (1
+doc5 0 1 joined VBD (VP*) - - - Speaker#1 O -
+doc5 0 2 the DT (NP*) - - - Speaker#1 O -
+doc5 0 3 cooking NN (NP*)) - - - Speaker#1 O -
+doc5 0 4 class NN (NP*)) - - - Speaker#1 O -
+doc5 0 5 . . )) - - - Speaker#1 O -
+doc5 1 0 Xe PRP (NP) - - - Speaker#1 O (1)
+doc5 1 1 loved VBD (VP*) - - - Speaker#1 O -
+doc5 1 2 learning VBG (NP*)) - - - Speaker#1 O -
+doc5 1 3 new JJ (ADJP*) - - - Speaker#1 O -
+doc5 1 4 recipes NNS (NP*)) - - - Speaker#1 O -
+doc5 1 5 . . )) - - - Speaker#1 O -
+doc5 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc5 2 1 attended VBD (VP*) - - - Speaker#1 O -
+doc5 2 2 with IN (PP*) - - - Speaker#1 O -
+doc5 2 3 her PRP$ (NP) - - - Speaker#1 O (2)
+doc5 2 4 friend NN (NP*)) - - - Speaker#1 O -
+doc5 2 5 . . )) - - - Speaker#1 O -
+doc5 3 0 She PRP (NP) - - - Speaker#1 O (2)
+doc5 3 1 enjoyed VBD (VP*) - - - Speaker#1 O -
+doc5 3 2 the DT (NP*) - - - Speaker#1 O -
+doc5 3 3 class NN (NP*)) - - - Speaker#1 O -
+doc5 3 4 immensely RB (ADVP*)) - - - Speaker#1 O -
+doc5 3 5 . . )) - - - Speaker#1 O -
+doc5 4 0 John NNP (NP* - - - Speaker#1 B-PER (3
+doc5 4 1 joined VBD (VP*) - - - Speaker#1 O -
+doc5 4 2 later RB (ADVP*)) - - - Speaker#1 O -
+doc5 4 3 . . )) - - - Speaker#1 O -
+doc5 5 0 He PRP (NP) - - - Speaker#1 O (3)
+doc5 5 1 helped VBD (VP*) - - - Speaker#1 O -
+doc5 5 2 xem PRP (NP) - - - Speaker#1 O (1)
+doc5 5 3 and CC (CONJP*) - - - Speaker#1 O -
+doc5 5 4 Maria NNP (NP*)) - - - Speaker#1 B-PER (2)
+doc5 5 5 with IN (PP*) - - - Speaker#1 O -
+doc5 5 6 the DT (NP*) - - - Speaker#1 O -
+doc5 5 7 preparations NNS (NP*)) - - - Speaker#1 O -
+doc5 5 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc6); part 000
+doc6 0 0 Fae NNP (NP* - - - Speaker#1 B-PER (1
+doc6 0 1 enjoys VBZ (VP*) - - - Speaker#1 O -
+doc6 0 2 hiking NN (NP*)) - - - Speaker#1 O -
+doc6 0 3 in IN (PP*) - - - Speaker#1 O -
+doc6 0 4 the DT (NP*) - - - Speaker#1 O -
+doc6 0 5 mountains NNS (NP*)) - - - Speaker#1 O -
+doc6 0 6 . . )) - - - Speaker#1 O -
+doc6 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc6 1 1 often RB (ADVP*)) - - - Speaker#1 O -
+doc6 1 2 go VB (VP*) - - - Speaker#1 O -
+doc6 1 3 with IN (PP*) - - - Speaker#1 O -
+doc6 1 4 friends NNS (NP*)) - - - Speaker#1 O -
+doc6 1 5 . . )) - - - Speaker#1 O -
+doc6 2 0 John NNP (NP* - - - Speaker#1 B-PER (2
+doc6 2 1 joined VBD (VP*) - - - Speaker#1 O -
+doc6 2 2 them PRP (NP) - - - Speaker#1 O (1)
+doc6 2 3 last JJ (ADJP*) - - - Speaker#1 O -
+doc6 2 4 weekend NN (NP*)) - - - Speaker#1 O -
+doc6 2 5 . . )) - - - Speaker#1 O -
+doc6 3 0 He PRP (NP) - - - Speaker#1 O (2)
+doc6 3 1 loved VBD (VP*) - - - Speaker#1 O -
+doc6 3 2 the DT (NP*) - - - Speaker#1 O -
+doc6 3 3 scenery NN (NP*)) - - - Speaker#1 O -
+doc6 3 4 . . )) - - - Speaker#1 O -
+doc6 4 0 Maria NNP (NP* - - - Speaker#1 B-PER (3
+doc6 4 1 preferred VBD (VP*) - - - Speaker#1 O -
+doc6 4 2 a DT (NP*) - - - Speaker#1 O -
+doc6 4 3 short JJ (ADJP*) - - - Speaker#1 O -
+doc6 4 4 walk NN (NP*)) - - - Speaker#1 O -
+doc6 4 5 . . )) - - - Speaker#1 O -
+doc6 5 0 She PRP (NP) - - - Speaker#1 O (3)
+doc6 5 1 stayed VBD (VP*) - - - Speaker#1 O -
+doc6 5 2 close RB (ADVP*) - - - Speaker#1 O -
+doc6 5 3 to TO (VP*) - - - Speaker#1 O -
+doc6 5 4 the DT (NP*) - - - Speaker#1 O -
+doc6 5 5 trail NN (NP*)) - - - Speaker#1 O -
+doc6 5 6 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc7); part 000
+doc7 0 0 Avery NNP (NP* - - - Speaker#1 B-PER (1
+doc7 0 1 adopted VBD (VP*) - - - Speaker#1 O -
+doc7 0 2 a DT (NP*) - - - Speaker#1 O -
+doc7 0 3 puppy NN (NP*)) - - - Speaker#1 O -
+doc7 0 4 . . )) - - - Speaker#1 O -
+doc7 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc7 1 1 named VBD (VP*) - - - Speaker#1 O -
+doc7 1 2 it PRP (NP) - - - Speaker#1 O (1)
+doc7 1 3 Scout NNP (NP*)) - - - Speaker#1 B-PER (1)
+doc7 1 4 . . )) - - - Speaker#1 O -
+doc7 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc7 2 1 brought VBD (VP*) - - - Speaker#1 O -
+doc7 2 2 treats NNS (NP*)) - - - Speaker#1 O -
+doc7 2 3 for IN (PP*) - - - Speaker#1 O -
+doc7 2 4 the DT (NP*) - - - Speaker#1 O -
+doc7 2 5 puppy NN (NP*)) - - - Speaker#1 O -
+doc7 2 6 . . )) - - - Speaker#1 O -
+doc7 3 0 She PRP (NP) - - - Speaker#1 O (2)
+doc7 3 1 played VBD (VP*) - - - Speaker#1 O -
+doc7 3 2 with IN (PP*) - - - Speaker#1 O -
+doc7 3 3 it PRP (NP) - - - Speaker#1 O (1)
+doc7 3 4 in IN (PP*) - - - Speaker#1 O -
+doc7 3 5 the DT (NP*) - - - Speaker#1 O -
+doc7 3 6 yard NN (NP*)) - - - Speaker#1 O -
+doc7 3 7 . . )) - - - Speaker#1 O -
+doc7 4 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (3
+doc7 4 1 visited VBD (VP*) - - - Speaker#1 O -
+doc7 4 2 them PRP (NP) - - - Speaker#1 O (1)
+doc7 4 3 and CC (CONJP*) - - - Speaker#1 O -
+doc7 4 4 Maria NNP (NP*)) - - - Speaker#1 B-PER (2)
+doc7 4 5 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc8); part 000
+doc8 0 0 Taylor NNP (NP* - - - Speaker#1 B-PER (1
+doc8 0 1 finished VBD (VP*) - - - Speaker#1 O -
+doc8 0 2 their PRP$ (NP) - - - Speaker#1 O (1)
+doc8 0 3 project NN (NP*)) - - - Speaker#1 O -
+doc8 0 4 yesterday NN (ADVP*)) - - - Speaker#1 O -
+doc8 0 5 . . )) - - - Speaker#1 O -
+doc8 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc8 1 1 celebrated VBD (VP*) - - - Speaker#1 O -
+doc8 1 2 with IN (PP*) - - - Speaker#1 O -
+doc8 1 3 friends NNS (NP*)) - - - Speaker#1 O -
+doc8 1 4 . . )) - - - Speaker#1 O -
+doc8 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc8 2 1 congratulated VBD (VP*) - - - Speaker#1 O -
+doc8 2 2 her PRP (NP) - - - Speaker#1 O (2)
+doc8 2 3 on IN (PP*) - - - Speaker#1 O -
+doc8 2 4 the DT (NP*) - - - Speaker#1 O -
+doc8 2 5 accomplishment NN (NP*)) - - - Speaker#1 O -
+doc8 2 6 . . )) - - - Speaker#1 O -
+doc8 3 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (3
+doc8 3 1 shared VBD (VP*) - - - Speaker#1 O -
+doc8 3 2 xem PRP (NP) - - - Speaker#1 O (3)
+doc8 3 3 experience NN (NP*)) - - - Speaker#1 O -
+doc8 3 4 with IN (PP*) - - - Speaker#1 O -
+doc8 3 5 Taylor NNP (NP*)) - - - Speaker#1 B-PER (1)
+doc8 3 6 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc9); part 000
+doc9 0 0 Fae NNP (NP* - - - Speaker#1 B-PER (1
+doc9 0 1 decided VBD (VP*) - - - Speaker#1 O -
+doc9 0 2 to TO (VP*) - - - Speaker#1 O -
+doc9 0 3 organize VB (VP*) - - - Speaker#1 O -
+doc9 0 4 a DT (NP*) - - - Speaker#1 O -
+doc9 0 5 meetup NN (NP*)) - - - Speaker#1 O -
+doc9 0 6 . . )) - - - Speaker#1 O -
+doc9 1 0 Xe PRP (NP) - - - Speaker#1 O (1)
+doc9 1 1 invited VBD (VP*) - - - Speaker#1 O -
+doc9 1 2 their PRP$ (NP) - - - Speaker#1 O (1)
+doc9 1 3 friends NNS (NP*)) - - - Speaker#1 O -
+doc9 1 4 . . )) - - - Speaker#1 O -
+doc9 2 0 John NNP (NP* - - - Speaker#1 B-PER (2
+doc9 2 1 joined VBD (VP*) - - - Speaker#1 O -
+doc9 2 2 and CC (CONJP*) - - - Speaker#1 O -
+doc9 2 3 Maria NNP (NP*) - - - Speaker#1 B-PER (3
+doc9 2 4 attended VBD (VP*) - - - Speaker#1 O -
+doc9 2 5 as IN (PP*) - - - Speaker#1 O -
+doc9 2 6 well RB (ADVP*)) - - - Speaker#1 O -
+doc9 2 7 . . )) - - - Speaker#1 O -
+doc9 3 0 He PRP (NP) - - - Speaker#1 O (2)
+doc9 3 1 greeted VBD (VP*) - - - Speaker#1 O -
+doc9 3 2 Fae NNP (NP) - - - Speaker#1 B-PER (1)
+doc9 3 3 warmly RB (ADVP*)) - - - Speaker#1 O -
+doc9 3 4 . . )) - - - Speaker#1 O -
+doc9 4 0 Maria NNP (NP* - - - Speaker#1 B-PER (3
+doc9 4 1 introduced VBD (VP*) - - - Speaker#1 O -
+doc9 4 2 herself PRP (NP) - - - Speaker#1 O (3)
+doc9 4 3 to TO (VP*) - - - Speaker#1 O -
+doc9 4 4 Zephyr NNP (NP*)) - - - Speaker#1 B-PER (4)
+doc9 4 5 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc10); part 000
+doc10 0 0 Eyra NNP (NP* - - - Speaker#1 B-PER (1
+doc10 0 1 adopted VBD (VP*) - - - Speaker#1 O -
+doc10 0 2 a DT (NP*) - - - Speaker#1 O -
+doc10 0 3 cat NN (NP*)) - - - Speaker#1 O -
+doc10 0 4 . . )) - - - Speaker#1 O -
+doc10 1 0 She PRP (NP) - - - Speaker#1 O (1)
+doc10 1 1 named VBD (VP*) - - - Speaker#1 O -
+doc10 1 2 it PRP (NP) - - - Speaker#1 O (1)
+doc10 1 3 Whiskers NNP (NP*)) - - - Speaker#1 B-PER (1)
+doc10 1 4 . . )) - - - Speaker#1 O -
+doc10 2 0 Avery NNP (NP* - - - Speaker#1 B-PER (2
+doc10 2 1 and CC (CONJP*) - - - Speaker#1 O -
+doc10 2 2 Fae NNP (NP*) - - - Speaker#1 B-PER (3
+doc10 2 3 visited VBD (VP*) - - - Speaker#1 O -
+doc10 2 4 Eyra NNP (NP)) - - - Speaker#1 B-PER (1)
+doc10 2 5 to TO (VP*) - - - Speaker#1 O -
+doc10 2 6 play VB (VP*) - - - Speaker#1 O -
+doc10 2 7 with IN (PP*) - - - Speaker#1 O -
+doc10 2 8 the DT (NP*) - - - Speaker#1 O -
+doc10 2 9 cat NN (NP*)) - - - Speaker#1 O -
+doc10 2 10 . . )) - - - Speaker#1 O -
+doc10 3 0 They PRP (NP) - - - Speaker#1 O (2)
+doc10 3 1 all DT (ADJP*) - - - Speaker#1 O -
+doc10 3 2 enjoyed VBD (VP*) - - - Speaker#1 O -
+doc10 3 3 the DT (NP*) - - - Speaker#1 O -
+doc10 3 4 visit NN (NP*)) - - - Speaker#1 O -
+doc10 3 5 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc11); part 000
+doc11 0 0 Orion NNP (NP* - - - Speaker#1 B-PER (1
+doc11 0 1 started VBD (VP*) - - - Speaker#1 O -
+doc11 0 2 a DT (NP*) - - - Speaker#1 O -
+doc11 0 3 painting NN (NP*)) - - - Speaker#1 O -
+doc11 0 4 class NN (NP*)) - - - Speaker#1 O -
+doc11 0 5 yesterday NN (ADVP*)) - - - Speaker#1 O -
+doc11 0 6 . . )) - - - Speaker#1 O -
+doc11 1 0 He PRP (NP) - - - Speaker#1 O (1)
+doc11 1 1 quickly RB (ADVP*) - - - Speaker#1 O -
+doc11 1 2 learned VBD (VP*) - - - Speaker#1 O -
+doc11 1 3 new JJ (NP*) - - - Speaker#1 O -
+doc11 1 4 techniques NNS (NP*)) - - - Speaker#1 O -
+doc11 1 5 . . )) - - - Speaker#1 O -
+doc11 2 0 Lyra NNP (NP* - - - Speaker#1 B-PER (2
+doc11 2 1 shared VBD (VP*) - - - Speaker#1 O -
+doc11 2 2 her PRP$ (NP) - - - Speaker#1 O (2)
+doc11 2 3 sketches NNS (NP*)) - - - Speaker#1 O -
+doc11 2 4 with IN (PP*) - - - Speaker#1 O -
+doc11 2 5 Orion NNP (NP*)) - - - Speaker#1 B-PER (1)
+doc11 2 6 . . )) - - - Speaker#1 O -
+doc11 3 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc11 3 1 experimented VBD (VP*) - - - Speaker#1 O -
+doc11 3 2 with IN (PP*) - - - Speaker#1 O -
+doc11 3 3 zir PRP (NP) - - - Speaker#1 O (3)
+doc11 3 4 own JJ (NP*) - - - Speaker#1 O -
+doc11 3 5 colors NNS (NP*)) - - - Speaker#1 O -
+doc11 3 6 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc12); part 000
+doc12 0 0 Avery NNP (NP* - - - Speaker#1 B-PER (1
+doc12 0 1 hosted VBD (VP*) - - - Speaker#1 O -
+doc12 0 2 a DT (NP*) - - - Speaker#1 O -
+doc12 0 3 study NN (NP*)) - - - Speaker#1 O -
+doc12 0 4 session NN (NP*)) - - - Speaker#1 O -
+doc12 0 5 for IN (PP*) - - - Speaker#1 O -
+doc12 0 6 classmates NNS (NP*)) - - - Speaker#1 O -
+doc12 0 7 . . )) - - - Speaker#1 O -
+doc12 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc12 1 1 explained VBD (VP*) - - - Speaker#1 O -
+doc12 1 2 the DT (NP*) - - - Speaker#1 O -
+doc12 1 3 concepts NNS (NP*)) - - - Speaker#1 O -
+doc12 1 4 clearly RB (ADVP*)) - - - Speaker#1 O -
+doc12 1 5 . . )) - - - Speaker#1 O -
+doc12 2 0 Marcus NNP (NP* - - - Speaker#1 B-PER (2
+doc12 2 1 and CC (CONJP*) - - - Speaker#1 O -
+doc12 2 2 Iris NNP (NP*) - - - Speaker#1 B-PER (3
+doc12 2 3 joined VBD (VP*) - - - Speaker#1 O -
+doc12 2 4 the DT (NP*) - - - Speaker#1 O -
+doc12 2 5 session NN (NP*)) - - - Speaker#1 O -
+doc12 2 6 . . )) - - - Speaker#1 O -
+doc12 3 0 He PRP (NP) - - - Speaker#1 O (2)
+doc12 3 1 appreciated VBD (VP*) - - - Speaker#1 O -
+doc12 3 2 Avery NNP (NP) - - - Speaker#1 B-PER (1)
+doc12 3 3 's POS (NP*) - - - Speaker#1 O -
+doc12 3 4 help NN (NP*)) - - - Speaker#1 O -
+doc12 3 5 . . )) - - - Speaker#1 O -
+doc12 4 0 Iris NNP (NP* - - - Speaker#1 B-PER (3
+doc12 4 1 thanked VBD (VP*) - - - Speaker#1 O -
+doc12 4 2 her PRP (NP) - - - Speaker#1 O (3)
+doc12 4 3 classmates NNS (NP*)) - - - Speaker#1 O -
+doc12 4 4 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc13); part 000
+doc13 0 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (1
+doc13 0 1 found VBD (VP*) - - - Speaker#1 O -
+doc13 0 2 a DT (NP*) - - - Speaker#1 O -
+doc13 0 3 quiet JJ (NP*) - - - Speaker#1 O -
+doc13 0 4 spot NN (NP*)) - - - Speaker#1 O -
+doc13 0 5 in IN (PP*) - - - Speaker#1 O -
+doc13 0 6 the DT (NP*) - - - Speaker#1 O -
+doc13 0 7 library NN (NP*)) - - - Speaker#1 O -
+doc13 0 8 . . )) - - - Speaker#1 O -
+doc13 1 0 Xe PRP (NP) - - - Speaker#1 O (1)
+doc13 1 1 settled VBD (VP*) - - - Speaker#1 O -
+doc13 1 2 there RB (ADVP*)) - - - Speaker#1 O -
+doc13 1 3 with IN (PP*) - - - Speaker#1 O -
+doc13 1 4 zir PRP$ (NP) - - - Speaker#1 O (1)
+doc13 1 5 books NNS (NP*)) - - - Speaker#1 O -
+doc13 1 6 . . )) - - - Speaker#1 O -
+doc13 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc13 2 1 studied VBD (VP*) - - - Speaker#1 O -
+doc13 2 2 beside IN (PP*) - - - Speaker#1 O -
+doc13 2 3 her PRP$ (NP) - - - Speaker#1 O (2)
+doc13 2 4 friend NN (NP*)) - - - Speaker#1 O -
+doc13 2 5 . . )) - - - Speaker#1 O -
+doc13 3 0 Orion NNP (NP* - - - Speaker#1 B-PER (3
+doc13 3 1 noticed VBD (VP*) - - - Speaker#1 O -
+doc13 3 2 Xe PRP (NP) - - - Speaker#1 O (1)
+doc13 3 3 and CC (CONJP*) - - - Speaker#1 O -
+doc13 3 4 waved VBD (VP*) - - - Speaker#1 O -
+doc13 3 5 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc14); part 000
+doc14 0 0 Fae NNP (NP* - - - Speaker#1 B-PER (1
+doc14 0 1 organized VBD (VP*) - - - Speaker#1 O -
+doc14 0 2 a DT (NP*) - - - Speaker#1 O -
+doc14 0 3 small JJ (NP*) - - - Speaker#1 O -
+doc14 0 4 concert NN (NP*)) - - - Speaker#1 O -
+doc14 0 5 for IN (PP*) - - - Speaker#1 O -
+doc14 0 6 friends NNS (NP*)) - - - Speaker#1 O -
+doc14 0 7 . . )) - - - Speaker#1 O -
+doc14 1 0 Eyra NNP (NP* - - - Speaker#1 B-PER (2
+doc14 1 1 brought VBD (VP*) - - - Speaker#1 O -
+doc14 1 2 zir PRP (NP) - - - Speaker#1 O (2)
+doc14 1 3 violin NN (NP*)) - - - Speaker#1 O -
+doc14 1 4 . . )) - - - Speaker#1 O -
+doc14 2 0 John NNP (NP* - - - Speaker#1 B-PER (3
+doc14 2 1 played VBD (VP*) - - - Speaker#1 O -
+doc14 2 2 guitar NN (NP*)) - - - Speaker#1 O -
+doc14 2 3 . . )) - - - Speaker#1 O -
+doc14 3 0 Fae PRP (NP) - - - Speaker#1 O (1)
+doc14 3 1 sang VBD (VP*) - - - Speaker#1 O -
+doc14 3 2 softly RB (ADVP*)) - - - Speaker#1 O -
+doc14 3 3 while IN (PP*) - - - Speaker#1 O -
+doc14 3 4 Eyra PRP (NP) - - - Speaker#1 O (2)
+doc14 3 5 accompanied VBD (VP*) - - - Speaker#1 O -
+doc14 3 6 zir PRP$ (NP) - - - Speaker#1 O (2)
+doc14 3 7 violin NN (NP*)) - - - Speaker#1 O -
+doc14 3 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc15); part 000
+doc15 0 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (1
+doc15 0 1 enjoys VBZ (VP*) - - - Speaker#1 O -
+doc15 0 2 cycling NN (NP*)) - - - Speaker#1 O -
+doc15 0 3 through IN (PP*) - - - Speaker#1 O -
+doc15 0 4 the DT (NP*) - - - Speaker#1 O -
+doc15 0 5 park NN (NP*)) - - - Speaker#1 O -
+doc15 0 6 . . )) - - - Speaker#1 O -
+doc15 1 0 Xe PRP (NP) - - - Speaker#1 O (1)
+doc15 1 1 meets VBZ (VP*) - - - Speaker#1 O -
+doc15 1 2 new JJ (NP*) - - - Speaker#1 O -
+doc15 1 3 friends NNS (NP*)) - - - Speaker#1 O -
+doc15 1 4 along IN (PP*) - - - Speaker#1 O -
+doc15 1 5 the DT (NP*) - - - Speaker#1 O -
+doc15 1 6 way NN (NP*)) - - - Speaker#1 O -
+doc15 1 7 . . )) - - - Speaker#1 O -
+doc15 2 0 Marcus NNP (NP* - - - Speaker#1 B-PER (2
+doc15 2 1 waves VBZ (VP*) - - - Speaker#1 O -
+doc15 2 2 at IN (PP*) - - - Speaker#1 O -
+doc15 2 3 Zephyr NNP (NP) - - - Speaker#1 B-PER (1)
+doc15 2 4 . . )) - - - Speaker#1 O -
+doc15 3 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc15 3 1 cycles VBZ (VP*) - - - Speaker#1 O -
+doc15 3 2 nearby RB (ADVP*)) - - - Speaker#1 O -
+doc15 3 3 . . )) - - - Speaker#1 O -
+doc15 4 0 They PRP (NP) - - - Speaker#1 O (3)
+doc15 4 1 passes VBZ (VP*) - - - Speaker#1 O -
+doc15 4 2 Xe PRP (NP) - - - Speaker#1 O (1)
+doc15 4 3 and CC (CONJP*) - - - Speaker#1 O -
+doc15 4 4 Marcus NNP (NP) - - - Speaker#1 B-PER (2)
+doc15 4 5 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc16); part 000
+doc16 0 0 Avery NNP (NP* - - - Speaker#1 B-PER (1
+doc16 0 1 set VBD (VP*) - - - Speaker#1 O -
+doc16 0 2 up VBP (VP*) - - - Speaker#1 O -
+doc16 0 3 a DT (NP*) - - - Speaker#1 O -
+doc16 0 4 science NN (NP*)) - - - Speaker#1 O -
+doc16 0 5 experiment NN (NP*)) - - - Speaker#1 O -
+doc16 0 6 with IN (PP*) - - - Speaker#1 O -
+doc16 0 7 Lyra NNP (NP*)) - - - Speaker#1 B-PER (2
+doc16 0 8 . . )) - - - Speaker#1 O -
+doc16 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc16 1 1 carefully RB (ADVP*) - - - Speaker#1 O -
+doc16 1 2 recorded VBD (VP*) - - - Speaker#1 O -
+doc16 1 3 the DT (NP*) - - - Speaker#1 O -
+doc16 1 4 observations NNS (NP*)) - - - Speaker#1 O -
+doc16 1 5 . . )) - - - Speaker#1 O -
+doc16 2 0 Lyra PRP (NP) - - - Speaker#1 O (2)
+doc16 2 1 added VBD (VP*) - - - Speaker#1 O -
+doc16 2 2 a DT (NP*) - - - Speaker#1 O -
+doc16 2 3 few JJ (NP*) - - - Speaker#1 O -
+doc16 2 4 measurements NNS (NP*)) - - - Speaker#1 O -
+doc16 2 5 . . )) - - - Speaker#1 O -
+doc16 3 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (3
+doc16 3 1 observed VBD (VP*) - - - Speaker#1 O -
+doc16 3 2 them PRP (NP) - - - Speaker#1 O (1)
+doc16 3 3 both RB (ADVP*)) - - - Speaker#1 O -
+doc16 3 4 taking VBG (VP*) - - - Speaker#1 O -
+doc16 3 5 notes NNS (NP*)) - - - Speaker#1 O -
+doc16 3 6 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc17); part 000
+doc17 0 0 Fae NNP (NP* - - - Speaker#1 B-PER (1
+doc17 0 1 loves VBZ (VP*) - - - Speaker#1 O -
+doc17 0 2 hiking NN (NP*)) - - - Speaker#1 O -
+doc17 0 3 . . )) - - - Speaker#1 O -
+doc17 1 0 I PRP (NP*) - - - Speaker#1 O -
+doc17 1 1 often RB (ADVP*) - - - Speaker#1 O -
+doc17 1 2 join VBP (VP*) - - - Speaker#1 O -
+doc17 1 3 faer PRP (NP) - - - Speaker#1 O (1)
+doc17 1 4 on IN (PP*) - - - Speaker#1 O -
+doc17 1 5 trails NNS (NP*)) - - - Speaker#1 O -
+doc17 1 6 . . )) - - - Speaker#1 O -
+doc17 2 0 Marcus NNP (NP* - - - Speaker#1 B-PER (2
+doc17 2 1 is VBZ (VP*) - - - Speaker#1 O -
+doc17 2 2 an DT (NP*) - - - Speaker#1 O -
+doc17 2 3 excellent JJ (NP*) - - - Speaker#1 O -
+doc17 2 4 cook NN (NP*)) - - - Speaker#1 O -
+doc17 2 5 . . )) - - - Speaker#1 O -
+doc17 3 0 I PRP (NP*) - - - Speaker#1 O -
+doc17 3 1 watched VBD (VP*) - - - Speaker#1 O -
+doc17 3 2 him PRP (NP) - - - Speaker#1 O (2)
+doc17 3 3 prepare VB (VP*) - - - Speaker#1 O -
+doc17 3 4 dinner NN (NP*)) - - - Speaker#1 O -
+doc17 3 5 . . )) - - - Speaker#1 O -
+doc17 4 0 Eyra NNP (NP* - - - Speaker#1 B-PER (3
+doc17 4 1 brought VBD (VP*) - - - Speaker#1 O -
+doc17 4 2 eir PRP$ (NP) - - - Speaker#1 O (3)
+doc17 4 3 notebook NN (NP*)) - - - Speaker#1 O -
+doc17 4 4 and CC (CONJP*) - - - Speaker#1 O -
+doc17 4 5 shared VBD (VP*) - - - Speaker#1 O -
+doc17 4 6 em PRP (NP) - - - Speaker#1 O (3)
+doc17 4 7 with IN (PP*) - - - Speaker#1 O -
+doc17 4 8 fae NNP (NP) - - - Speaker#1 B-PER (1)
+doc17 4 9 . . )) - - - Speaker#1 O -
+doc17 5 0 Fae PRP (NP) - - - Speaker#1 O (1)
+doc17 5 1 complimented VBD (VP*) - - - Speaker#1 O -
+doc17 5 2 eir PRP$ (NP) - - - Speaker#1 O (3)
+doc17 5 3 work NN (NP*)) - - - Speaker#1 O -
+doc17 5 4 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc18); part 000
+doc18 0 0 Xeon NNP (NP* - - - Speaker#1 B-PER (1
+doc18 0 1 bought VBD (VP*) - - - Speaker#1 O -
+doc18 0 2 xyr PRP$ (NP) - - - Speaker#1 O (1)
+doc18 0 3 first JJ (NP*) - - - Speaker#1 O -
+doc18 0 4 camera NN (NP*)) - - - Speaker#1 O -
+doc18 0 5 yesterday NN (NP*)) - - - Speaker#1 O -
+doc18 0 6 . . )) - - - Speaker#1 O -
+doc18 1 0 Xe PRP (NP) - - - Speaker#1 O (1)
+doc18 1 1 plans VBZ (VP*) - - - Speaker#1 O -
+doc18 1 2 to TO (VP*) - - - Speaker#1 O -
+doc18 1 3 photograph VB (VP*) - - - Speaker#1 O -
+doc18 1 4 the DT (NP*) - - - Speaker#1 O -
+doc18 1 5 park NN (NP*)) - - - Speaker#1 O -
+doc18 1 6 by IN (PP*) - - - Speaker#1 O -
+doc18 1 7 xemself PRP (NP) - - - Speaker#1 O (1)
+doc18 1 8 . . )) - - - Speaker#1 O -
+doc18 2 0 Maria NNP (NP* - - - Speaker#1 B-PER (2
+doc18 2 1 noticed VBD (VP*) - - - Speaker#1 O -
+doc18 2 2 Xe PRP (NP) - - - Speaker#1 O (1)
+doc18 2 3 and CC (CONJP*) - - - Speaker#1 O -
+doc18 2 4 waved VBD (VP*) - - - Speaker#1 O -
+doc18 2 5 at IN (PP*) - - - Speaker#1 O -
+doc18 2 6 him PRP (NP) - - - Speaker#1 O (1)
+doc18 2 7 . . )) - - - Speaker#1 O -
+doc18 3 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc18 3 1 walked VBD (VP*) - - - Speaker#1 O -
+doc18 3 2 with IN (PP*) - - - Speaker#1 O -
+doc18 3 3 faer PRP (NP) - - - Speaker#1 O (3)
+doc18 3 4 dog NN (NP*)) - - - Speaker#1 O -
+doc18 3 5 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc19); part 000
+doc19 0 0 Lyra NNP (NP* - - - Speaker#1 B-PER (1
+doc19 0 1 baked VBD (VP*) - - - Speaker#1 O -
+doc19 0 2 a DT (NP*) - - - Speaker#1 O -
+doc19 0 3 cake NN (NP*)) - - - Speaker#1 O -
+doc19 0 4 . . )) - - - Speaker#1 O -
+doc19 1 0 Ey NNP (NP* - - - Speaker#1 B-PER (2
+doc19 1 1 invited VBD (VP*) - - - Speaker#1 O -
+doc19 1 2 em PRP (NP) - - - Speaker#1 O (2)
+doc19 1 3 over RP (VP*)) - - - Speaker#1 O -
+doc19 1 4 to TO (VP*) - - - Speaker#1 O -
+doc19 1 5 help VB (VP*) - - - Speaker#1 O -
+doc19 1 6 Lyra NNP (NP) - - - Speaker#1 B-PER (1)
+doc19 1 7 decorate VB (VP*) - - - Speaker#1 O -
+doc19 1 8 . . )) - - - Speaker#1 O -
+doc19 2 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc19 2 1 set VBD (VP*) - - - Speaker#1 O -
+doc19 2 2 up VBP (VP*) - - - Speaker#1 O -
+doc19 2 3 faers PRP$ (NP) - - - Speaker#1 O (3)
+doc19 2 4 workstation NN (NP*)) - - - Speaker#1 O -
+doc19 2 5 . . )) - - - Speaker#1 O -
+doc19 3 0 Lyra PRP (NP) - - - Speaker#1 O (1)
+doc19 3 1 handed VBD (VP*) - - - Speaker#1 O -
+doc19 3 2 ey PRP$ (NP) - - - Speaker#1 O (2)
+doc19 3 3 some DT (NP*) - - - Speaker#1 O -
+doc19 3 4 frosting NN (NP*)) - - - Speaker#1 O -
+doc19 3 5 . . )) - - - Speaker#1 O -
+doc19 4 0 Ey PRP (NP) - - - Speaker#1 O (2)
+doc19 4 1 thanked VBD (VP*) - - - Speaker#1 O -
+doc19 4 2 Lyra PRP (NP) - - - Speaker#1 O (1)
+doc19 4 3 and CC (CONJP*) - - - Speaker#1 O -
+doc19 4 4 Fae PRP (NP) - - - Speaker#1 O (3)
+doc19 4 5 for IN (PP*) - - - Speaker#1 O -
+doc19 4 6 helping VBG (VP*) - - - Speaker#1 O -
+doc19 4 7 emself PRP (NP) - - - Speaker#1 O (2)
+doc19 4 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc20); part 000
+doc20 0 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (1
+doc20 0 1 loves VBZ (VP*) - - - Speaker#1 O -
+doc20 0 2 painting NN (NP*)) - - - Speaker#1 O -
+doc20 0 3 . . )) - - - Speaker#1 O -
+doc20 1 0 I PRP (NP*) - - - Speaker#1 O -
+doc20 1 1 saw VBD (VP*) - - - Speaker#1 O -
+doc20 1 2 zir PRP$ (NP) - - - Speaker#1 O (1)
+doc20 1 3 latest JJ (NP*) - - - Speaker#1 O -
+doc20 1 4 artwork NN (NP*)) - - - Speaker#1 O -
+doc20 1 5 yesterday NN (NP*)) - - - Speaker#1 O -
+doc20 1 6 . . )) - - - Speaker#1 O -
+doc20 2 0 Marcus NNP (NP* - - - Speaker#1 B-PER (2
+doc20 2 1 tried VBD (VP*) - - - Speaker#1 O -
+doc20 2 2 to TO (VP*) - - - Speaker#1 O -
+doc20 2 3 cook VB (VP*) - - - Speaker#1 O -
+doc20 2 4 dinner NN (NP*)) - - - Speaker#1 O -
+doc20 2 5 for IN (PP*) - - - Speaker#1 O -
+doc20 2 6 himself PRP (NP) - - - Speaker#1 O (2)
+doc20 2 7 . . )) - - - Speaker#1 O -
+doc20 3 0 He PRP (NP) - - - Speaker#1 O (2)
+doc20 3 1 burnt VBD (VP*) - - - Speaker#1 O -
+doc20 3 2 it PRP (NP) - - - Speaker#1 O (2)
+doc20 3 3 accidentally RB (ADVP*)) - - - Speaker#1 O -
+doc20 3 4 . . )) - - - Speaker#1 O -
+doc20 4 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc20 4 1 reminded VBD (VP*) - - - Speaker#1 O -
+doc20 4 2 faers PRP$ (NP) - - - Speaker#1 O (3)
+doc20 4 3 apron NN (NP*)) - - - Speaker#1 O -
+doc20 4 4 in IN (PP*) - - - Speaker#1 O -
+doc20 4 5 the DT (NP*) - - - Speaker#1 O -
+doc20 4 6 kitchen NN (NP*)) - - - Speaker#1 O -
+doc20 4 7 . . )) - - - Speaker#1 O -
+doc20 5 0 Fae PRP (NP) - - - Speaker#1 O (3)
+doc20 5 1 helped VBD (VP*) - - - Speaker#1 O -
+doc20 5 2 Marcus NNP (NP) - - - Speaker#1 B-PER (2)
+doc20 5 3 clean VB (VP*) - - - Speaker#1 O -
+doc20 5 4 up RP (VP*) - - - Speaker#1 O -
+doc20 5 5 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc21); part 000
+doc21 0 0 Lyra NNP (NP* - - - Speaker#1 B-PER (1
+doc21 0 1 went VBD (VP*) - - - Speaker#1 O -
+doc21 0 2 to TO (VP*) - - - Speaker#1 O -
+doc21 0 3 the DT (NP*) - - - Speaker#1 O -
+doc21 0 4 library NN (NP*)) - - - Speaker#1 O -
+doc21 0 5 . . )) - - - Speaker#1 O -
+doc21 1 0 She PRP (NP) - - - Speaker#1 O (1)
+doc21 1 1 borrowed VBD (VP*) - - - Speaker#1 O -
+doc21 1 2 three CD (NP*) - - - Speaker#1 O -
+doc21 1 3 books NNS (NP*)) - - - Speaker#1 O -
+doc21 1 4 . . )) - - - Speaker#1 O -
+doc21 2 0 Xeon NNP (NP* - - - Speaker#1 B-PER (2
+doc21 2 1 wanted VBD (VP*) - - - Speaker#1 O -
+doc21 2 2 xyr PRP$ (NP) - - - Speaker#1 O (2)
+doc21 2 3 opinion NN (NP*)) - - - Speaker#1 O -
+doc21 2 4 on IN (PP*) - - - Speaker#1 O -
+doc21 2 5 the DT (NP*) - - - Speaker#1 O -
+doc21 2 6 latest JJ (NP*) - - - Speaker#1 O -
+doc21 2 7 novel NN (NP*)) - - - Speaker#1 O -
+doc21 2 8 . . )) - - - Speaker#1 O -
+doc21 3 0 I PRP (NP*) - - - Speaker#1 O -
+doc21 3 1 told VBD (VP*) - - - Speaker#1 O -
+doc21 3 2 xem PRP (NP) - - - Speaker#1 O (2)
+doc21 3 3 that IN (SBAR*) - - - Speaker#1 O -
+doc21 3 4 it PRP (NP) - - - Speaker#1 O -
+doc21 3 5 was VBD (VP*) - - - Speaker#1 O -
+doc21 3 6 inspiring JJ (ADJP*)) - - - Speaker#1 O -
+doc21 3 7 . . )) - - - Speaker#1 O -
+doc21 4 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc21 4 1 offered VBD (VP*) - - - Speaker#1 O -
+doc21 4 2 to TO (VP*) - - - Speaker#1 O -
+doc21 4 3 help VB (VP*) - - - Speaker#1 O -
+doc21 4 4 Lyra NNP (NP) - - - Speaker#1 B-PER (1)
+doc21 4 5 with IN (PP*) - - - Speaker#1 O -
+doc21 4 6 organizing VBG (VP*) - - - Speaker#1 O -
+doc21 4 7 her PRP$ (NP) - - - Speaker#1 O (1)
+doc21 4 8 books NNS (NP*)) - - - Speaker#1 O -
+doc21 4 9 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc22); part 000
+doc22 0 0 Marcus NNP (NP* - - - Speaker#1 B-PER (1
+doc22 0 1 tried VBD (VP*) - - - Speaker#1 O -
+doc22 0 2 to TO (VP*) - - - Speaker#1 O -
+doc22 0 3 fix VB (VP*) - - - Speaker#1 O -
+doc22 0 4 the DT (NP*) - - - Speaker#1 O -
+doc22 0 5 car NN (NP*)) - - - Speaker#1 O -
+doc22 0 6 . . )) - - - Speaker#1 O -
+doc22 1 0 He PRP (NP) - - - Speaker#1 O (1)
+doc22 1 1 realized VBD (VP*) - - - Speaker#1 O -
+doc22 1 2 it PRP (NP) - - - Speaker#1 O (1)
+doc22 1 3 was VBD (VP*) - - - Speaker#1 O -
+doc22 1 4 more RBR (ADJP*)) - - - Speaker#1 O -
+doc22 1 5 complicated JJ (ADJP*)) - - - Speaker#1 O -
+doc22 1 6 than IN (PP*) - - - Speaker#1 O -
+doc22 1 7 expected VBD (VP*) - - - Speaker#1 O -
+doc22 1 8 . . )) - - - Speaker#1 O -
+doc22 2 0 Eyra NNP (NP* - - - Speaker#1 B-PER (2
+doc22 2 1 came VBD (VP*) - - - Speaker#1 O -
+doc22 2 2 to TO (VP*) - - - Speaker#1 O -
+doc22 2 3 help VB (VP*) - - - Speaker#1 O -
+doc22 2 4 em PRP (NP) - - - Speaker#1 O (2)
+doc22 2 5 . . )) - - - Speaker#1 O -
+doc22 3 0 I PRP (NP*) - - - Speaker#1 O -
+doc22 3 1 gave VBD (VP*) - - - Speaker#1 O -
+doc22 3 2 eir PRP$ (NP) - - - Speaker#1 O (2)
+doc22 3 3 toolbox NN (NP*)) - - - Speaker#1 O -
+doc22 3 4 . . )) - - - Speaker#1 O -
+doc22 4 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc22 4 1 instructed VBD (VP
+
+#begin document (doc23); part 000
+doc23 0 0 Avery NNP (NP* - - - Speaker#1 B-PER (1
+doc23 0 1 enjoys VBZ (VP*) - - - Speaker#1 O -
+doc23 0 2 hiking NN (NP*)) - - - Speaker#1 O -
+doc23 0 3 . . )) - - - Speaker#1 O -
+doc23 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc23 1 1 often RB (ADVP*) - - - Speaker#1 O -
+doc23 1 2 explore VB (VP*) - - - Speaker#1 O -
+doc23 1 3 local JJ (NP*) - - - Speaker#1 O -
+doc23 1 4 trails NNS (NP*)) - - - Speaker#1 O -
+doc23 1 5 . . )) - - - Speaker#1 O -
+doc23 2 0 Jordan NNP (NP* - - - Speaker#1 B-PER (2
+doc23 2 1 baked VBD (VP*) - - - Speaker#1 O -
+doc23 2 2 cookies NNS (NP*)) - - - Speaker#1 O -
+doc23 2 3 for IN (PP*) - - - Speaker#1 O -
+doc23 2 4 the DT (NP*) - - - Speaker#1 O -
+doc23 2 5 team NN (NP*)) - - - Speaker#1 O -
+doc23 2 6 . . )) - - - Speaker#1 O -
+doc23 3 0 He PRP (NP) - - - Speaker#1 O (2)
+doc23 3 1 shared VBD (VP*) - - - Speaker#1 O -
+doc23 3 2 them PRP (NP) - - - Speaker#1 O (2)
+doc23 3 3 at IN (PP*) - - - Speaker#1 O -
+doc23 3 4 practice NN (NP*)) - - - Speaker#1 O -
+doc23 3 5 . . )) - - - Speaker#1 O -
+doc23 4 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc23 4 1 joined VBD (VP*) - - - Speaker#1 O -
+doc23 4 2 Avery NNP (NP) - - - Speaker#1 B-PER (1)
+doc23 4 3 and CC - - - Speaker#1 O -
+doc23 4 4 Jordan NNP (NP) - - - Speaker#1 B-PER (2)
+doc23 4 5 on IN (PP*) - - - Speaker#1 O -
+doc23 4 6 their PRP$ (NP) - - - Speaker#1 O (3)
+doc23 4 7 weekend NN (NP*)) - - - Speaker#1 O -
+doc23 4 8 adventure NN (NP*)) - - - Speaker#1 O -
+doc23 4 9 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc24); part 000
+doc24 0 0 Kai NNP (NP* - - - Speaker#1 B-PER (1
+doc24 0 1 presented VBD (VP*) - - - Speaker#1 O -
+doc24 0 2 xyr PRP$ (NP) - - - Speaker#1 O (1)
+doc24 0 3 research NN (NP*)) - - - Speaker#1 O -
+doc24 0 4 at IN (PP*) - - - Speaker#1 O -
+doc24 0 5 the DT (NP*) - - - Speaker#1 O -
+doc24 0 6 conference NN (NP*)) - - - Speaker#1 O -
+doc24 0 7 . . )) - - - Speaker#1 O -
+doc24 1 0 I PRP (NP*) - - - Speaker#1 O -
+doc24 1 1 spoke VBD (VP*) - - - Speaker#1 O -
+doc24 1 2 with IN (PP*) - - - Speaker#1 O -
+doc24 1 3 em PRP (NP) - - - Speaker#1 O (1)
+doc24 1 4 about IN (PP*) - - - Speaker#1 O -
+doc24 1 5 xyr PRP$ (NP) - - - Speaker#1 O (1)
+doc24 1 6 findings NNS (NP*)) - - - Speaker#1 O -
+doc24 1 7 . . )) - - - Speaker#1 O -
+doc24 2 0 Selene NNP (NP* - - - Speaker#1 B-PER (2
+doc24 2 1 enjoyed VBD (VP*) - - - Speaker#1 O -
+doc24 2 2 the DT (NP*) - - - Speaker#1 O -
+doc24 2 3 talk NN (NP*)) - - - Speaker#1 O -
+doc24 2 4 and CC - - - Speaker#1 O -
+doc24 2 5 shared VBD (VP*) - - - Speaker#1 O -
+doc24 2 6 her PRP$ (NP) - - - Speaker#1 O (2)
+doc24 2 7 feedback NN (NP*)) - - - Speaker#1 O -
+doc24 2 8 . . )) - - - Speaker#1 O -
+doc24 3 0 Marcus NNP (NP* - - - Speaker#1 B-PER (3
+doc24 3 1 appreciated VBD (VP*) - - - Speaker#1 O -
+doc24 3 2 their PRP$ (NP) - - - Speaker#1 O (3)
+doc24 3 3 insights NNS (NP*)) - - - Speaker#1 O -
+doc24 3 4 and CC - - - Speaker#1 O -
+doc24 3 5 thanked VBD (VP*) - - - Speaker#1 O -
+doc24 3 6 Kai NNP (NP) - - - Speaker#1 B-PER (1)
+doc24 3 7 for IN (PP*) - - - Speaker#1 O -
+doc24 3 8 xyr PRP$ (NP) - - - Speaker#1 O (1)
+doc24 3 9 time NN (NP*)) - - - Speaker#1 O -
+doc24 3 10 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc25); part 000
+doc25 0 0 Orion NNP (NP* - - - Speaker#1 B-PER (1
+doc25 0 1 coached VBD (VP*) - - - Speaker#1 O -
+doc25 0 2 the DT (NP*) - - - Speaker#1 O -
+doc25 0 3 youth NN (NP*)) - - - Speaker#1 O -
+doc25 0 4 soccer NN (NP*)) - - - Speaker#1 O -
+doc25 0 5 team NN (NP*)) - - - Speaker#1 O -
+doc25 0 6 . . )) - - - Speaker#1 O -
+doc25 1 0 Ey NNP (NP* - - - Speaker#1 B-PER (2
+doc25 1 1 joined VBD (VP*) - - - Speaker#1 O -
+doc25 1 2 em PRP (NP) - - - Speaker#1 O (2)
+doc25 1 3 for IN (PP*) - - - Speaker#1 O -
+doc25 1 4 practice NN (NP*)) - - - Speaker#1 O -
+doc25 1 5 . . )) - - - Speaker#1 O -
+doc25 2 0 I PRP (NP*) - - - Speaker#1 O -
+doc25 2 1 encouraged VBD (VP*) - - - Speaker#1 O -
+doc25 2 2 eir PRP$ (NP) - - - Speaker#1 O (2)
+doc25 2 3 to TO (VP*) - - - Speaker#1 O -
+doc25 2 4 lead VB (VP*) - - - Speaker#1 O -
+doc25 2 5 a DT (NP*) - - - Speaker#1 O -
+doc25 2 6 warm-up NN (NP*)) - - - Speaker#1 O -
+doc25 2 7 . . )) - - - Speaker#1 O -
+doc25 3 0 Selene NNP (NP* - - - Speaker#1 B-PER (3
+doc25 3 1 cheered VBD (VP*) - - - Speaker#1 O -
+doc25 3 2 Orion NNP (NP) - - - Speaker#1 B-PER (1)
+doc25 3 3 and CC - - - Speaker#1 O -
+doc25 3 4 Ey NNP (NP) - - - Speaker#1 B-PER (2)
+doc25 3 5 on IN (PP*) - - - Speaker#1 O -
+doc25 3 6 their PRP$ (NP) - - - Speaker#1 O (3)
+doc25 3 7 teamwork NN (NP*)) - - - Speaker#1 O -
+doc25 3 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc26); part 000
+doc26 0 0 Lennox NNP (NP* - - - Speaker#1 B-PER (1
+doc26 0 1 organized VBD (VP*) - - - Speaker#1 O -
+doc26 0 2 a DT (NP*) - - - Speaker#1 O -
+doc26 0 3 charity NN (NP*)) - - - Speaker#1 O -
+doc26 0 4 event NN (NP*)) - - - Speaker#1 O -
+doc26 0 5 . . )) - - - Speaker#1 O -
+doc26 1 0 Xe NNP (NP* - - - Speaker#1 B-PER (2
+doc26 1 1 volunteered VBD (VP*) - - - Speaker#1 O -
+doc26 1 2 xem PRP (NP) - - - Speaker#1 O (2)
+doc26 1 3 time NN (NP*)) - - - Speaker#1 O -
+doc26 1 4 for IN (PP*) - - - Speaker#1 O -
+doc26 1 5 decorations NNS (NP*)) - - - Speaker#1 O -
+doc26 1 6 . . )) - - - Speaker#1 O -
+doc26 2 0 Mara NNP (NP* - - - Speaker#1 B-PER (3
+doc26 2 1 helped VBD (VP*) - - - Speaker#1 O -
+doc26 2 2 set VB (VP*) - - - Speaker#1 O -
+doc26 2 3 up RP (VP*) - - - Speaker#1 O -
+doc26 2 4 tables NNS (NP*)) - - - Speaker#1 O -
+doc26 2 5 . . )) - - - Speaker#1 O -
+doc26 3 0 Xe NNP (NP) - - - Speaker#1 B-PER (2)
+doc26 3 1 brought VBD (VP*) - - - Speaker#1 O -
+doc26 3 2 xyr PRP$ (NP) - - - Speaker#1 O (2)
+doc26 3 3 own JJ (NP*) - - - Speaker#1 O -
+doc26 3 4 supplies NNS (NP*)) - - - Speaker#1 O -
+doc26 3 5 . . )) - - - Speaker#1 O -
+doc26 4 0 Lennox NNP (NP) - - - Speaker#1 B-PER (1)
+doc26 4 1 thanked VBD (VP*) - - - Speaker#1 O -
+doc26 4 2 xe PRP (NP) - - - Speaker#1 O (2)
+doc26 4 3 and CC - - - Speaker#1 O -
+doc26 4 4 Mara NNP (NP) - - - Speaker#1 B-PER (3)
+doc26 4 5 for IN (PP*) - - - Speaker#1 O -
+doc26 4 6 their PRP$ (NP) - - - Speaker#1 O (1)
+doc26 4 7 efforts NNS (NP*)) - - - Speaker#1 O -
+doc26 4 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc27); part 000
+doc27 0 0 Quinn NNP (NP* - - - Speaker#1 B-PER (1
+doc27 0 1 loves VBZ (VP*) - - - Speaker#1 O -
+doc27 0 2 painting NN (NP*)) - - - Speaker#1 O -
+doc27 0 3 in IN (PP*) - - - Speaker#1 O -
+doc27 0 4 the DT (NP*) - - - Speaker#1 O -
+doc27 0 5 mornings NNS (NP*)) - - - Speaker#1 O -
+doc27 0 6 . . )) - - - Speaker#1 O -
+doc27 1 0 Ey NNP (NP* - - - Speaker#1 B-PER (2
+doc27 1 1 joined VBD (VP*) - - - Speaker#1 O -
+doc27 1 2 em PRP (NP) - - - Speaker#1 O (2)
+doc27 1 3 to TO (VP*) - - - Speaker#1 O -
+doc27 1 4 paint VB (VP*) - - - Speaker#1 O -
+doc27 1 5 landscapes NNS (NP*)) - - - Speaker#1 O -
+doc27 1 6 . . )) - - - Speaker#1 O -
+doc27 2 0 Rhiannon NNP (NP* - - - Speaker#1 B-PER (3
+doc27 2 1 shared VBD (VP*) - - - Speaker#1 O -
+doc27 2 2 her PRP$ (NP) - - - Speaker#1 O (3)
+doc27 2 3 brushes NNS (NP*)) - - - Speaker#1 O -
+doc27 2 4 with IN (PP*) - - - Speaker#1 O -
+doc27 2 5 Quinn NNP (NP) - - - Speaker#1 B-PER (1)
+doc27 2 6 and CC - - - Speaker#1 O -
+doc27 2 7 Ey NNP (NP) - - - Speaker#1 B-PER (2)
+doc27 2 8 while IN (PP*) - - - Speaker#1 O -
+doc27 2 9 giving VBG (VP*) - - - Speaker#1 O -
+doc27 2 10 tips NNS (NP*)) - - - Speaker#1 O -
+doc27 2 11 . . )) - - - Speaker#1 O -
+doc27 3 0 Quinn NNP (NP) - - - Speaker#1 B-PER (1)
+doc27 3 1 thanked VBD (VP*) - - - Speaker#1 O -
+doc27 3 2 Rhiannon NNP (NP) - - - Speaker#1 B-PER (3)
+doc27 3 3 and CC - - - Speaker#1 O -
+doc27 3 4 Ey NNP (NP) - - - Speaker#1 B-PER (2)
+doc27 3 5 for IN (PP*) - - - Speaker#1 O -
+doc27 3 6 their PRP$ (NP) - - - Speaker#1 O (1)
+doc27 3 7 help NN (NP*)) - - - Speaker#1 O -
+doc27 3 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc28); part 000
+doc28 0 0 Rowan NNP (NP* - - - Speaker#1 B-PER (1
+doc28 0 1 presented VBD (VP*) - - - Speaker#1 O -
+doc28 0 2 at IN (PP*) - - - Speaker#1 O -
+doc28 0 3 the DT (NP*) - - - Speaker#1 O -
+doc28 0 4 science NN (NP*) - - - Speaker#1 O -
+doc28 0 5 fair NN (NP*)) - - - Speaker#1 O -
+doc28 0 6 . . )) - - - Speaker#1 O -
+doc28 1 0 Fae NNP (NP* - - - Speaker#1 B-PER (2
+doc28 1 1 watched VBD (VP*) - - - Speaker#1 O -
+doc28 1 2 faer PRP$ (NP) - - - Speaker#1 O (2)
+doc28 1 3 presentation NN (NP*)) - - - Speaker#1 O -
+doc28 1 4 carefully RB (ADVP*)) - - - Speaker#1 O -
+doc28 1 5 . . )) - - - Speaker#1 O -
+doc28 2 0 Idris NNP (NP* - - - Speaker#1 B-PER (3
+doc28 2 1 asked VBD (VP*) - - - Speaker#1 O -
+doc28 2 2 questions NNS (NP*)) - - - Speaker#1 O -
+doc28 2 3 and CC - - - Speaker#1 O -
+doc28 2 4 praised VBD (VP*) - - - Speaker#1 O -
+doc28 2 5 Rowan NNP (NP) - - - Speaker#1 B-PER (1)
+doc28 2 6 for IN (PP*) - - - Speaker#1 O -
+doc28 2 7 xyr PRP$ (NP) - - - Speaker#1 O (1)
+doc28 2 8 work NN (NP*)) - - - Speaker#1 O -
+doc28 2 9 . . )) - - - Speaker#1 O -
+doc28 3 0 Fae NNP (NP) - - - Speaker#1 B-PER (2)
+doc28 3 1 thanked VBD (VP*) - - - Speaker#1 O -
+doc28 3 2 Idris NNP (NP) - - - Speaker#1 B-PER (3)
+doc28 3 3 and CC - - - Speaker#1 O -
+doc28 3 4 praised VBD (VP*) - - - Speaker#1 O -
+doc28 3 5 Rowan NNP (NP) - - - Speaker#1 B-PER (1)
+doc28 3 6 for IN (PP*) - - - Speaker#1 O -
+doc28 3 7 eir PRP$ (NP) - - - Speaker#1 O (2)
+doc28 3 8 encouragement NN (NP*)) - - - Speaker#1 O -
+doc28 3 9 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc29); part 000
+doc29 0 0 Emily NNP (NP* - - - Speaker#1 B-PER (1
+doc29 0 1 baked VBD (VP*) - - - Speaker#1 O -
+doc29 0 2 cookies NNS (NP*)) - - - Speaker#1 O -
+doc29 0 3 for IN (PP*) - - - Speaker#1 O -
+doc29 0 4 the DT (NP*) - - - Speaker#1 O -
+doc29 0 5 class NN (NP*)) - - - Speaker#1 O -
+doc29 0 6 . . )) - - - Speaker#1 O -
+doc29 1 0 Alex NNP (NP* - - - Speaker#1 B-PER (2
+doc29 1 1 helped VBD (VP*) - - - Speaker#1 O -
+doc29 1 2 xem PRP (NP) - - - Speaker#1 O (2)
+doc29 1 3 pack VB (VP*) - - - Speaker#1 O -
+doc29 1 4 the DT (NP*) - - - Speaker#1 O -
+doc29 1 5 trays NNS (NP*)) - - - Speaker#1 O -
+doc29 1 6 . . )) - - - Speaker#1 O -
+doc29 2 0 They PRP (NP) - - - Speaker#1 O (1)
+doc29 2 1 were VBD (VP*) - - - Speaker#1 O -
+doc29 2 2 grateful JJ (ADJP*) - - - Speaker#1 O -
+doc29 2 3 for IN (PP*) - - - Speaker#1 O -
+doc29 2 4 Alex NNP (NP) - - - Speaker#1 B-PER (2)
+doc29 2 5 's POS (NP*) - - - Speaker#1 O -
+doc29 2 6 help NN (NP*)) - - - Speaker#1 O -
+doc29 2 7 . . )) - - - Speaker#1 O -
+doc29 3 0 Jordan NNP (NP* - - - Speaker#1 B-PER (3
+doc29 3 1 joined VBD (VP*) - - - Speaker#1 O -
+doc29 3 2 them PRP (NP) - - - Speaker#1 O (3)
+doc29 3 3 to TO (VP*) - - - Speaker#1 O -
+doc29 3 4 decorate VB (VP*) - - - Speaker#1 O -
+doc29 3 5 the DT (NP*) - - - Speaker#1 O -
+doc29 3 6 classroom NN (NP*)) - - - Speaker#1 O -
+doc29 3 7 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc30); part 000
+doc30 0 0 Michael NNP (NP* - - - Speaker#1 B-PER (1
+doc30 0 1 finished VBD (VP*) - - - Speaker#1 O -
+doc30 0 2 his PRP$ (NP) - - - Speaker#1 O (1)
+doc30 0 3 homework NN (NP*)) - - - Speaker#1 O -
+doc30 0 4 early RB (ADVP*)) - - - Speaker#1 O -
+doc30 0 5 . . )) - - - Speaker#1 O -
+doc30 1 0 Casey NNP (NP* - - - Speaker#1 B-PER (2
+doc30 1 1 offered VBD (VP*) - - - Speaker#1 O -
+doc30 1 2 to TO (VP*) - - - Speaker#1 O -
+doc30 1 3 help VB (VP*) - - - Speaker#1 O -
+doc30 1 4 xem PRP (NP) - - - Speaker#1 O (2)
+doc30 1 5 with IN (PP*) - - - Speaker#1 O -
+doc30 1 6 studying NN (NP*)) - - - Speaker#1 O -
+doc30 1 7 . . )) - - - Speaker#1 O -
+doc30 2 0 Jordan NNP (NP* - - - Speaker#1 B-PER (3
+doc30 2 1 and CC - - - Speaker#1 O -
+doc30 2 2 they PRP (NP) - - - Speaker#1 O (3)
+doc30 2 3 joined VBD (VP*) - - - Speaker#1 O -
+doc30 2 4 Michael NNP (NP) - - - Speaker#1 B-PER (1)
+doc30 2 5 to TO (VP*) - - - Speaker#1 O -
+doc30 2 6 complete VB (VP*) - - - Speaker#1 O -
+doc30 2 7 the DT (NP*) - - - Speaker#1 O -
+doc30 2 8 project NN (NP*)) - - - Speaker#1 O -
+doc30 2 9 . . )) - - - Speaker#1 O -
+doc30 3 0 Eyra NNP (NP* - - - Speaker#1 B-PER (4
+doc30 3 1 practiced VBD (VP*) - - - Speaker#1 O -
+doc30 3 2 eir PRP$ (NP) - - - Speaker#1 O (4)
+doc30 3 3 piano NN (NP*)) - - - Speaker#1 O -
+doc30 3 4 diligently RB (ADVP*)) - - - Speaker#1 O -
+doc30 3 5 . . )) - - - Speaker#1 O -
+doc30 4 0 Ey NNP (NP) - - - Speaker#1 B-PER (4)
+doc30 4 1 encouraged VBD (VP*) - - - Speaker#1 O -
+doc30 4 2 em PRP (NP) - - - Speaker#1 O (4)
+doc30 4 3 to TO (VP*) - - - Speaker#1 O -
+doc30 4 4 continue VB (VP*) - - - Speaker#1 O -
+doc30 4 5 practicing VBG (VP*)) - - - Speaker#1 O -
+doc30 4 6 every DT (NP*) - - - Speaker#1 O -
+doc30 4 7 day NN (NP*)) - - - Speaker#1 O -
+doc30 4 8 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc31); part 000
+doc31 0 0 Sophia NNP (NP* - - - Speaker#1 B-PER (1
+doc31 0 1 invited VBD (VP*) - - - Speaker#1 O -
+doc31 0 2 her PRP$ (NP) - - - Speaker#1 O (1)
+doc31 0 3 friends NNS (NP*)) - - - Speaker#1 O -
+doc31 0 4 to TO (VP*) - - - Speaker#1 O -
+doc31 0 5 a DT (NP*) - - - Speaker#1 O -
+doc31 0 6 picnic NN (NP*)) - - - Speaker#1 O -
+doc31 0 7 . . )) - - - Speaker#1 O -
+doc31 1 0 Jamie NNP (NP* - - - Speaker#1 B-PER (2
+doc31 1 1 and CC - - - Speaker#1 O -
+doc31 1 2 Taylor NNP (NP* - - - Speaker#1 B-PER (3
+doc31 1 3 brought VBD (VP*) - - - Speaker#1 O -
+doc31 1 4 them PRP (NP) - - - Speaker#1 O (2)
+doc31 1 5 along RB (ADVP*)) - - - Speaker#1 O -
+doc31 1 6 . . )) - - - Speaker#1 O -
+doc31 2 0 They PRP (NP) - - - Speaker#1 O (1)
+doc31 2 1 all RB (ADVP*) - - - Speaker#1 O -
+doc31 2 2 enjoyed VBD (VP*) - - - Speaker#1 O -
+doc31 2 3 the DT (NP*) - - - Speaker#1 O -
+doc31 2 4 picnic NN (NP*)) - - - Speaker#1 O -
+doc31 2 5 and CC - - - Speaker#1 O -
+doc31 2 6 talked VBD (VP*) - - - Speaker#1 O -
+doc31 2 7 about IN (PP*) - - - Speaker#1 O -
+doc31 2 8 their PRP$ (NP) - - - Speaker#1 O (2)
+doc31 2 9 favorite JJ (NP*) - - - Speaker#1 O -
+doc31 2 10 hobbies NNS (NP*)) - - - Speaker#1 O -
+doc31 2 11 . . )) - - - Speaker#1 O -
+doc31 3 0 Fae NNP (NP* - - - Speaker#1 B-PER (4
+doc31 3 1 told VBD (VP*) - - - Speaker#1 O -
+doc31 3 2 faers PRP$ (NP) - - - Speaker#1 O (4)
+doc31 3 3 stories NNS (NP*)) - - - Speaker#1 O -
+doc31 3 4 to TO (VP*) - - - Speaker#1 O -
+doc31 3 5 Sophia NNP (NP) - - - Speaker#1 B
+doc31 2 6 . . )) - - - Speaker#1 O -
+#end document 
+
+#begin document (doc32); part 000
+doc32 0 0 Lucas NNP (NP* - - - Speaker#1 B-PER (1
+doc32 0 1 finished VBD (VP*) - - - Speaker#1 O -
+doc32 0 2 his PRP$ (NP) - - - Speaker#1 O (1)
+doc32 0 3 assignment NN (NP*)) - - - Speaker#1 O -
+doc32 0 4 early RB (ADVP*)) - - - Speaker#1 O -
+doc32 0 5 . . )) - - - Speaker#1 O -
+doc32 1 0 They PRP (NP) - - - Speaker#1 O (1)
+doc32 1 1 felt VBD (VP*) - - - Speaker#1 O -
+doc32 1 2 proud JJ (ADJP*) - - - Speaker#1 O -
+doc32 1 3 of IN (PP*) - - - Speaker#1 O -
+doc32 1 4 themselves PRP (NP)) - - - Speaker#1 O (1)
+doc32 1 5 . . )) - - - Speaker#1 O -
+doc32 2 0 Mia NNP (NP* - - - Speaker#1 B-PER (2
+doc32 2 1 cheered VBD (VP*) - - - Speaker#1 O -
+doc32 2 2 for IN (PP*) - - - Speaker#1 O -
+doc32 2 3 her PRP$ (NP) - - - Speaker#1 O (2)
+doc32 2 4 friend NN (NP*)) - - - Speaker#1 O -
+doc32 2 5 . . )) - - - Speaker#1 O -
+doc32 3 0 Zephyr NNP (NP* - - - Speaker#1 B-PER (3
+doc32 3 1 helped VBD (VP*) - - - Speaker#1 O -
+doc32 3 2 zir PRP (NP) - - - Speaker#1 O (3)
+doc32 3 3 organize VB (VP*) - - - Speaker#1 O -
+doc32 3 4 the DT (NP*) - - - Speaker#1 O -
+doc32 3 5 event NN (NP*)) - - - Speaker#1 O -
+doc32 3 6 . . )) - - - Speaker#1 O -
+doc32 4 0 Ze NNP (NP) - - - Speaker#1 B-PER (3)
+doc32 4 1 made VBD (VP*) - - - Speaker#1 O -
+doc32 4 2 sure VB (VP*) - - - Speaker#1 O -
+doc32 4 3 zirself PRP (NP) - - - Speaker#1 O (3)
+doc32 4 4 had VBD (VP*) - - - Speaker#1 O -
+doc32 4 5 everything NN (NP*)) - - - Speaker#1 O -
+doc32 4 6 ready JJ (ADJP*)) - - - Speaker#1 O -
+doc32 4 7 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc33); part 000
+doc33 0 0 Ava NNP (NP* - - - Speaker#1 B-PER (1
+doc33 0 1 went VBD (VP*) - - - Speaker#1 O -
+doc33 0 2 to TO (VP*) - - - Speaker#1 O -
+doc33 0 3 the DT (NP*) - - - Speaker#1 O -
+doc33 0 4 library NN (NP*)) - - - Speaker#1 O -
+doc33 0 5 . . )) - - - Speaker#1 O -
+doc33 1 0 She PRP (NP) - - - Speaker#1 O (1)
+doc33 1 1 borrowed VBD (VP*) - - - Speaker#1 O -
+doc33 1 2 some DT (NP*) - - - Speaker#1 O -
+doc33 1 3 books NNS (NP*)) - - - Speaker#1 O -
+doc33 1 4 and CC - - - Speaker#1 O -
+doc33 1 5 enjoyed VBD (VP*) - - - Speaker#1 O -
+doc33 1 6 reading VBG (VP*)) - - - Speaker#1 O -
+doc33 1 7 . . )) - - - Speaker#1 O -
+doc33 2 0 Jordan NNP (NP* - - - Speaker#1 B-PER (2
+doc33 2 1 invited VBD (VP*) - - - Speaker#1 O -
+doc33 2 2 them PRP (NP) - - - Speaker#1 O (2)
+doc33 2 3 to TO (VP*) - - - Speaker#1 O -
+doc33 2 4 join VB (VP*) - - - Speaker#1 O -
+doc33 2 5 a DT (NP*) - - - Speaker#1 O -
+doc33 2 6 study NN (NP*) - - - Speaker#1 O -
+doc33 2 7 group NN (NP*)) - - - Speaker#1 O -
+doc33 2 8 . . )) - - - Speaker#1 O -
+doc33 3 0 Fae NNP (NP* - - - Speaker#1 B-PER (3
+doc33 3 1 shared VBD (VP*) - - - Speaker#1 O -
+doc33 3 2 faers PRP$ (NP) - - - Speaker#1 O (3)
+doc33 3 3 notes NNS (NP*)) - - - Speaker#1 O -
+doc33 3 4 with IN (PP*) - - - Speaker#1 O -
+doc33 3 5 Ava NNP (NP) - - - Speaker#1 B-PER (1)
+doc33 3 6 and CC - - - Speaker#1 O -
+doc33 3 7 Jordan NNP (NP) - - - Speaker#1 B-PER (2)
+doc33 3 8 . . )) - - - Speaker#1 O -
+doc33 4 0 Fae PRP (NP) - - - Speaker#1 O (3)
+doc33 4 1 hoped VBD (VP*) - - - Speaker#1 O -
+doc33 4 2 that IN (PP*) - - - Speaker#1 O -
+doc33 4 3 faerself PRP (NP) - - - Speaker#1 O (3)
+doc33 4 4 could MD (VP*) - - - Speaker#1 O -
+doc33 4 5 help VB (VP*) - - - Speaker#1 O -
+doc33 4 6 everyone NN (NP*)) - - - Speaker#1 O -
+doc33 4 7 learn VB (VP*) - - - Speaker#1 O -
+doc33 4 8 better RBR (ADVP*)) - - - Speaker#1 O -
+doc33 4 9 . . )) - - - Speaker#1 O -
+#end document
+
+#begin document (doc34); part 000
+doc34 0 0 Liam NNP (NP* - - - Speaker#1 B-PER (1
+doc34 0 1 ran VBD (VP*) - - - Speaker#1 O -
+doc34 0 2 into IN (PP*) - - - Speaker#1 O -
+doc34 0 3 the DT (NP*) - - - Speaker#1 O -
+doc34 0 4 park NN (NP*)) - - - Speaker#1 O -
+doc34 0 5 . . )) - - - Speaker#1 O -
+doc34 1 0 He PRP (NP) - - - Speaker#1 O (1)
+doc34 1 1 saw VBD (VP*) - - - Speaker#1 O -
+doc34 1 2 his PRP$ (NP) - - - Speaker#1 O (1)
+doc34 1 3 friends NNS (NP*)) - - - Speaker#1 O -
+doc34 1 4 playing VBG (VP*)) - - - Speaker#1 O -
+doc34 1 5 soccer NN (NP*)) - - - Speaker#1 O -
+doc34 1 6 . . )) - - - Speaker#1 O -
+doc34 2 0 Avery NNP (NP* - - - Speaker#1 B-PER (2
+doc34 2 1 waved VBD (VP*) - - - Speaker#1 O -
+doc34 2 2 at IN (PP*) - - - Speaker#1 O -
+doc34 2 3 them PRP (NP) - - - Speaker#1 O (1)
+doc34 2 4 and CC - - - Speaker#1 O -
+doc34 2 5 joined VBD (VP*) - - - Speaker#1 O -
+doc34 2 6 in PRP (NP) - - - Speaker#1 O (2)
+doc34 2 7 . . )) - - - Speaker#1 O -
+doc34 3 0 Xe NNP (NP* - - - Speaker#1 B-PER (3
+doc34 3 1 cheered VBD (VP*) - - - Speaker#1 O -
+doc34 3 2 for IN (PP*) - - - Speaker#1 O -
+doc34 3 3 xyr PRP$ (NP) - - - Speaker#1 O (3)
+doc34 3 4 teammates NNS (NP*)) - - - Speaker#1 O -
+doc34 3 5 and CC - - - Speaker#1 O -
+doc34 3 6 encouraged VBD (VP*) - - - Speaker#1 O -
+doc34 3 7 xemself PRP (NP) - - - Speaker#1 O (3)
+doc34 3 8 to TO (VP*) - - - Speaker#1 O -
+doc34 3 9 keep VB (VP*) - - - Speaker#1 O -
+doc34 3 10 going VBG (VP*)) - - - Speaker#1 O -
+doc34 3 11 . . )) - - - Speaker#1 O -
+#end document
+
+
