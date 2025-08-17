@@ -79,6 +79,19 @@ if __name__ == "__main__":
     #     "Sarah showed me xyr code."
     # )
 
+
+
+    # import torch
+    # print(torch.backends.mps.is_available())   # True means MPS is usable
+    # print(torch.backends.mps.is_built())       # True means MPS was built into torch
+
+    # import spacy
+    # from thinc.api import prefer_gpu
+
+    # print(prefer_gpu())  # True if spaCy can use GPU/MPS
+
+
+
     doc = apply_nlp(text)
 
     print("\n")
