@@ -7,10 +7,15 @@
 
 import re
 import spacy
+from pathlib import Path
 
 
 def apply_nlp(text):
-    nlp = spacy.load("en_coreference_web_trf")
+    # nlp = spacy.load("en_coreference_web_trf")
+
+    base = Path(__file__).resolve().parent.parent   # project root
+    nlp = spacy.load(base / "coref" / "training" / "coref")
+
     doc = nlp(text)
 
     return doc
