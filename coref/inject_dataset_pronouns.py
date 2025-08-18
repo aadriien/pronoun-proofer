@@ -18,6 +18,19 @@ pronoun_systems = {
         'possessive_standalone': 'hers',
         'reflexive': 'herself'
     },
+    'traditional_he': {
+        'subjective': 'he',
+        'objective': 'him', 
+        'possessive': 'his',
+        'reflexive': 'himself'
+    },
+    'traditional_she': {
+        'subjective': 'she',
+        'objective': 'her',
+        'possessive': 'her', 
+        'possessive_standalone': 'hers',
+        'reflexive': 'herself'
+    },
     'singular_they': {
         'subjective': 'they',
         'objective': 'them',
