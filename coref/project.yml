@@ -16,9 +16,9 @@ vars:
   heads: silver
 
   # point training/dev/test to custom neopronouns dataset
-  train_conll: neopronouns_dataset.conll
-  dev_conll: neopronouns_dataset.conll
-  test_conll: neopronouns_dataset.conll
+  train_conll: conll_output/train.conll
+  dev_conll: conll_output/validation.conll
+  test_conll: conll_output/test.conll
 
 directories: ["assets", "corpus", "scripts", "configs", "training"]
 
