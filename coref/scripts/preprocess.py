@@ -75,22 +75,15 @@ def read_file(fname, outname):
                     tokid = len(words) - 1
                     for mention in clusters:
                         if mention[0] == "(" and mention[-1] == ")":
-                            # single-token mention
                             cid = int(mention[1:-1])
-                            clustermap[cid].append((tokid, tokid + 1))
+                            clustermap[cid].insert(0, (tokid, tokid + 1))
                         elif mention[0] == "(":
-                            # start of multi-token mention
                             cid = int(mention[1:])
-                            clustermap[cid].append((tokid, None))  # temporarily store start with None
+                            clustermap[cid].append(tokid)  # this will be popped
                         elif mention[-1] == ")":
-                            # end of multi-token mention
                             cid = int(mention[:-1])
-                            # find the last mention for this cluster that has None as end
-                            for i in reversed(range(len(clustermap[cid]))):
-                                if clustermap[cid][i][1] is None:
-                                    clustermap[cid][i] = (clustermap[cid][i][0], tokid + 1)
-                                    break
-
+                            start = clustermap[cid].pop()
+                            clustermap[cid].insert(0, (start, tokid + 1))
         doc = Doc(nlp.vocab, words=words, sent_starts=sent_starts)
         for key, vals in clustermap.items():
             spans = [doc[ss:ee] for ss, ee in vals]
