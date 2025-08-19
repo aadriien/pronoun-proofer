@@ -16,24 +16,24 @@ def test_single_pronoun_she():
     content = "@**Alice Smith (she/her) (SP1'25)** is coding"
     mentions = reader.get_mentions(content)
 
-    assert mentions[0]["name"] == "Alice Smith"
-    assert mentions[0]["pronouns"] == "she/her"
+    assert mentions[0].name == "Alice Smith"
+    assert mentions[0].pronouns == ("she", "her")
 
 
 def test_single_pronoun_he():
     content = "@**Bob Jones (he/him) (F2'24)** finished the task"
     mentions = reader.get_mentions(content)
 
-    assert mentions[0]["name"] == "Bob Jones"
-    assert mentions[0]["pronouns"] == "he/him"
+    assert mentions[0].name == "Bob Jones"
+    assert mentions[0].pronouns == ("he", "him")
 
 
 def test_single_pronoun_they():
-    content = "@**Charlie (they/them) (F1'23)**"
+    content = "@**Charlie (they/them) (Faculty)**"
     mentions = reader.get_mentions(content)
 
-    assert mentions[0]["name"] == "Charlie"
-    assert mentions[0]["pronouns"] == "they/them"
+    assert mentions[0].name == "Charlie"
+    assert mentions[0].pronouns == ("they", "them")
 
 
 # -----------------------------
@@ -43,10 +43,10 @@ def test_multiple_pronouns():
     content = "@**Dana Lee (she/they) (F1'24)** paired with @**Elliot Kim (he/they) (F2'25)**"
     mentions = reader.get_mentions(content)
     
-    assert mentions[0]["name"] == "Dana Lee"
-    assert mentions[0]["pronouns"] == "she/they"
-    assert mentions[1]["name"] == "Elliot Kim"
-    assert mentions[1]["pronouns"] == "he/they"
+    assert mentions[0].name == "Dana Lee"
+    assert mentions[0].pronouns == ("she", "they")
+    assert mentions[1].name == "Elliot Kim"
+    assert mentions[1].pronouns == ("he", "they")
 
 
 # -----------------------------
@@ -55,8 +55,8 @@ def test_multiple_pronouns():
 def test_no_pronouns():
     content = "@**Frank Liu (W1'19)** joined the chat"
     mentions = reader.get_mentions(content)
-    assert mentions[0]["name"] == "Frank Liu"
-    assert mentions[0].get("pronouns") is None
+    assert mentions[0].name == "Frank Liu"
+    assert mentions[0].pronouns == ()
 
 
 # -----------------------------
@@ -65,18 +65,18 @@ def test_no_pronouns():
 def test_neopronouns_single():
     content = "@**Gale Xy (ze/zir) (S2'15)** commented"
     mentions = reader.get_mentions(content)
-    assert mentions[0]["name"] == "Gale Xy"
-    assert mentions[0]["pronouns"] == "ze/zir"
+    assert mentions[0].name == "Gale Xy"
+    assert mentions[0].pronouns == ("ze", "zir")
 
 
 def test_neopronouns_multiple():
     content = "@**Harper Q (xe/xem) (F2'20)** and @**Indi Y (ey/em) (F1'25)** paired up"
     mentions = reader.get_mentions(content)
 
-    assert mentions[0]["name"] == "Harper Q"
-    assert mentions[0]["pronouns"] == "xe/xem"
-    assert mentions[1]["name"] == "Indi Y"
-    assert mentions[1]["pronouns"] == "ey/em"
+    assert mentions[0].name == "Harper Q"
+    assert mentions[0].pronouns == ("xe", "xem")
+    assert mentions[1].name == "Indi Y"
+    assert mentions[1].pronouns == ("ey", "em")
 
 
 # -----------------------------
@@ -91,11 +91,19 @@ def test_no_mentions():
 # -----------------------------
 # Any pronouns
 # -----------------------------
-def test_no_pronouns():
+def test_any_pronouns():
     content = "@**Micah (any) (W2'15)** had a really cool idea"
     mentions = reader.get_mentions(content)
 
-    assert mentions[0]["name"] == "Micah"
-    assert mentions[0]["pronouns"] == "any"
+    assert mentions[0].name == "Micah"
+    assert mentions[0].pronouns == ("any",)
+
+
+def test_indifferent_pronouns():
+    content = "@**Jamie (indifferent) (Faculty)** is here today"
+    mentions = reader.get_mentions(content)
+
+    assert mentions[0].name == "Jamie"
+    assert mentions[0].pronouns == ("indifferent",)
 
 

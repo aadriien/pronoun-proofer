@@ -38,7 +38,7 @@ def test_single_pronoun_he_nearby():
 def test_single_pronoun_they_not_nearby():
     content = "Charlie said she is busy."
     mentions = [{
-        "full_match": "@**Charlie (they/them) (F1'23)**",
+        "full_match": "@**Charlie (they/them) (Faculty)**",
         "name": "Charlie",
         "pronouns": "they/them"
     }]
@@ -96,7 +96,7 @@ def test_no_pronouns_in_tag():
     mentions = [{
         "full_match": "@**Frank Liu (W1'19)**", 
         "name": "Frank Liu", 
-        "pronouns": None
+        "pronouns": ""
     }]
 
     results = parser.validate_mentions_in_text(content, mentions)

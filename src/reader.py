@@ -5,36 +5,9 @@
 ###############################################################################
 
 
-import re
+from src.mentions import get_mentions
 from src.parser import validate_mentions_in_text
 from src.notifier import notify_writer_of_mismatch
-
-
-# @**First Last (pronoun/pronoun) (batch'year)**
-# e.g. @**Adrien Lynch (he/they) (S2'25)**
-MENTION_PATTERN = re.compile(
-    r"@"
-    r"\*\*(?P<name>[^(]+)\s*(\((?P<pronouns>[^)]+)\))?.*?\*\*"
-)
-
-def get_mentions(content):
-    mentions = []
-
-    for match in MENTION_PATTERN.finditer(content):
-        full_match = match.group(0)
-        name = match.group("name").strip()
-        pronouns = match.group("pronouns")
-        
-        if pronouns:
-            pronouns = pronouns.strip()
-            
-        mentions.append({
-            "full_match": full_match,
-            "name": name, 
-            "pronouns": pronouns
-        })
-
-    return mentions
 
 
 def scan_for_mentions(message, client):
