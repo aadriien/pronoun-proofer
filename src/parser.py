@@ -23,8 +23,9 @@ def sanitize_content(content, mentions):
 
     # Remove exact full name mention from content
     for m in mentions:
-        full_match = re.escape(m["full_match"])
-        sanitized = re.sub(rf'\(\s*{re.escape(m["pronouns"])}\s*\)', '', sanitized)
+        if m.pronouns: 
+            pronouns_pattern = "/".join(m.pronouns)
+            sanitized = re.sub(rf'\(\s*{re.escape(pronouns_pattern)}\s*\)', '', sanitized)
 
     return sanitized
 
@@ -36,12 +37,12 @@ def validate_mentions_in_text(original_content, mentions):
 
     for mention in mentions:
         # Name stored in full, so extract only first name to find in text
-        full_name = mention["name"].strip().split()
+        full_name = mention.name.strip().split()
         name = full_name[0]
         positions = find_all_name_appearances(content, name)
 
         # Simple check to see if pronouns occur near the name
-        pronouns = mention.get("pronouns", "") 
+        pronouns = mention.pronouns
         pronoun_checks = check_nearby_pronouns(content, pronouns, positions)
 
         results.append({
@@ -79,7 +80,7 @@ def check_nearby_pronouns(content, pronouns, positions):
 
     if pronouns:
         pronouns_list = []
-        for p in pronouns.split("/"):
+        for p in pronouns:
             p = p.lower()
             pronouns_list.extend(PRONOUN_GROUPS.get(p, [p]))
     else:

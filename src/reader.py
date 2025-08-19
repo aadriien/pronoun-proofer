@@ -17,16 +17,17 @@ def scan_for_mentions(message, client):
         mentions = get_mentions(content)
 
         for mention in mentions:
-            full_match = mention["full_match"]
-            name = mention["name"]
-            pronouns =  mention.get("pronouns", "")
+            full_match = mention.full_match
+            name = mention.name
+            pronouns =  mention.pronouns
             
-            print(f"Full Match: {full_match} ... Name: {name} ... Pronouns: {pronouns}\n")
+            pronouns_display = "/".join(pronouns) if pronouns else "None"
+            print(f"Full Match: {full_match} ... Name: {name} ... Pronouns: {pronouns_display}\n")
 
         results = validate_mentions_in_text(content, mentions)
         for r in results:
             print(f"Name: {r['name']}")
-            print(f"Pronouns: {r['pronouns']}")
+            print(f"Pronouns: {pronouns_display}")
             print(f"Positions: {r['positions']}")
             print("Checks:")
             for i, check in enumerate(r["checks"], 1):

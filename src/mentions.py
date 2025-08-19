@@ -40,7 +40,7 @@ PRONOUNS_ANY = {
 
 @dataclass
 class NameTag:
-    raw: str
+    full_match: str
     name: str
     pronouns: Tuple[str, ...] = field(default_factory=tuple)
     batch_info: Tuple[str, ...] = field(default_factory=tuple)
@@ -48,8 +48,8 @@ class NameTag:
 
     @classmethod
     def from_match(cls, match: re.Match) -> "NameTag":
-        # Parse raw @**mention** match into a NameTag instance
-        raw = match.group(0)
+        # Parse full_match @**mention** match into a NameTag instance
+        full_match = match.group(0)
         content = match.group("content").strip()
 
         # Split out parenthetical parts
@@ -67,7 +67,7 @@ class NameTag:
                 batch_info += (part.strip(),)
 
         return cls(
-            raw=raw,
+            full_match=full_match,
             name=base_name,
             pronouns=pronouns,
             batch_info=batch_info
