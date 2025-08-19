@@ -18,19 +18,6 @@ pronoun_systems = {
         'possessive_standalone': 'hers',
         'reflexive': 'herself'
     },
-    'traditional_he': {
-        'subjective': 'he',
-        'objective': 'him', 
-        'possessive': 'his',
-        'reflexive': 'himself'
-    },
-    'traditional_she': {
-        'subjective': 'she',
-        'objective': 'her',
-        'possessive': 'her', 
-        'possessive_standalone': 'hers',
-        'reflexive': 'herself'
-    },
     'singular_they': {
         'subjective': 'they',
         'objective': 'them',
@@ -137,11 +124,17 @@ def process_document(doc):
                     if word.lower() in pronoun_type_map:
                         pronoun_clusters[cluster_id].append((sent_idx, word_idx))
     
-    # Assign random pronoun systems to clusters that contain pronouns
+    # Assign random (but weighted) pronoun systems to clusters that contain pronouns
+    system_names = list(pronoun_systems.keys())
+    weights = [
+        3 if name in ['traditional_he', 'traditional_she'] else 1 
+        for name in system_names
+    ]
+
     cluster_systems = {}
     for cluster_id in pronoun_clusters:
         # Randomly choose a pronoun system for this cluster
-        system_name = random.choice(list(pronoun_systems.keys()))
+        system_name = random.choices(system_names, weights=weights, k=1)[0]
         cluster_systems[cluster_id] = pronoun_systems[system_name]
     
     # Build replacement mapping
@@ -181,32 +174,39 @@ def save_as_conll(dataset_split, filepath):
                 print(f"  Processed {doc_idx} documents...")
                 
             doc_id, replacements = process_document(doc)
-            
+
+            # Group sentences by part_id
+            part_sentences = defaultdict(list)
             for sent_idx, sentence in enumerate(doc["sentences"]):
                 part_id = sentence["part_id"]
-                words = sentence["words"]
-                pos_tags = sentence["pos_tags"]
-                speaker = sentence["speaker"]
-                named_entities = sentence["named_entities"]
-                coref_spans = sentence["coref_spans"]
-                
-                # Start document header
+                if part_id < 0:
+                    part_id = 0  # normalize negatives
+                part_sentences[part_id].append((sent_idx, sentence))
+            
+            for part_id, sents in part_sentences.items():
                 f.write(f"#begin document ({doc_id}); part {part_id:03d}\n")
                 
-                # Process each token in the sentence
-                for word_idx, word in enumerate(words):
-                    # Replace pronoun if needed
-                    if (sent_idx, word_idx) in replacements:
-                        word = replace_pronoun_with_system(word, replacements[(sent_idx, word_idx)])
+                for i, (sent_idx, sentence) in enumerate(sents):
+                    # part_id = sentence["part_id"]
+                    words = sentence["words"]
+                    pos_tags = sentence["pos_tags"]
+                    speaker = sentence["speaker"]
+                    named_entities = sentence["named_entities"]
+                    coref_spans = sentence["coref_spans"]
                     
-                    pos_tag = pos_labels[pos_tags[word_idx]]
-                    ner_tag = ner_labels[named_entities[word_idx]]
-                    coref_annotation = format_coref_spans(coref_spans, word_idx)
+                    # Process each token in the sentence
+                    for word_idx, word in enumerate(words):
+                        # Replace pronoun if needed
+                        if (sent_idx, word_idx) in replacements:
+                            word = replace_pronoun_with_system(word, replacements[(sent_idx, word_idx)])
+                        
+                        pos_tag = pos_labels[pos_tags[word_idx]]
+                        ner_tag = ner_labels[named_entities[word_idx]]
+                        coref_annotation = format_coref_spans(coref_spans, word_idx)
+                        
+                        # Write CoNLL line: doc_id part_id word_id word pos parse pred_lemma pred_frame word_sense speaker ner coref
+                        f.write(f"{doc_id} {part_id} {word_idx} {word} {pos_tag} (*) - - - {speaker} {ner_tag} {coref_annotation}\n")
                     
-                    # Write CoNLL line: doc_id part_id word_id word pos parse pred_lemma pred_frame word_sense speaker ner coref
-                    f.write(f"{doc_id} {part_id} {word_idx} {word} {pos_tag} (*) - - - {speaker} {ner_tag} {coref_annotation}\n")
-                
-                f.write("\n")  # empty line between sentences
                 f.write("#end document\n")
                 
     print(f"Completed processing {filepath}")
