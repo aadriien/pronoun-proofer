@@ -11,10 +11,14 @@ from pathlib import Path
 
 
 def apply_nlp(text):
-    # nlp = spacy.load("en_coreference_web_trf")
-
+    # Use fine-tuned model that recognizes neopronouns!
     base = Path(__file__).resolve().parent.parent   # project root
-    nlp = spacy.load(base / "coref" / "training" / "coref")
+    # nlp = spacy.load(base / "coref" / "training" / "coref")
+    
+    nlp = spacy.load(base / "coref" / "training" / "finetune_cluster" / "model-best")
+    
+    # Fallback to original model if fine-tuned model not found
+    # nlp = spacy.load("en_coreference_web_trf")
 
     doc = nlp(text)
 
@@ -25,8 +29,14 @@ def map_names_to_pronouns(doc):
     clusters = []
 
     for cluster in doc.spans:
-        cluster_strings = [span.text for span in doc.spans[cluster]]
-        clusters.append(cluster_strings)
+        cluster_strings = []
+        for span in doc.spans[cluster]:
+            # Handle single-token spans where start == end
+            if span.start < len(doc):
+                token = doc[span.start]
+                cluster_strings.append(token.text)
+        if cluster_strings:  # Only add non-empty clusters
+            clusters.append(cluster_strings)
 
 
     pronouns = {"he", "him", "his", "she", "her", "hers", "they", "them", "their", "theirs"}
@@ -58,9 +68,16 @@ if __name__ == "__main__":
     #     "Sarah enjoys a nice cup of tea in the morning. She likes it with sugar and a drop of milk."
     # )
 
+    # text = (
+    #     "John met Sarah at the cafe. He ordered coffee, and she chose tea. "
+    #     "Sarah thanked him. Later, John waved at her as he left. "
+    #     "The two of them had a good time together."
+    # )
+
     text = (
-        "John met Sarah at the cafe. He ordered coffee, and she chose tea. "
-        "Sarah thanked him. Later, John waved at her as he left. "
+        "John met Sarah at the cafe. He ordered coffee, and ze chose tea. "
+        "Sarah's tea was very hot, but ze enjoyed zir tea. "
+        "Sarah thanked him. Later, John waved at zir as he left. "
         "The two of them had a good time together."
     )
 
