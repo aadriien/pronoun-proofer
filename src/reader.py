@@ -24,19 +24,15 @@ def scan_for_mentions(message, client):
             pronouns_display = "/".join(pronouns) if pronouns else "None"
             print(f"Full Match: {full_match} ... Name: {name} ... Pronouns: {pronouns_display}\n")
 
+
         results = validate_mentions_in_text(content, mentions)
         for r in results:
-            print(f"Name: {r['name']}")
-            print(f"Pronouns: {pronouns_display}")
-            print(f"Positions: {r['positions']}")
-            print("Checks:")
-            for i, check in enumerate(r["checks"], 1):
-                print(f"  Check {i}:")
-                print(f"    Snippet: {check['snippet']!r}")
-                print(f"    Pronouns match: {check['pronouns_match']}")
-            print("-" * 50)
+            print(f"\nName: {r['name']}")
+            print(f"Pronouns: {r['pronouns']}")
+            print(f"Pronouns match: {r['pronouns_match']}")
+            
 
         for r in results:
-            if not all(check["pronouns_match"] for check in r["checks"]):
+            if not r['pronouns_match']:
                 notify_writer_of_mismatch(message, r, client)
 
