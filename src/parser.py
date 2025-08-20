@@ -5,17 +5,9 @@
 ###############################################################################
 
 
-import re 
-
-
-PRONOUN_GROUPS = {
-    "he": ["he", "him", "his", "himself"],
-    "she": ["she", "her", "hers", "herself"],
-    "they": ["they", "them", "their", "theirs", "themself"],
-    "xe": ["xe", "xem", "xyr", "xyrs", "xemself"],
-    "ze": ["ze", "hir", "hirs", "hirself"],
-}
-ALL_PRONOUNS = sorted({p for forms in PRONOUN_GROUPS.values() for p in forms})
+from src.nlp import PRONOUN_GROUPS
+from src.nlp import get_pronoun_mappings
+from src.llm import validate_pronouns_with_llm 
 
 
 def sanitize_content(content, mentions):
@@ -23,91 +15,86 @@ def sanitize_content(content, mentions):
 
     # Replace all name tag instances (full_match) with readable name
     for m in mentions:
-        print(m)
-        sanitized = sanitized.replace(m.full_match, m.name_identifier)
+        sanitized = sanitized.replace(m.full_match, m.name)
 
     return sanitized
 
 
-def validate_mentions_in_text(original_content, mentions):
-    # Remove name tags from content text for easier validation later
-    content = sanitize_content(original_content, mentions)
+def validate_pronouns_with_nlp(content, mentions):
+    pronoun_mappings = get_pronoun_mappings(content, mentions)
+    print(f"\n{pronoun_mappings}\n")
+
     results = []
 
     for mention in mentions:
-        # Name stored in full, so look for just first name in text
-        name = mention.first_name
-        positions = find_all_name_appearances(content, name)
-
-        # Simple check to see if pronouns occur near the name
+        clustered_pronouns = pronoun_mappings[mention.name]
+        
         pronouns = mention.pronouns
-        pronoun_checks = check_nearby_pronouns(content, pronouns, positions)
-        pronouns_display = "/".join(pronouns) if pronouns else "None"
+        any_allowed = pronouns == () or mention.any_pronouns
 
+        if any_allowed or not clustered_pronouns:
+            pronouns_match = True
+        else:
+            # All pronoun forms flattened
+            valid_pronouns = [
+                form for pronoun in pronouns 
+                for form in PRONOUN_GROUPS.get(pronoun, [])
+            ]
+
+            pronouns_match = all(p in valid_pronouns for p in clustered_pronouns)
+
+        pronouns_display = "/".join(pronouns) if pronouns else "None"
         results.append({
-            "name": name,
+            "name": mention.name,
             "pronouns": pronouns_display,
-            "positions": positions,
-            "checks": pronoun_checks
+            "pronouns_match": pronouns_match
         })
 
     return results
 
 
-def find_all_name_appearances(content, name):
-    content_lower = content.lower()
-    name_lower = name.lower()
+def validate_mentions_in_text(original_content, mentions):
+    # Remove name tags from content text, then apply NLP to extract clusters
+    content = sanitize_content(original_content, mentions)
+    nlp_results = validate_pronouns_with_nlp(content, mentions)
 
-    positions = []
-    start = 0
+    # Perform a secondary check with LLM scan
+    llm_results = validate_pronouns_with_llm(content, mentions)
 
-    while True:
-        idx = content_lower.find(name_lower, start)
-        if idx == -1:
-            break
-        positions.append(idx)
-        start = idx + len(name_lower) 
+    print("\nNLP results:")
+    print(nlp_results)
 
-    return positions
+    print("\nLLM results:")
+    print(llm_results)
 
 
-def check_nearby_pronouns(content, pronouns, positions):
-    if not positions:
-        return [{"snippet": "", "pronouns_match": True}]
-    
-    nearby_checks = []
+    # Convert list of dicts into a dict keyed by name for easy lookup
+    nlp_dict = {r["name"]: r["pronouns_match"] for r in nlp_results}
+    llm_dict = {r["name"]: r["pronouns_match"] for r in llm_results}
 
-    if pronouns:
-        pronouns_list = []
-        for p in pronouns:
-            p = p.lower()
-            pronouns_list.extend(PRONOUN_GROUPS.get(p, [p]))
-    else:
-        pronouns_list = []
+    # Conservative agreement: True only if both NLP & LLM agree
+    final_results = []
 
-    for pos in positions:
-        # 50 chars before / after
-        window_start = max(0, pos - 50)
-        window_end = min(len(content), pos + 50)
-        snippet = content[window_start:window_end].lower()
+    for mention in mentions:
+        name, pronouns = mention.name, mention.pronouns
 
-        # Extract all pronouns in snippet
-        snippet_pronouns = [p for p in ALL_PRONOUNS if re.search(rf'\b{p}\b', snippet)]
+        nlp_match = nlp_dict.get(name, False)
+        llm_match = llm_dict.get(name, False)
+        
+        # OR logic: True if either say True
+        pronouns_match_both = nlp_match or llm_match 
 
-        if not pronouns_list or "any" in pronouns_list or "indifferent" in pronouns_list:
-            pronouns_match = True
-
-        elif not snippet_pronouns:
-            pronouns_match = True 
-
-        else:
-            # Ensure pronouns in snippet match person's viable pronouns
-            pronouns_match = any(p in pronouns_list for p in snippet_pronouns)
-
-        nearby_checks.append({
-            "snippet": snippet,
-            "pronouns_match": pronouns_match
+        pronouns_display = "/".join(pronouns) if pronouns else "None"
+        final_results.append({
+            "name": name,
+            "pronouns": pronouns_display,
+            "pronouns_match": pronouns_match_both
         })
 
-    return nearby_checks
+    print("\nFinal conservative results:")
+    print(final_results)
+
+    return final_results
+
+
 

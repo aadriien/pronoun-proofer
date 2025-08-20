@@ -5,7 +5,6 @@
 ###############################################################################
 
 
-import re
 import spacy
 
 
@@ -27,6 +26,31 @@ def apply_nlp(text):
 
     doc = nlp(text)
     return doc
+
+
+def get_clusters_from_text(text):
+    doc = apply_nlp(text)
+
+    print("\n")
+    print(f"Original text input -> {text}\n")
+
+    for cluster in doc.spans:
+        print(f"{cluster}: {doc.spans[cluster]}")
+
+    # Build cluster strings
+    clusters = []
+    
+    for cluster in doc.spans:
+        cluster_strings = []
+
+        for span in doc.spans[cluster]:
+            span_text = doc[span.start : span.end].text  
+            cluster_strings.append(span_text)
+
+        if cluster_strings:
+            clusters.append(cluster_strings)
+
+    return clusters
 
 
 def map_names_to_pronouns(clusters, mentions):
@@ -57,40 +81,22 @@ def map_names_to_pronouns(clusters, mentions):
     return name_to_cluster
 
 
-def get_clusters_from_text(text):
-    doc = apply_nlp(text)
-
-    print("\n")
-    print(f"Original text input -> {text}\n")
-
-    for cluster in doc.spans:
-        print(f"{cluster}: {doc.spans[cluster]}")
-
-    # Build cluster strings
-    clusters = []
-    
-    for cluster in doc.spans:
-        cluster_strings = []
-
-        for span in doc.spans[cluster]:
-            span_text = doc[span.start : span.end].text  
-            cluster_strings.append(span_text)
-
-        if cluster_strings:
-            clusters.append(cluster_strings)
-
-    return clusters
-
-
 def get_pronoun_mappings(text, mentions):
     clusters = get_clusters_from_text(text)
     mappings = map_names_to_pronouns(clusters, mentions)
 
-    print("\nName —> Pronouns Mapping:\n")
+    print("\nCluster Name —> Pronouns Mappings:")
+    pronoun_mappings = {}
 
     for name, pronouns in mappings.items():
         print(f"{name}: {pronouns}")
 
-    return mappings
+        pronoun_mappings[name] = [
+            pronoun.lower() for pronoun in pronouns 
+            if pronoun.lower() in PRONOUNS
+        ]
+
+    return pronoun_mappings
+
 
 
