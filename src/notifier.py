@@ -37,7 +37,7 @@ def notify_writer_of_mismatch(content, result, client):
 
     content_lines = [
         f"Hi {sender_name.strip()}! I noticed your recent message may have used pronouns "
-        f"that don't match {mentioned_name}'s preferences {mentioned_pronouns}."
+        f"that don't match {mentioned_name}'s preferences ({mentioned_pronouns})."
     ]
 
     # Add link if message is from a stream

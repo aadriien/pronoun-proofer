@@ -7,43 +7,38 @@
 
 import pytest
 from src import parser
+from src import mentions
 
 # -----------------------------
 # Single pronouns
 # -----------------------------
 def test_single_pronoun_she_nearby():
     content = "Alice is coding. She is doing well."
-    mentions = [{
-        "full_match": "@**Alice Smith (she/her) (SP1'25)**",
-        "name": "Alice Smith",
-        "pronouns": "she/her"
-    }]
+    nametags = mentions.get_mentions(
+        "@**Alice Smith (she/her) (SP1'25)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
 def test_single_pronoun_he_nearby():
     content = "Bob finished the task. He did it quickly."
-    mentions = [{
-        "full_match": "@**Bob Jones (he/him) (F2'24)**",
-        "name": "Bob Jones",
-        "pronouns": "he/him"
-    }]
+    nametags = mentions.get_mentions(
+        "@**Bob Jones (he/him) (F2'24)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
 def test_single_pronoun_they_not_nearby():
     content = "Charlie said she is busy."
-    mentions = [{
-        "full_match": "@**Charlie (they/them) (Faculty)**",
-        "name": "Charlie",
-        "pronouns": "they/them"
-    }]
+    nametags = mentions.get_mentions(
+        "@**Charlie (they/them) (Faculty)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert not all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
@@ -52,39 +47,23 @@ def test_single_pronoun_they_not_nearby():
 # -----------------------------
 def test_multiple_pronouns_match():
     content = "Dana shared her notes. Elliot did his part."
-    mentions = [
-        {
-            "full_match": "@**Dana Lee (she/they) (F1'24)**", 
-            "name": "Dana Lee", 
-            "pronouns": "she/they"
-        },
-        {
-            "full_match": "@**Elliot Kim (he/they) (F2'25)**", 
-            "name": "Elliot Kim", 
-            "pronouns": "he/they"
-        }
-    ]
+    nametags = mentions.get_mentions(
+        "@**Dana Lee (she/they) (F1'24)** "
+        "@**Elliot Kim (he/they) (F2'25)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
 def test_multiple_pronouns_partial_match():
     content = "Dana used they pronouns. Elliot prefers he/him."
-    mentions = [
-        {
-            "full_match": "@**Dana Lee (she/they) (F1'24)**", 
-            "name": "Dana Lee", 
-            "pronouns": "she/they"
-        },
-        {
-            "full_match": "@**Elliot Kim (he/they) (F2'25)**", 
-            "name": "Elliot Kim", 
-            "pronouns": "he/they"
-        }
-    ]
+    nametags = mentions.get_mentions(
+        "@**Dana Lee (she/they) (F1'24)** "
+        "@**Elliot Kim (he/they) (F2'25)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
@@ -93,13 +72,11 @@ def test_multiple_pronouns_partial_match():
 # -----------------------------
 def test_no_pronouns_in_tag():
     content = "Frank is online."
-    mentions = [{
-        "full_match": "@**Frank Liu (W1'19)**", 
-        "name": "Frank Liu", 
-        "pronouns": ""
-    }]
+    nametags = mentions.get_mentions(
+        "@**Frank Liu (W1'19)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
@@ -108,37 +85,31 @@ def test_no_pronouns_in_tag():
 # -----------------------------
 def test_neopronouns_ze_zir():
     content = "Gale is working. Ze completed the task."
-    mentions = [{
-        "full_match": "@**Gale Xy (ze/zir) (S2'15)**", 
-        "name": "Gale Xy", 
-        "pronouns": "ze/zir"
-    }]
+    nametags = mentions.get_mentions(
+        "@**Gale Xy (ze/zir) (S2'15)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
 def test_neopronouns_xe_xem_no_pronouns_text():
     content = "Harper has no pronouns used nearby."
-    mentions = [{
-        "full_match": "@**Harper Q (xe/xem) (F2'20)**", 
-        "name": "Harper Q", 
-        "pronouns": "xe/xem"
-    }]
+    nametags = mentions.get_mentions(
+        "@**Harper Q (xe/xem) (F2'20)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
 def test_neopronouns_ey_em_wrong_pronouns():
     content = "Indi was writing. She wrote something."
-    mentions = [{
-        "full_match": "@**Indi Y (ey/em) (F1'25)**", 
-        "name": "Indi Y", 
-        "pronouns": "ey/em"
-    }]
+    nametags = mentions.get_mentions(
+        "@**Indi Y (ey/em) (F1'25)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert not all(check["pronouns_match"] for r in results for check in r["checks"])
 
 
@@ -147,13 +118,11 @@ def test_neopronouns_ey_em_wrong_pronouns():
 # -----------------------------
 def test_any_pronouns_matches():
     content = "Jordan is typing. He responded quickly."
-    mentions = [{
-        "full_match": "@**Jordan Z (any) (W2'15)**", 
-        "name": "Jordan Z", 
-        "pronouns": "any"
-    }]
+    nametags = mentions.get_mentions(
+        "@**Jordan Z (any) (W2'15)** "
+    )
 
-    results = parser.validate_mentions_in_text(content, mentions)
+    results = parser.validate_mentions_in_text(content, nametags)
     assert all(check["pronouns_match"] for r in results for check in r["checks"])
 
 

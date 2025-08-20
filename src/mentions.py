@@ -42,6 +42,9 @@ PRONOUNS_ANY = {
 class NameTag:
     full_match: str
     name: str
+    first_name: str
+    name_identifier: str
+    other_names: Tuple[str, ...] = field(default_factory=tuple)
     pronouns: Tuple[str, ...] = field(default_factory=tuple)
     batch_info: Tuple[str, ...] = field(default_factory=tuple)
 
@@ -66,9 +69,17 @@ class NameTag:
             else:
                 batch_info += (part.strip(),)
 
+        name_parts = base_name.strip().split()
+        first_name = name_parts[0]
+        name_identifier = "_".join(name_parts)
+        other_names = tuple(name_parts[1:]) if len(name_parts) > 1 else ()
+
         return cls(
             full_match=full_match,
             name=base_name,
+            first_name=first_name,
+            name_identifier=name_identifier,
+            other_names=other_names,
             pronouns=pronouns,
             batch_info=batch_info
         )

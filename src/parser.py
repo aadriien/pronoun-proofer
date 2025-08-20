@@ -21,11 +21,10 @@ ALL_PRONOUNS = sorted({p for forms in PRONOUN_GROUPS.values() for p in forms})
 def sanitize_content(content, mentions):
     sanitized = content
 
-    # Remove exact full name mention from content
+    # Replace all name tag instances (full_match) with readable name
     for m in mentions:
-        if m.pronouns: 
-            pronouns_pattern = "/".join(m.pronouns)
-            sanitized = re.sub(rf'\(\s*{re.escape(pronouns_pattern)}\s*\)', '', sanitized)
+        print(m)
+        sanitized = sanitized.replace(m.full_match, m.name_identifier)
 
     return sanitized
 
@@ -36,18 +35,18 @@ def validate_mentions_in_text(original_content, mentions):
     results = []
 
     for mention in mentions:
-        # Name stored in full, so extract only first name to find in text
-        full_name = mention.name.strip().split()
-        name = full_name[0]
+        # Name stored in full, so look for just first name in text
+        name = mention.first_name
         positions = find_all_name_appearances(content, name)
 
         # Simple check to see if pronouns occur near the name
         pronouns = mention.pronouns
         pronoun_checks = check_nearby_pronouns(content, pronouns, positions)
+        pronouns_display = "/".join(pronouns) if pronouns else "None"
 
         results.append({
             "name": name,
-            "pronouns": pronouns,
+            "pronouns": pronouns_display,
             "positions": positions,
             "checks": pronoun_checks
         })
