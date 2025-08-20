@@ -43,11 +43,21 @@ if __name__ == "__main__":
     # print(message["content"])
     # print("\n")
 
-    message["content"] += " testing with @**Adrien Lynch (he/they) (S2'25)**"
-    message["content"] += " testing she pronouns for Adrien to see her outcome"
+    # message["content"] += " testing with @**Adrien Lynch (he/they) (S2'25)**"
+    # message["content"] += " testing she pronouns for Adrien to see her outcome"
 
-    message["content"] += " now testing with @**Test Person (she/ze) (W1'17)**"
-    message["content"] += " now testing he pronouns for Test to see their outcome"
+    # message["content"] += " now testing with @**Test Person (she/ze) (W1'17)**"
+    # message["content"] += " now testing he pronouns for Test to see their outcome"
+
+
+    message["content"] += (
+        "\n\n"
+        "I met with with @**Adrien Lynch (he/they) (S2'25)** today. "
+        "They showed me what they were working on. "
+        "Adrien's work is really cool. I love seeing his projects. "
+        "I also worked with @**Test Person (she/ze) (W1'17)**. "
+        "Test has so many cool ideas in his mind. Ze are the best."
+    )
 
     print(message["content"])
     print("\n")

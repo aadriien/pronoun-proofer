@@ -14,11 +14,11 @@ def apply_nlp(text):
     # Use fine-tuned model that recognizes neopronouns!
     base = Path(__file__).resolve().parent.parent   # project root
     # nlp = spacy.load(base / "coref" / "training" / "coref")
-    
-    nlp = spacy.load(base / "coref" / "training" / "finetune_cluster" / "model-best")
+
+    # nlp = spacy.load(base / "coref" / "training" / "finetune_cluster" / "model-best")
     
     # Fallback to original model if fine-tuned model not found
-    # nlp = spacy.load("en_coreference_web_trf")
+    nlp = spacy.load("en_coreference_web_trf")
 
     doc = nlp(text)
 
@@ -74,12 +74,51 @@ if __name__ == "__main__":
     #     "The two of them had a good time together."
     # )
 
+    # text = (
+    #     "John met Sarah at the cafe. He ordered coffee, and ze chose tea. "
+    #     "Sarah's tea was very hot, but ze enjoyed zir tea. "
+    #     "Sarah thanked him. Later, John waved at zir as he left. "
+    #     "The two of them had a good time together."
+    # )
+
+    # text = (
+    #     "I met with with @**John Smith (he/they) (S2'25)** today. "
+    #     "He showed me what he was working on."
+    # )
+
+    # text = (
+    #     "I met with with @**John Smith (he/they) (S2'25)** today. "
+    #     "They showed me what they were working on."
+    # )
+
     text = (
-        "John met Sarah at the cafe. He ordered coffee, and ze chose tea. "
-        "Sarah's tea was very hot, but ze enjoyed zir tea. "
-        "Sarah thanked him. Later, John waved at zir as he left. "
-        "The two of them had a good time together."
+        "I met with with @**Viola He (they) (S2'25)** today. "
+        "They showed me what they were working on. "
+        "Viola's work is really cool. I love seeing their projects."
+        "I also worked with @**K Lauria (he) (S2'25)**. "
+        "His ideas were great. Lauria has so many cool ideas."
     )
+
+    # text = (
+    #     "I paired with with @**Alex Lee (he) (S2'25)** today. "
+    #     "Alex showed me his code, and I enjoyed working with him. "
+    #     "@**Alex Brown (she) (S2'25)** joined us later on. "
+    #     "She shared a bunch of ideas."
+    # )
+
+    # text = (
+    #     "I paired with with Alex Lee today. "
+    #     "Alex showed me his code, and I enjoyed working with him. "
+    #     "Alex Brown joined us later on. "
+    #     "She shared a bunch of ideas."
+    # )
+
+    # text = (
+    #     "I paired with with Alex_Lee today. "
+    #     "Alex showed me his code, and I enjoyed working with him. "
+    #     "Alex_Brown (she/her, S2'25) joined us later on. "
+    #     "She shared a bunch of ideas."
+    # )
 
     # text = (
     #     "The group had fun. They discussed many things."
