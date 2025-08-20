@@ -93,3 +93,60 @@ def get_mentions(content: str):
     return [NameTag.from_match(m) for m in MENTION_PATTERN.finditer(content)]
 
 
+
+
+
+###############################################################################
+##  PROPERTY NOTES                                                           ##
+##                                                                           ##
+##  Assumption x Behavior x Rationale                                        ##
+###############################################################################
+
+# Assumption: 
+#   - message mentions single person (known pronouns)
+#   - person referenced later in message
+# Behavior: 
+#   - bot can create Mention class instance (from name + pronouns)
+
+
+# Assumption: 
+#   - we have data structures with all pieces
+#   - correct pronouns
+# Behavior: 
+#   - do nothing! :D
+
+# Assumption: 
+#   - we have data structures with all pieces
+#   - mismatch of pronouns
+# Behavior: 
+#   - do something! :D
+#   - indicate mismatch as response
+#   - action steps triggered by mismatch 
+
+
+### DATA STRUCTURES ###
+
+# Sum type? Can reference by name, any viable pronouns
+#   - also sum type: reference by first name? last name? full name?
+#   - also sum type: reference by one pronoun? many?
+
+
+# viola he (they) (...)
+#   - entity / identity: "viola he"
+#   - reference: they
+# Expected Behavior: nothing
+
+# viola he (they) (...)
+#   - entity / identity: "viola he"
+#   - reference: they
+# Expected Behavior: nothing
+
+# viola he (they) (...)
+#   - entity / identity: "viola he"
+#   - reference: he
+# Expected Behavior: something (mismatch response data)
+
+
+# Note for future: revisit Lauria as TC for last name edge case
+
+
