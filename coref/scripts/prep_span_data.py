@@ -147,10 +147,25 @@ for i, gold_doc in enumerate(tqdm.tqdm(docs)):
                 # Find the shortest enclosing span if exists
                 target_span = find_target_span(head, ex)
                 if target_span:
+                    # Ensure span boundaries are within valid ranges for the span resolver
+                    # The span resolver expects end indices to be < doc length for categorical encoding
+                    if target_span.end > len(new_doc):
+                        print(f"Warning: Skipping span with end {target_span.end} > doc length {len(new_doc)}")
+                        continue
+                    if target_span.end == len(new_doc):
+                        # Adjust spans that end exactly at document boundary
+                        print(f"Warning: Adjusting span ending at doc boundary from {target_span.end} to {target_span.end-1}")
+                        target_span_end = target_span.end - 1
+                        if target_span_end <= target_span.start:
+                            print(f"Warning: Skipping span with invalid bounds after adjustment")
+                            continue
+                    else:
+                        target_span_end = target_span.end
+                    
                     kept_heads += 1
                     new_head_spangroup.append(new_doc[head.start : head.end])
                     new_span_spangroup.append(
-                        new_doc[target_span.start : target_span.end]
+                        new_doc[target_span.start : target_span_end]
                     )
             else:
                 duplicate_heads += 1
