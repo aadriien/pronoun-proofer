@@ -2,3 +2,5 @@ requests
 python-dotenv
 zulip
 pytest
+spacy>=3.4.0
+https://github.com/explosion/spacy-models/releases/download/en_coreference_web_trf-3.4.0a2/en_coreference_web_trf-3.4.0a2-py3-none-any.whl

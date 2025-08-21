@@ -20,9 +20,12 @@ PRONOUN_GROUPS = {
 }
 PRONOUNS = sorted({p for forms in PRONOUN_GROUPS.values() for p in forms})
 
+# Use installed spaCy coreference model
+MODEL_NAME = "en_coreference_web_trf"
+
 
 def apply_nlp(text):
-    nlp = spacy.load("en_coreference_web_trf")
+    nlp = spacy.load(MODEL_NAME)
 
     doc = nlp(text)
     return doc
