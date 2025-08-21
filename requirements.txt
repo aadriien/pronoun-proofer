@@ -1,10 +1,12 @@
+# Core Python scripts
 requests
 python-dotenv
 zulip
 pytest
-torch>=2.8.0,<2.9.0
-transformers>=4.55.2,<5.0.0
-spacy>=3.4.0,<4.0.0
-spacy-experimental>=0.6.0,<0.7.0
-spacy-transformers>=1.1.6,<1.2.0
+
+# spaCy stack with flexible versions for pre-built wheels
+spacy[transformers]>=3.4.0
+spacy-experimental>=0.6.0
+
+# Pre-built model wheels
 en_coreference_web_trf @ https://github.com/explosion/spacy-experimental/releases/download/v0.6.1/en_coreference_web_trf-3.4.0a2-py3-none-any.whl
