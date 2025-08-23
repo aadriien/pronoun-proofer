@@ -2,16 +2,18 @@ requests
 python-dotenv
 zulip
 
-# Railway Linux compatible versions
-numpy==1.24.3
-thinc==8.1.12
+# Core spaCy dependencies for Railway Linux
 spacy==3.4.4
-spacy-legacy==3.0.10
-spacy-loggers==1.0.3
 spacy-transformers==1.1.9
 spacy-experimental==0.6.1
-pydantic==1.10.12
-typing-extensions==4.7.1
 
-# Models
+# Coreference model
 https://github.com/explosion/spacy-experimental/releases/download/v0.6.1/en_coreference_web_trf-3.4.0a2-py3-none-any.whl
+
+# Remove potentially unnecessary pinned versions:
+# numpy==1.24.3  # Will be installed by spacy-transformers if needed
+# thinc==8.1.12  # Will be installed by spacy if needed  
+# spacy-legacy==3.0.10  # Will be installed by spacy if needed
+# spacy-loggers==1.0.3  # Will be installed by spacy if needed
+# pydantic==1.10.12  # May not be needed, or newer version is fine
+# typing-extensions==4.7.1  # Python 3.11 has most of this built-in
