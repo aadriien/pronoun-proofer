@@ -1,8 +1,6 @@
 requests
 python-dotenv
 zulip
-pytest
-flask==3.0.3
 
 # Railway Linux compatible versions
 numpy==1.24.3
