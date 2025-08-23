@@ -1,47 +1,64 @@
-FROM python:3.11.5-slim
+# Multi-stage build with ultra-minimal final image
 
-WORKDIR /app
+# Stage 1: Build dependencies
+FROM python:3.11.5-slim as builder
 
-# Install system dependencies and clean up in one layer
+WORKDIR /build
+
+# Install build dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
+# Install dependencies to a specific directory
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt \
-    && pip cache purge \
-    # Remove the biggest space wasters immediately after install
-    && find /usr/local/lib/python3.11/site-packages -name "*.pyc" -delete \
-    && find /usr/local/lib/python3.11/site-packages -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true \
-    # Remove torch development files (biggest offender)
-    && rm -rf /usr/local/lib/python3.11/site-packages/torch/include \
-    && rm -rf /usr/local/lib/python3.11/site-packages/torch/share \
-    && rm -rf /usr/local/lib/python3.11/site-packages/torch/test \
-    # Remove numpy tests and docs
-    && rm -rf /usr/local/lib/python3.11/site-packages/numpy/tests \
-    && rm -rf /usr/local/lib/python3.11/site-packages/numpy/doc \
-    # Remove all test directories
-    && find /usr/local/lib/python3.11/site-packages -name "tests" -type d -exec rm -rf {} + 2>/dev/null || true \
-    && find /usr/local/lib/python3.11/site-packages -name "test" -type d -exec rm -rf {} + 2>/dev/null || true \
-    # Remove documentation
-    && find /usr/local/lib/python3.11/site-packages -name "*.md" -delete \
-    && find /usr/local/lib/python3.11/site-packages -name "*.rst" -delete \
-    && find /usr/local/lib/python3.11/site-packages -name "*.txt" -delete \
-    # Remove package metadata
-    && find /usr/local/lib/python3.11/site-packages -name "*.dist-info" -type d -exec rm -rf {} + 2>/dev/null || true \
-    && find /usr/local/lib/python3.11/site-packages -name "*.egg-info" -type d -exec rm -rf {} + 2>/dev/null || true
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir --target=/build/deps -r requirements.txt && \
+    # Ultra-aggressive cleanup to save space
+    find /build/deps -name "*.pyc" -delete && \
+    find /build/deps -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "tests" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "test" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "*.dist-info" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "*.egg-info" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "*.so" -exec strip {} \; 2>/dev/null || true && \
+    # Remove documentation and examples
+    find /build/deps -name "docs" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "doc" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "examples" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "example" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "*.md" -delete && \
+    find /build/deps -name "*.rst" -delete && \
+    find /build/deps -name "*.txt" -delete && \
+    # Remove unused torch/transformers components (keeping only what's needed)
+    find /build/deps -name "torch/include" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "torch/share" -type d -exec rm -rf {} + 2>/dev/null || true && \
+    find /build/deps -name "transformers/models" -type d -exec find {} -name "*.bin" -delete \; 2>/dev/null || true && \
+    # Remove pytest since it's not needed in production
+    rm -rf /build/deps/pytest* /build/deps/_pytest* /build/deps/pluggy* 2>/dev/null || true && \
+    # Remove flask since you're not running a web server
+    rm -rf /build/deps/flask* /build/deps/werkzeug* /build/deps/jinja2* /build/deps/click* /build/deps/itsdangerous* 2>/dev/null || true && \
+    # Remove large numpy components not needed
+    find /build/deps/numpy -name "*.so" -exec strip {} \; 2>/dev/null || true && \
+    rm -rf /build/deps/numpy/tests /build/deps/numpy/doc 2>/dev/null || true
 
-# Copy only essential application code
+# Stage 2: Ultra-minimal runtime
+FROM gcr.io/distroless/python3-debian11
+
+WORKDIR /app
+
+# Copy Python packages
+COPY --from=builder /build/deps /usr/local/lib/python3.11/site-packages
+
+# Copy application code
 COPY bot.py .
 COPY src/ ./src/
 
-# Set environment variables
+# Set Python path
+ENV PYTHONPATH=/app:/usr/local/lib/python3.11/site-packages
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 
-EXPOSE ${PORT:-8000}
-
+# Distroless images don't have shell, so use exec form
 CMD ["python", "bot.py"]
