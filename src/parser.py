@@ -81,11 +81,19 @@ def validate_mentions_in_text(original_content, mentions):
     for mention in mentions:
         name, pronouns = mention.name, mention.pronouns
 
+        # Check if name was processed by either NLP or LLM
+        nlp_processed = name in nlp_dict
+        llm_processed = name in llm_dict
+        
         nlp_match = nlp_dict.get(name, False)
         llm_match = llm_dict.get(name, False)
         
-        # OR logic: True if either say True
-        pronouns_match_both = nlp_match or llm_match 
+        # If neither NLP nor LLM processed this name, default to True (no pronouns used)
+        if not nlp_processed and not llm_processed:
+            pronouns_match_both = True
+        else:
+            # OR logic: True if either say True
+            pronouns_match_both = nlp_match or llm_match
 
         pronouns_display = "/".join(pronouns) if pronouns else "None"
         final_results.append({
