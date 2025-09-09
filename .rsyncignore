@@ -1,0 +1,11 @@
+coref
+Dockerfile
+Procfile
+build-optimized.sh
+runtime.txt
+.git
+.venv
+.venv-test
+.DS_Store
+.dockerignore
+
