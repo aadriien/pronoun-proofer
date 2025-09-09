@@ -2,15 +2,15 @@
 
 POETRY = poetry
 VENV_DIR = .venv
-PYTHON_VERSION = python3.10
+PYTHON_VERSION = python3
 
-.PHONY: setup run tests format clean 
+.PHONY: setup run tests format clean run_heap_cluster 
 
 all: setup run 
 
 # Install Poetry dependencies & set up venv
 setup:
-	@which poetry > /dev/null || (echo "Poetry not found. Installing..."; curl -sSL https://install.python-poetry.org | python3 -)
+	@which poetry > /dev/null || (echo "Poetry not found. Installing..."; curl -sSL https://install.python-poetry.org | $(PYTHON_VERSION) -)
 	@$(POETRY) config virtualenvs.in-project true  # Ensure virtualenv is inside project folder
 	@if [ ! -d "$(VENV_DIR)" ]; then \
 		echo "Virtual environment not found. Creating..."; \
@@ -39,3 +39,10 @@ clean:
 	@echo "Removing virtual environment..."
 	@rm -rf .venv
 
+
+# Run on heap cluster with pyenv Python 3.10
+run_heap_cluster:
+	@export PYENV_ROOT="$$HOME/.pyenv" && \
+	export PATH="$$PYENV_ROOT/bin:$$PATH:~/bin" && \
+	eval "$$(pyenv init - bash)" && \
+	$(POETRY) run python bot.py
