@@ -27,6 +27,9 @@ def validate_pronouns_with_nlp(content, mentions):
     results = []
 
     for mention in mentions:
+        if not mention.name in pronoun_mappings:
+            continue
+        
         clustered_pronouns = pronoun_mappings[mention.name]
         
         pronouns = mention.pronouns

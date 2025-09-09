@@ -6,6 +6,7 @@
 
 
 import requests
+import time
 
 
 BASE_URL = "https://text.pollinations.ai/"
@@ -17,24 +18,45 @@ PARAMS = {
 }
 
 
-def prompt_llm_via_api(prompt):
-    try:
-        # Use POST instead of GET for more reliability & security
-        response = requests.post(
-            BASE_URL, 
-            json={
-                "messages": [
-                    {"role": "user", "content": prompt}
-                ], 
-                **PARAMS
-            }, 
-            timeout=10
-        )
-        response.raise_for_status()
-        return response.text.strip()
+def prompt_llm_via_api(prompt, max_retries=3):
+    # Call LLM API with retry logic for resilience
+    for attempt in range(max_retries):
+        try:
+            # Use POST instead of GET for more reliability & security
+            response = requests.post(
+                BASE_URL, 
+                json={
+                    "messages": [
+                        {"role": "user", "content": prompt}
+                    ], 
+                    **PARAMS
+                }, 
+                timeout=15
+            )
+            response.raise_for_status()
+            return response.text.strip()
 
-    except requests.RequestException as e:
-        raise RuntimeError(f"Error, failed to reach URL: {e}")
+        except requests.exceptions.Timeout as e:
+            if attempt == max_retries - 1:
+                raise RuntimeError(f"LLM API timeout after {max_retries} attempts: {e}")
+            time.sleep(2 ** attempt)  # Exponential backoff
+            continue
+            
+        except requests.exceptions.ConnectionError as e:
+            if attempt == max_retries - 1:
+                raise RuntimeError(f"LLM API connection failed after {max_retries} attempts: {e}")
+            time.sleep(2 ** attempt)
+            continue
+            
+        except requests.exceptions.HTTPError as e:
+            # Don't retry HTTP errors (4xx/5xx)
+            raise RuntimeError(f"LLM API HTTP error {response.status_code}: {e}")
+            
+        except requests.RequestException as e:
+            if attempt == max_retries - 1:
+                raise RuntimeError(f"LLM API request failed after {max_retries} attempts: {e}")
+            time.sleep(2 ** attempt)
+            continue
 
 
 def validate_pronouns_with_llm(content, mentions):
