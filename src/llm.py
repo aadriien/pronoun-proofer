@@ -31,7 +31,7 @@ def prompt_llm_via_api(prompt, max_retries=3):
                     ], 
                     **PARAMS
                 }, 
-                timeout=15
+                timeout=45
             )
             response.raise_for_status()
             return response.text.strip()

@@ -1,6 +1,6 @@
 # Pronoun Proofer Zulip Bot
 
-POETRY = poetry
+POETRY ?= poetry
 VENV_DIR = .venv
 PYTHON_VERSION = python3
 
