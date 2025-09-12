@@ -5,273 +5,187 @@
 ###############################################################################
 
 
-import spacy
-from spacy.tokens import DocBin
-from spacy.training import Example
-import random
 import warnings
+warnings.filterwarnings("ignore")
+
+import spacy
+from spacy.training import Example
 import json
-import sys
+import random
+from datetime import datetime
 import os
 
 
-# Add parent directory to path for imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Suppress torch CUDA warnings
-warnings.filterwarnings("ignore", message=".*torch.cuda.amp.autocast.*")
-import tempfile
-import os
-from pathlib import Path
-
-
-# Use same model name from src/nlp.py
-MODEL_NAME = "en_coreference_web_trf"
-
-# Pronoun groups from existing src/nlp.py
-PRONOUN_GROUPS = {
-    "he": ["he", "him", "his", "himself"],
-    "she": ["she", "her", "hers", "herself"],
-    "they": ["they", "them", "their", "theirs", "themself"],
-    "it": ["it", "its", "itself"],
-    "xe": ["xe", "xem", "xir", "xyr", "xirs", "xyrs", "xemself"],
-    "ze": ["ze", "zir", "hir", "zirs", "hirs", "zirself", "hirself"],
-    "fae": ["fae", "faer", "faers", "faerself"],
-    "ey": ["ey", "em", "eir", "eirs", "emself"],
-}
-
-
-def load_base_model():
-    # Load the base coreference model and test it works
-    print(f"Loading base model: {MODEL_NAME}")
-    try:
-        nlp = spacy.load(MODEL_NAME)
-        print(f"Successfully loaded {MODEL_NAME}")
-        return nlp
-    except OSError as e:
-        print(f"Error loading model: {e}")
-        return None
-
-
-def test_model_with_example(nlp):
-    # Simple test text with clear coreference
-    test_text = (
-        "John went to the store. He bought some groceries. "
-        "Sarah called John later. She asked him about dinner plans."
-    )
-    
-    print("\n" + "="*60)
-    print("TESTING BASE MODEL")
-    print("="*60)
-    print(f"Input text: {test_text}")
-    print("\n")
-    
-    # Process text
-    doc = nlp(test_text)
-    
-    # Print coreference clusters
-    if doc.spans:
-        print("Coreference clusters found:")
-        for cluster_key in doc.spans:
-            spans = doc.spans[cluster_key]
-            cluster_texts = [span.text for span in spans]
-            print(f"  {cluster_key}: {cluster_texts}")
-    else:
-        print("No coreference clusters found")
-    
-    return doc
-
-
-def load_training_data(filename):
-    # Load training data from JSON file
-    filepath = os.path.join(os.path.dirname(__file__), 'training-data', filename)
+def load_training_data():
+    # Load training examples from JSON file
+    filepath = os.path.join(os.path.dirname(__file__), 'training-data', 'they-them.json')
     with open(filepath, 'r') as f:
         return json.load(f)
 
 
-def save_model_version(nlp, version_name):
-    # Save model to versioned directory
-    models_dir = os.path.join(os.path.dirname(__file__), 'models')
-    os.makedirs(models_dir, exist_ok=True)
+def create_training_examples(nlp, training_data):
+    # Convert JSON data to spaCy training examples
+    examples = []
+    debug_count = 0
     
-    model_path = os.path.join(models_dir, version_name)
-    nlp.to_disk(model_path)
-    print(f"Model saved to: {model_path}")
-    return model_path
+    for item in training_data:
+        text = item['text']
+        clusters = item['clusters']
+        
+        # Create doc
+        doc = nlp.make_doc(text)
+        
+        # Create span annotations for coreference
+        spans = {}
+        for i, cluster in enumerate(clusters):
+            span_positions = []
+            
+            # Find token positions for each mention in cluster
+            for mention in cluster:
+                mention_lower = mention.lower().strip()
+                found = False
+                
+                # Try exact token matching first
+                for j, token in enumerate(doc):
+                    if token.lower_ == mention_lower:
+                        span_positions.append((j, j + 1))
+                        found = True
+                        break  # Only find first occurrence to avoid duplicates
+                
+                # Try multi-token matching for phrases if not found
+                if not found:
+                    for start_idx in range(len(doc)):
+                        for end_idx in range(start_idx + 1, min(start_idx + 4, len(doc) + 1)):
+                            span_text = ' '.join([t.lower_ for t in doc[start_idx:end_idx]])
+                            if span_text == mention_lower:
+                                span_positions.append((start_idx, end_idx))
+                                found = True
+                                break
+                        if found:
+                            break
+            
+            if span_positions:
+                spans[f"coref_clusters_{i+1}"] = span_positions
+        
+        # Only add examples that have spans
+        if spans:
+            annotations = {"spans": spans}
+            example = Example.from_dict(doc, annotations)
+            examples.append(example)
+            
+            # Debug first few examples
+            if debug_count < 3:
+                print(f"  Debug example {debug_count + 1}: '{text}'")
+                print(f"    Clusters: {clusters}")
+                print(f"    Spans: {spans}")
+                debug_count += 1
+        else:
+            # Debug why no spans were found
+            if debug_count < 3:
+                print(f"  No spans found for: '{text}'")
+                print(f"    Tokens: {[t.text for t in doc]}")
+                print(f"    Clusters: {clusters}")
+    
+    return examples
 
-
-def load_model_version(version_name):
-    # Load model from versioned directory
-    model_path = os.path.join(os.path.dirname(__file__), 'models', version_name)
-    if os.path.exists(model_path):
+def get_latest_model():
+    # Find latest fine-tuned model to continue training from
+    models_dir = "models"
+    if not os.path.exists(models_dir):
+        return None
+    
+    model_dirs = [d for d in os.listdir(models_dir) 
+                  if os.path.isdir(os.path.join(models_dir, d)) 
+                  and d.startswith("fine_tuned_")]
+    
+    if not model_dirs:
+        return None
+    
+    # Sort by timestamp in filename
+    latest_model = sorted(model_dirs)[-1]
+    model_path = os.path.join(models_dir, latest_model)
+    
+    try:
         nlp = spacy.load(model_path)
-        print(f"Model loaded from: {model_path}")
+        print(f"Continuing from latest model: {latest_model}")
         return nlp
-    else:
-        print(f"Model version {version_name} not found")
+    except:
+        print(f"Failed to load {latest_model}, starting from base model")
         return None
 
 
-def list_model_versions():
-    # List available model versions
-    models_dir = os.path.join(os.path.dirname(__file__), 'models')
-    if os.path.exists(models_dir):
-        versions = [d for d in os.listdir(models_dir) if os.path.isdir(os.path.join(models_dir, d))]
-        return sorted(versions)
-    return []
-
-
-def create_coref_annotations(text, clusters):
-    # Create span annotations for coreference clusters
-    # clusters format: [["Alex", "they"], ["Jordan", "xe", "xir"]]
-
-    spans = {}
-    cluster_id = 1
-    
-    for cluster in clusters:
-        span_list = []
-        for mention in cluster:
-            # Find all occurrences of this mention in text (case insensitive)
-            text_lower = text.lower()
-            mention_lower = mention.lower()
-            start = 0
-            
-            while True:
-                pos = text_lower.find(mention_lower, start)
-                if pos == -1:
-                    break
-                    
-                # Check word boundaries to avoid partial matches
-                if (pos == 0 or not text[pos-1].isalnum()) and \
-                   (pos + len(mention) == len(text) or not text[pos + len(mention)].isalnum()):
-                    span_list.append((pos, pos + len(mention)))
-                
-                start = pos + 1
-        
-        if span_list:
-            spans[f"coref_clusters_{cluster_id}"] = span_list
-            cluster_id += 1
-    
-    return {"spans": spans}
-
-
-def simple_fine_tune(nlp, training_examples, iterations=1, learning_rate=0.001):
-    # Simple fine-tuning with span-annotated examples
-    # training_examples format: [{"text": "...", "clusters": [["name", "pronoun"]]}]
-    
-    print(f"Starting fine-tuning with {len(training_examples)} examples")
-    print(f"Learning rate: {learning_rate}, Iterations: {iterations}")
-    
-    # Create optimizer with lower learning rate
-    optimizer = nlp.create_optimizer()
-    optimizer.learn_rate = learning_rate
-    
-    for i in range(iterations):
-        print(f"Training iteration {i+1}/{iterations}")
-        
-        for example_data in training_examples:
-            text = example_data["text"]
-            clusters = example_data.get("clusters", [])
-            
-            # Create span annotations
-            annotations = create_coref_annotations(text, clusters)
-            
-            # Create training example with annotations
-            doc = nlp.make_doc(text)
-            example = Example.from_dict(doc, annotations)
-            
-            # Update model
-            nlp.update([example], sgd=optimizer)
-    
-    print("Fine-tuning complete")
-    return nlp
-
-
-def test_before_after(original_nlp, updated_nlp, test_text):
-    # Compare model performance before and after fine-tuning
-    print(f"\nTesting: {test_text}")
-    
-    print("\nBEFORE fine-tuning:")
-    doc_before = original_nlp(test_text)
-    if doc_before.spans:
-        for cluster_key in doc_before.spans:
-            spans = doc_before.spans[cluster_key]
-            print(f"  {cluster_key}: {[span.text for span in spans]}")
-    else:
-        print("  No clusters found")
-    
-    print("\nAFTER fine-tuning:")
-    doc_after = updated_nlp(test_text)
-    if doc_after.spans:
-        for cluster_key in doc_after.spans:
-            spans = doc_after.spans[cluster_key]
-            print(f"  {cluster_key}: {[span.text for span in spans]}")
-    else:
-        print("  No clusters found")
-
-
-
 def main():
-    print("Starting spaCy coreference model fine-tuning setup...")
+    print("Loading base model...")
+    nlp = spacy.load("en_coreference_web_trf")
     
-    # Step 1: Load base model
-    nlp = load_base_model()
-    if nlp is None:
-        print("Cannot proceed without base model. Exiting.")
-        return
-    
-    # Step 2: Test with example
-    doc = test_model_with_example(nlp)
-    
-    # Step 3: Test simple fine-tuning
-    print("\n" + "="*60)
-    print("TESTING SIMPLE FINE-TUNING")
-    print("="*60)
-    
-    # Load training data from JSON file
-    training_examples = load_training_data('they-them.json')
-    
-    test_text = "Blake is a talented artist. They create sculptures from recycled materials."
-    
-    # Show existing model versions & decide which to use
-    existing_versions = list_model_versions()
-    
-    # Option to continue from latest model or start fresh
-    use_latest = True  # Set to False to always start from base model
-    
-    if use_latest and existing_versions:
-        latest_version = existing_versions[-1]
-        print(f"Continuing from latest model: {latest_version}")
-        print(f"Other versions available: {existing_versions[:-1]}")
-        
-        # Load latest model to continue training
-        nlp_to_train = load_model_version(latest_version)
-        if nlp_to_train is None:
-            print("Failed to load latest model, using base model")
-            nlp_to_train = nlp
+    # Test base model first
+    test_text = "Alex told me that they prefer working from home."
+    print(f"\nTesting base model on: '{test_text}'")
+    doc = nlp(test_text)
+    if doc.spans:
+        print(f"Base model found: {[(k, [s.text for s in spans]) for k, spans in doc.spans.items()]}")
     else:
-        print("Starting fresh from base model")
-        nlp_to_train = nlp
+        print("Base model found no clusters")
     
-    # Keep original model for comparison
-    original_nlp = spacy.load(MODEL_NAME)
+    # Create ONE simple training example manually
+    doc = nlp.make_doc(test_text)
+    spans = {"coref_clusters_1": [(0, 1), (4, 5)]}  # Alex -> they
+    annotations = {"spans": spans}
+    example = Example.from_dict(doc, annotations)
     
-    # Fine-tune with many more iterations & lower learning rate
-    updated_nlp = simple_fine_tune(nlp_to_train, training_examples, iterations=300, learning_rate=0.0001)
+    print(f"\nCreated manual example with spans: {spans}")
     
-    # Save updated model with timestamp
-    import datetime
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    version_name = f"they_them_{timestamp}"
-    save_model_version(updated_nlp, version_name)
+    # Minimal training with aggressive learning
+    print("Starting minimal training...")
+    optimizer = nlp.resume_training()
     
-    # Compare results
-    test_before_after(original_nlp, updated_nlp, test_text)
+    # Try much higher learning rate
+    try:
+        optimizer.learn_rate = 1e-2  # Much higher
+        print(f"Set learning rate to: {optimizer.learn_rate}")
+    except:
+        print("Could not set learning rate")
     
-    print("\n" + "="*60)
-    print("FINE-TUNING TEST COMPLETE")
-    print("="*60)
-    print("Ready for experimentation with different training examples")
+    # Try training on WRONG data to see if we can break it
+    wrong_doc = nlp.make_doc("The cat sat on the mat")
+    wrong_spans = {"coref_clusters_1": [(0, 1), (2, 3)]}  # cat -> sat (wrong!)
+    wrong_annotations = {"spans": wrong_spans}
+    wrong_example = Example.from_dict(wrong_doc, wrong_annotations)
+    
+    print("\nTrying to break model with wrong training data...")
+    for i in range(20):  # Many iterations of wrong data
+        losses = {}
+        try:
+            nlp.update([wrong_example], sgd=optimizer, losses=losses)
+            if i < 5 or i % 5 == 0:
+                print(f"Iteration {i+1}: losses = {losses}")
+                
+        except Exception as e:
+            print(f"Error in iteration {i+1}: {e}")
+    
+    # Now test if anything changed
+    print(f"\nTesting after corrupting training:")
+    for test in ["The cat sat on the mat", "Alex told me that they work"]:
+        doc_test = nlp(test)
+        if doc_test.spans:
+            print(f"'{test}' -> {[(k, [s.text for s in spans]) for k, spans in doc_test.spans.items()]}")
+        else:
+            print(f"'{test}' -> No clusters")
+    
+    # Test after training
+    print(f"\nTesting after training:")
+    doc_after = nlp(test_text)
+    if doc_after.spans:
+        print(f"After training found: {[(k, [s.text for s in spans]) for k, spans in doc_after.spans.items()]}")
+    else:
+        print("After training found no clusters")
+    
+    # Save & test different sentence
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    model_path = f"models/minimal_{timestamp}"
+    os.makedirs("models", exist_ok=True)
+    nlp.to_disk(model_path)
+    print(f"\nModel saved to: {model_path}")
 
 
 if __name__ == "__main__":
