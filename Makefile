@@ -4,7 +4,7 @@ POETRY ?= poetry
 VENV_DIR = .venv
 PYTHON_VERSION = python3
 
-.PHONY: setup run tests format clean run_heap_cluster 
+.PHONY: setup run tests format clean run_heap_cluster fine_tune_model 
 
 all: setup run 
 
@@ -46,3 +46,7 @@ run_heap_cluster:
 	export PATH="$$PYENV_ROOT/bin:$$PATH:~/bin" && \
 	eval "$$(pyenv init - bash)" && \
 	$(POETRY) run python bot.py
+
+
+fine_tune_model:
+	@$(POETRY) run python src/fine_tune_model.py
