@@ -155,13 +155,16 @@ def create_coref_annotations(text, clusters):
     return {"spans": spans}
 
 
-def simple_fine_tune(nlp, training_examples, iterations=1):
+def simple_fine_tune(nlp, training_examples, iterations=1, learning_rate=0.001):
     # Simple fine-tuning with span-annotated examples
     # training_examples format: [{"text": "...", "clusters": [["name", "pronoun"]]}]
     
     print(f"Starting fine-tuning with {len(training_examples)} examples")
+    print(f"Learning rate: {learning_rate}, Iterations: {iterations}")
     
+    # Create optimizer with lower learning rate
     optimizer = nlp.create_optimizer()
+    optimizer.learn_rate = learning_rate
     
     for i in range(iterations):
         print(f"Training iteration {i+1}/{iterations}")
@@ -230,16 +233,31 @@ def main():
     
     test_text = "Blake is a talented artist. They create sculptures from recycled materials."
     
-    # Show existing model versions
+    # Show existing model versions & decide which to use
     existing_versions = list_model_versions()
-    if existing_versions:
-        print(f"Existing model versions: {existing_versions}")
     
-    # Make copy of original model for comparison
+    # Option to continue from latest model or start fresh
+    use_latest = True  # Set to False to always start from base model
+    
+    if use_latest and existing_versions:
+        latest_version = existing_versions[-1]
+        print(f"Continuing from latest model: {latest_version}")
+        print(f"Other versions available: {existing_versions[:-1]}")
+        
+        # Load latest model to continue training
+        nlp_to_train = load_model_version(latest_version)
+        if nlp_to_train is None:
+            print("Failed to load latest model, using base model")
+            nlp_to_train = nlp
+    else:
+        print("Starting fresh from base model")
+        nlp_to_train = nlp
+    
+    # Keep original model for comparison
     original_nlp = spacy.load(MODEL_NAME)
     
-    # Fine-tune with significantly more iterations to see results
-    updated_nlp = simple_fine_tune(nlp, training_examples, iterations=50)
+    # Fine-tune with many more iterations & lower learning rate
+    updated_nlp = simple_fine_tune(nlp_to_train, training_examples, iterations=300, learning_rate=0.0001)
     
     # Save updated model with timestamp
     import datetime

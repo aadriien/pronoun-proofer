@@ -34,57 +34,257 @@
     {
         "text": "Quinn loves reading. They finish two books per week.",
         "clusters": [["Quinn", "They"]]
-  },
-  {
-    "text": "Devon plays soccer. They practice every afternoon.",
-    "clusters": [["Devon", "They"]]
-  },
-  {
-    "text": "Parker is an artist. They paint with watercolors. Their work is beautiful.",
-    "clusters": [["Parker", "They", "Their"]]
-  },
-  {
-    "text": "Sage works remotely. They enjoy the flexibility. Their productivity is high.", 
-    "clusters": [["Sage", "They", "Their"]]
-  },
-  {
-    "text": "Drew loves photography. They capture stunning images. Their portfolio is impressive.",
-    "clusters": [["Drew", "They", "Their"]]
-  },
-  {
-    "text": "Phoenix studies astronomy. They use telescopes nightly. Their research focuses on stars.",
-    "clusters": [["Phoenix", "They", "Their"]]
-  },
-  {
-    "text": "Rowan teaches kindergarten. They love working with kids. Their classroom is colorful.",
-    "clusters": [["Rowan", "They", "Their"]]
-  },
-  {
-    "text": "Emery is a chef. They create innovative recipes. Their restaurant is popular.",
-    "clusters": [["Emery", "They", "Their"]]
-  },
-  {
-    "text": "Finley writes novels. They publish books yearly. Their stories are captivating.",
-    "clusters": [["Finley", "They", "Their"]]
-  },
-  {
-    "text": "Blake runs marathons. They train every morning. Their dedication is inspiring.",
-    "clusters": [["Blake", "They", "Their"]]
-  },
-  {
-    "text": "Reese plays violin. They perform in orchestras. Their technique is flawless.",
-    "clusters": [["Reese", "They", "Their"]]
-  },
-  {
-    "text": "Hayden builds robots. They design mechanical systems. Their inventions are clever.",
-    "clusters": [["Hayden", "They", "Their"]]
-  },
-  {
-    "text": "River studies marine biology. They dive with sharks. Their research protects oceans.",
-    "clusters": [["River", "They", "Their"]]
-  },
-  {
-    "text": "Cameron codes software. They work on mobile apps. Their programs are efficient.",
-    "clusters": [["Cameron", "They", "Their"]]
-  }
+    },
+    {
+        "text": "Devon plays soccer. They practice every afternoon.",
+        "clusters": [["Devon", "They"]]
+    },
+    {
+        "text": "Parker is an artist. They paint with watercolors. Their work is beautiful.",
+        "clusters": [["Parker", "They", "Their"]]
+    },
+    {
+        "text": "Sage works remotely. They enjoy the flexibility. Their productivity is high.", 
+        "clusters": [["Sage", "They", "Their"]]
+    },
+    {
+        "text": "Drew loves photography. They capture stunning images. Their portfolio is impressive.",
+        "clusters": [["Drew", "They", "Their"]]
+    },
+    {
+        "text": "Phoenix studies astronomy. They use telescopes nightly. Their research focuses on stars.",
+        "clusters": [["Phoenix", "They", "Their"]]
+    },
+    {
+        "text": "Rowan teaches kindergarten. They love working with kids. Their classroom is colorful.",
+        "clusters": [["Rowan", "They", "Their"]]
+    },
+    {
+        "text": "Emery is a chef. They create innovative recipes. Their restaurant is popular.",
+        "clusters": [["Emery", "They", "Their"]]
+    },
+    {
+        "text": "Finley writes novels. They publish books yearly. Their stories are captivating.",
+        "clusters": [["Finley", "They", "Their"]]
+    },
+    {
+        "text": "Blake runs marathons. They train every morning. Their dedication is inspiring.",
+        "clusters": [["Blake", "They", "Their"]]
+    },
+    {
+        "text": "Reese plays violin. They perform in orchestras. Their technique is flawless.",
+        "clusters": [["Reese", "They", "Their"]]
+    },
+    {
+        "text": "Hayden builds robots. They design mechanical systems. Their inventions are clever.",
+        "clusters": [["Hayden", "They", "Their"]]
+    },
+    {
+        "text": "River studies marine biology. They dive with sharks. Their research protects oceans.",
+        "clusters": [["River", "They", "Their"]]
+    },
+    {
+        "text": "Cameron codes software. They work on mobile apps. Their programs are efficient.",
+        "clusters": [["Cameron", "They", "Their"]]
+    },
+    {
+        "text": "When Skyler arrives, they usually bring coffee. Everyone appreciates their thoughtfulness.",
+        "clusters": [["Skyler", "they", "their"]]
+    },
+    {
+        "text": "My colleague Remy is brilliant. They solve complex problems quickly, and their insights help everyone.",
+        "clusters": [["Remy", "They", "their"]]
+    },
+    {
+        "text": "I know someone named Kai who teaches yoga. They have been practicing for years and their classes are popular.",
+        "clusters": [["Kai", "They", "their"]]
+    },
+    {
+        "text": "The new employee, Ash, starts Monday. They will work remotely, so their schedule is flexible.",
+        "clusters": [["Ash", "They", "their"]]
+    },
+    {
+        "text": "My friend Harper loves traveling. They visit new countries yearly, and their photos are stunning.",
+        "clusters": [["Harper", "They", "their"]]
+    },
+    {
+        "text": "There's a student named Robin in my class. They ask great questions, and their essays are well-written.",
+        "clusters": [["Robin", "They", "their"]]
+    },
+    {
+        "text": "The artist, Sage, exhibits paintings downtown. They use mixed media, and their style is unique.",
+        "clusters": [["Sage", "They", "their"]]
+    },
+    {
+        "text": "A person named Jamie works here. They handle customer service, and their patience is remarkable.",
+        "clusters": [["Jamie", "They", "their"]]
+    },
+    {
+        "text": "My neighbor Ellis gardens organically. They grow vegetables year-round, and their tomatoes are delicious.",
+        "clusters": [["Ellis", "They", "their"]]
+    },
+    {
+        "text": "The musician, Quinn, performs at local venues. They play acoustic guitar, and their voice is beautiful.",
+        "clusters": [["Quinn", "They", "their"]]
+    },
+    {
+        "text": "At the conference, Dr. Patel presented groundbreaking research. They had spent years developing this methodology, and their findings revolutionized the field completely.",
+        "clusters": [["Dr. Patel", "They", "their"]]
+    },
+    {
+        "text": "Sam quit their job yesterday because they wanted more creative freedom.",
+        "clusters": [["Sam", "their", "they"]]
+    },
+    {
+        "text": "The detective, Riley Chen, solved the case through careful investigation. When they examined the evidence, their analytical skills became apparent.",
+        "clusters": [["Riley Chen", "they", "their"]]
+    },
+    {
+        "text": "Have you met Jordan? They're incredibly talented at problem-solving and their approach is always innovative.",
+        "clusters": [["Jordan", "They", "their"]]
+    },
+    {
+        "text": "My therapist helped me understand anxiety better. They explained that everyone processes emotions differently, and their guidance was invaluable.",
+        "clusters": [["My therapist", "They", "their"]]
+    },
+    {
+        "text": "Taylor's presentation went well yesterday. They answered questions confidently, though some of their slides needed more detail.",
+        "clusters": [["Taylor", "They", "their"]]
+    },
+    {
+        "text": "The barista at the corner cafe knows my order by heart. They always smile warmly, and their coffee art is beautiful.",
+        "clusters": [["The barista", "They", "their"]]
+    },
+    {
+        "text": "When Alex starts their new position next month, they'll be managing a team of twelve people.",
+        "clusters": [["Alex", "their", "they"]]
+    },
+    {
+        "text": "The librarian recommended several books about climate change. They mentioned that their personal favorite deals with renewable energy solutions.",
+        "clusters": [["The librarian", "They", "their"]]
+    },
+    {
+        "text": "Morgan's parents are proud of them. They recently graduated summa cum laude, and their thesis on urban planning won an award.",
+        "clusters": [["Morgan", "them", "They", "their"]]
+    },
+    {
+        "text": "Every Tuesday, Cameron volunteers at the animal shelter. They find it rewarding work, and their dedication helps many animals find homes.",
+        "clusters": [["Cameron", "They", "their"]]
+    },
+    {
+        "text": "The chef at this restaurant is phenomenal. They source ingredients locally, and their seasonal menu changes monthly.",
+        "clusters": [["The chef", "They", "their"]]
+    },
+    {
+        "text": "Avery's research focuses on marine ecosystems. They dive in coral reefs regularly, documenting how their health affects fish populations.",
+        "clusters": [["Avery", "They", "their"]]
+    },
+    {
+        "text": "The contractor promised to finish the renovation by Friday. They've been working diligently, but their timeline seems optimistic.",
+        "clusters": [["The contractor", "They", "their"]]
+    },
+    {
+        "text": "Quinn teaches advanced mathematics at the university. They use interactive methods in their lectures, making complex concepts accessible to students.",
+        "clusters": [["Quinn", "They", "their"]]
+    },
+    {
+        "text": "The nurse was exceptionally kind during my stay. They checked on patients frequently, and their compassion made recovery easier.",
+        "clusters": [["The nurse", "They", "their"]]
+    },
+    {
+        "text": "Devon's artwork was featured in three galleries this year. They work primarily with mixed media, and their pieces explore themes of identity.",
+        "clusters": [["Devon", "They", "their"]]
+    },
+    {
+        "text": "My neighbor Parker grows an incredible garden. They compost all their kitchen scraps and share vegetables with everyone on the block.",
+        "clusters": [["Parker", "They", "their"]]
+    },
+    {
+        "text": "The mechanic diagnosed the problem quickly. They explained that the transmission needed replacement, and their estimate was reasonable.",
+        "clusters": [["The mechanic", "They", "their"]]
+    },
+    {
+        "text": "Sage writes poetry that captures human emotions beautifully. They perform at open mic nights, and their words resonate with diverse audiences.",
+        "clusters": [["Sage", "They", "their"]]
+    },
+    {
+        "text": "The software engineer debugged the entire system overnight. They identified the root cause efficiently, and their solution prevented future crashes.",
+        "clusters": [["The software engineer", "They", "their"]]
+    },
+    {
+        "text": "Drew's documentary about climate refugees premiered last week. They interviewed subjects across three continents, and their storytelling brings important issues to light.",
+        "clusters": [["Drew", "They", "their"]]
+    },
+    {
+        "text": "The postal worker delivers mail to our neighborhood cheerfully every day. They remember everyone's names, and their positive attitude brightens our mornings.",
+        "clusters": [["The postal worker", "They", "their"]]
+    },
+    {
+        "text": "Finley started their own consulting business after leaving corporate America. They specialize in organizational psychology, and their clients include Fortune 500 companies.",
+        "clusters": [["Finley", "their", "They", "their"]]
+    },
+    {
+        "text": "The physical therapist helped me recover from injury. They designed a personalized exercise program, and their expertise accelerated my healing process.",
+        "clusters": [["The physical therapist", "They", "their"]]
+    },
+    {
+        "text": "River coordinates disaster relief efforts internationally. They've managed operations in twelve countries, and their leadership saves lives during crises.",
+        "clusters": [["River", "They", "their"]]
+    },
+    {
+        "text": "The architect designed sustainable buildings throughout the city. They incorporate renewable energy systems, and their projects reduce environmental impact significantly.",
+        "clusters": [["The architect", "They", "their"]]
+    },
+    {
+        "text": "Hayden's research on artificial intelligence ethics was groundbreaking. They published papers in top-tier journals, and their work influences policy development globally.",
+        "clusters": [["Hayden", "They", "their"]]
+    },
+    {
+        "text": "The firefighter rescued three families from the burning apartment building. They showed incredible courage, and their quick thinking prevented a tragedy.",
+        "clusters": [["The firefighter", "They", "their"]]
+    },
+    {
+        "text": "Reese performs with the symphony orchestra regularly. They play first violin beautifully, and their solos often receive standing ovations.",
+        "clusters": [["Reese", "They", "their"]]
+    },
+    {
+        "text": "The pediatrician has excellent bedside manner with children. They make visits less scary for kids, and their patience with worried parents is remarkable.",
+        "clusters": [["The pediatrician", "They", "their"]]
+    },
+    {
+        "text": "Blake founded a nonprofit organization that builds schools in underserved communities. They've established forty-three schools so far, and their impact transforms entire villages.",
+        "clusters": [["Blake", "They", "their"]]
+    },
+    {
+        "text": "The journalist investigated corruption within local government for months. They interviewed dozens of sources carefully, and their exposé led to significant reforms.",
+        "clusters": [["The journalist", "They", "their"]]
+    },
+    {
+        "text": "Casey's startup develops educational technology for dyslexic students. They understand learning differences personally, and their software helps thousands of children succeed academically.",
+        "clusters": [["Casey", "They", "their"]]
+    },
+    {
+        "text": "The veterinarian treated my cat with exceptional care. They explained the treatment options thoroughly, and their gentle approach calmed both pet and owner.",
+        "clusters": [["The veterinarian", "They", "their"]]
+    },
+    {
+        "text": "Jordan's food truck serves authentic Korean fusion cuisine. They learned recipes from their grandmother, and their bulgogi tacos are legendary throughout the city.",
+        "clusters": [["Jordan", "They", "their", "their"]]
+    },
+    {
+        "text": "The social worker advocates tirelessly for vulnerable children. They navigate complex bureaucracy effectively, and their dedication ensures kids find safe, loving homes.",
+        "clusters": [["The social worker", "They", "their"]]
+    },
+    {
+        "text": "Phoenix teaches wilderness survival skills to outdoor enthusiasts. They lead expeditions in remote locations, and their expertise has prevented numerous emergencies.",
+        "clusters": [["Phoenix", "They", "their"]]
+    },
+    {
+        "text": "The orthodontist made the braces process much easier than expected. They used the latest technology, and their friendly staff created a welcoming environment.",
+        "clusters": [["The orthodontist", "They", "their"]]
+    },
+    {
+        "text": "Rowan's community garden project brings neighbors together. They organize workshops on organic farming, and their vision transforms vacant lots into productive spaces.",
+        "clusters": [["Rowan", "They", "their"]]
+    }
 ]
