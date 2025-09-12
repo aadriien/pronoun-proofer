@@ -34,9 +34,57 @@
     {
         "text": "Quinn loves reading. They finish two books per week.",
         "clusters": [["Quinn", "They"]]
-    },
-    {
-        "text": "Devon plays soccer. They practice every afternoon.",
-        "clusters": [["Devon", "They"]]
-    }
+  },
+  {
+    "text": "Devon plays soccer. They practice every afternoon.",
+    "clusters": [["Devon", "They"]]
+  },
+  {
+    "text": "Parker is an artist. They paint with watercolors. Their work is beautiful.",
+    "clusters": [["Parker", "They", "Their"]]
+  },
+  {
+    "text": "Sage works remotely. They enjoy the flexibility. Their productivity is high.", 
+    "clusters": [["Sage", "They", "Their"]]
+  },
+  {
+    "text": "Drew loves photography. They capture stunning images. Their portfolio is impressive.",
+    "clusters": [["Drew", "They", "Their"]]
+  },
+  {
+    "text": "Phoenix studies astronomy. They use telescopes nightly. Their research focuses on stars.",
+    "clusters": [["Phoenix", "They", "Their"]]
+  },
+  {
+    "text": "Rowan teaches kindergarten. They love working with kids. Their classroom is colorful.",
+    "clusters": [["Rowan", "They", "Their"]]
+  },
+  {
+    "text": "Emery is a chef. They create innovative recipes. Their restaurant is popular.",
+    "clusters": [["Emery", "They", "Their"]]
+  },
+  {
+    "text": "Finley writes novels. They publish books yearly. Their stories are captivating.",
+    "clusters": [["Finley", "They", "Their"]]
+  },
+  {
+    "text": "Blake runs marathons. They train every morning. Their dedication is inspiring.",
+    "clusters": [["Blake", "They", "Their"]]
+  },
+  {
+    "text": "Reese plays violin. They perform in orchestras. Their technique is flawless.",
+    "clusters": [["Reese", "They", "Their"]]
+  },
+  {
+    "text": "Hayden builds robots. They design mechanical systems. Their inventions are clever.",
+    "clusters": [["Hayden", "They", "Their"]]
+  },
+  {
+    "text": "River studies marine biology. They dive with sharks. Their research protects oceans.",
+    "clusters": [["River", "They", "Their"]]
+  },
+  {
+    "text": "Cameron codes software. They work on mobile apps. Their programs are efficient.",
+    "clusters": [["Cameron", "They", "Their"]]
+  }
 ]

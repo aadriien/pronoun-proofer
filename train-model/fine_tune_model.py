@@ -89,6 +89,38 @@ def load_training_data(filename):
         return json.load(f)
 
 
+def save_model_version(nlp, version_name):
+    # Save model to versioned directory
+    models_dir = os.path.join(os.path.dirname(__file__), 'models')
+    os.makedirs(models_dir, exist_ok=True)
+    
+    model_path = os.path.join(models_dir, version_name)
+    nlp.to_disk(model_path)
+    print(f"Model saved to: {model_path}")
+    return model_path
+
+
+def load_model_version(version_name):
+    # Load model from versioned directory
+    model_path = os.path.join(os.path.dirname(__file__), 'models', version_name)
+    if os.path.exists(model_path):
+        nlp = spacy.load(model_path)
+        print(f"Model loaded from: {model_path}")
+        return nlp
+    else:
+        print(f"Model version {version_name} not found")
+        return None
+
+
+def list_model_versions():
+    # List available model versions
+    models_dir = os.path.join(os.path.dirname(__file__), 'models')
+    if os.path.exists(models_dir):
+        versions = [d for d in os.listdir(models_dir) if os.path.isdir(os.path.join(models_dir, d))]
+        return sorted(versions)
+    return []
+
+
 def create_coref_annotations(text, clusters):
     # Create span annotations for coreference clusters
     # clusters format: [["Alex", "they"], ["Jordan", "xe", "xir"]]
@@ -198,11 +230,22 @@ def main():
     
     test_text = "Blake is a talented artist. They create sculptures from recycled materials."
     
+    # Show existing model versions
+    existing_versions = list_model_versions()
+    if existing_versions:
+        print(f"Existing model versions: {existing_versions}")
+    
     # Make copy of original model for comparison
     original_nlp = spacy.load(MODEL_NAME)
     
-    # Fine-tune the model with more iterations
-    updated_nlp = simple_fine_tune(nlp, training_examples, iterations=5)
+    # Fine-tune with significantly more iterations to see results
+    updated_nlp = simple_fine_tune(nlp, training_examples, iterations=50)
+    
+    # Save updated model with timestamp
+    import datetime
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    version_name = f"they_them_{timestamp}"
+    save_model_version(updated_nlp, version_name)
     
     # Compare results
     test_before_after(original_nlp, updated_nlp, test_text)
