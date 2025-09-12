@@ -10,6 +10,13 @@ from spacy.tokens import DocBin
 from spacy.training import Example
 import random
 import warnings
+import json
+import sys
+import os
+
+
+# Add parent directory to path for imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Suppress torch CUDA warnings
 warnings.filterwarnings("ignore", message=".*torch.cuda.amp.autocast.*")
@@ -73,6 +80,13 @@ def test_model_with_example(nlp):
         print("No coreference clusters found")
     
     return doc
+
+
+def load_training_data(filename):
+    # Load training data from JSON file
+    filepath = os.path.join(os.path.dirname(__file__), 'training-data', filename)
+    with open(filepath, 'r') as f:
+        return json.load(f)
 
 
 def create_coref_annotations(text, clusters):
@@ -179,49 +193,8 @@ def main():
     print("TESTING SIMPLE FINE-TUNING")
     print("="*60)
     
-    # Focused training data for singular they/them
-    training_examples = [
-        {
-            "text": "Alex is a great student. They study hard every day.",
-            "clusters": [["Alex", "They"]]
-        },
-        {
-            "text": "Jordan loves music. They play guitar beautifully.",
-            "clusters": [["Jordan", "They"]]
-        },
-        {
-            "text": "Sam works downtown. They commute by train.",
-            "clusters": [["Sam", "They"]]
-        },
-        {
-            "text": "Riley is my friend. They help me with homework.",
-            "clusters": [["Riley", "They"]]
-        },
-        {
-            "text": "Casey joined our team. They bring fresh ideas.",
-            "clusters": [["Casey", "They"]]
-        },
-        {
-            "text": "Morgan loves cooking. They make amazing pasta.",
-            "clusters": [["Morgan", "They"]]
-        },
-        {
-            "text": "Taylor is very creative. They design beautiful websites.",
-            "clusters": [["Taylor", "They"]]
-        },
-        {
-            "text": "Avery studies biology. They want to be a doctor.",
-            "clusters": [["Avery", "They"]]
-        },
-        {
-            "text": "Quinn loves reading. They finish two books per week.",
-            "clusters": [["Quinn", "They"]]
-        },
-        {
-            "text": "Devon plays soccer. They practice every afternoon.",
-            "clusters": [["Devon", "They"]]
-        }
-    ]
+    # Load training data from JSON file
+    training_examples = load_training_data('they-them.json')
     
     test_text = "Blake is a talented artist. They create sculptures from recycled materials."
     

@@ -49,4 +49,4 @@ run_heap_cluster:
 
 
 fine_tune_model:
-	@$(POETRY) run python src/fine_tune_model.py
+	@$(POETRY) run python train-model/fine_tune_model.py

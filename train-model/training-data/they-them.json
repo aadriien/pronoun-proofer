@@ -1,0 +1,42 @@
+[
+    {
+        "text": "Alex is a great student. They study hard every day.",
+        "clusters": [["Alex", "They"]]
+    },
+    {
+        "text": "Jordan loves music. They play guitar beautifully.",
+        "clusters": [["Jordan", "They"]]
+    },
+    {
+        "text": "Sam works downtown. They commute by train.",
+        "clusters": [["Sam", "They"]]
+    },
+    {
+        "text": "Riley is my friend. They help me with homework.",
+        "clusters": [["Riley", "They"]]
+    },
+    {
+        "text": "Casey joined our team. They bring fresh ideas.",
+        "clusters": [["Casey", "They"]]
+    },
+    {
+        "text": "Morgan loves cooking. They make amazing pasta.",
+        "clusters": [["Morgan", "They"]]
+    },
+    {
+        "text": "Taylor is very creative. They design beautiful websites.",
+        "clusters": [["Taylor", "They"]]
+    },
+    {
+        "text": "Avery studies biology. They want to be a doctor.",
+        "clusters": [["Avery", "They"]]
+    },
+    {
+        "text": "Quinn loves reading. They finish two books per week.",
+        "clusters": [["Quinn", "They"]]
+    },
+    {
+        "text": "Devon plays soccer. They practice every afternoon.",
+        "clusters": [["Devon", "They"]]
+    }
+]
