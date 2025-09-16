@@ -3,7 +3,7 @@ deprecated/Procfile
 deprecated/Dockerfile
 deprecated/.dockerignore
 deprecated/runtime.txt
-build-optimized.sh
+deprecated/build-optimized.sh
 .git
 .venv
 .venv-test
