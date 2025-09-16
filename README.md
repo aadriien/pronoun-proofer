@@ -42,7 +42,7 @@ This constructive tool is designed to improve the community experience at RC by 
 
 A massive thank you to the wonderful community of builders, creators, and programmers at [the Recurse Center](https://www.recurse.com)! 
 
-And speaking of people at RC.. a special thank you to Florian Ragwitz, who paired with me on this project! Florian's Linux expertise is what helped get `Pronoun Proofer` onto the heap cluster, and we also collaborated on property-based testing. 
+And speaking of people at RC.. I'd especially like to thank [Florian Ragwitz](https://github.com/rafl), who paired with me on this project! Florian's Linux expertise is what helped get `Pronoun Proofer` onto the heap cluster, and the two of us also collaborated on property-based testing. 
 
 The feedback and edge cases provided by folks at RC have really helped this bot grow and evolve with time. Stay tuned as I continue to iterate on training / fine-tuning for improved NLP! 
 
