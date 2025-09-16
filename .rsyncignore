@@ -1,11 +1,12 @@
 coref
-Dockerfile
-Procfile
+deprecated/Procfile
+deprecated/Dockerfile
+deprecated/.dockerignore
+deprecated/runtime.txt
 build-optimized.sh
-runtime.txt
 .git
 .venv
 .venv-test
 .DS_Store
-.dockerignore
+
 
