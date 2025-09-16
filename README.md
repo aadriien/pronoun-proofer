@@ -9,6 +9,9 @@ This constructive tool is designed to improve the community experience at RC by 
 
 ## How It Works
 
+### *`Pronoun Proofer` runs 24/7 on [RC's Heap Community Cluster](https://www.recurse.com/blog/126-heap-sponsors-rc-community-cluster)*
+
+
 1. Zulip bot is subscribed to all public streams
 2. New message event in a stream triggers validation pipeline
 3. Bot scans for any mentions (@) in message content
@@ -22,10 +25,15 @@ This constructive tool is designed to improve the community experience at RC by 
 
 ## Tools / Tech
 
-- **Python**: scripts with Zulip client
+- **Python**: logic with Zulip client
 - **spaCy (NLP)**: experimental coreference pipeline
     - cluster component
     - span resolver component
+- **OpenAI (LLM)**: secondary text check
+- **Linux**: Bash scripts for RC's heap cluster
+    - user instance of `systemd`
+    - `.service` files run with `enable-linger`
+    - `.timer` file to act as cron job for log extraction
 
 
 ## Acknowledgements
@@ -33,6 +41,8 @@ This constructive tool is designed to improve the community experience at RC by 
 ### People
 
 A massive thank you to the wonderful community of builders, creators, and programmers at [the Recurse Center](https://www.recurse.com)! 
+
+And speaking of people at RC.. a special thank you to Florian Ragwitz, who paired with me on this project! Florian's Linux expertise is what helped get `Pronoun Proofer` onto the heap cluster, and we also collaborated on property-based testing. 
 
 The feedback and edge cases provided by folks at RC have really helped this bot grow and evolve with time. Stay tuned as I continue to iterate on training / fine-tuning for improved NLP! 
 
