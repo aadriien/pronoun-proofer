@@ -7,6 +7,7 @@
 
 import re
 from fastcoref import FCoref
+from src.logger import log_info
 
 
 def apply_nlp(text):
@@ -49,7 +50,7 @@ if __name__ == "__main__":
     clusters = apply_nlp(text)
     mappings = extract_name_pronoun_mapping(clusters)
 
-    print("\nName —> Pronouns Mapping:\n")
+    log_info("Name -> Pronouns Mapping:")
 
     for name, pronouns in mappings.items():
-        print(f"{name}: {pronouns}")
+        log_info(f"  {name}: {pronouns}")

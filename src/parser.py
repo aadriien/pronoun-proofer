@@ -7,7 +7,8 @@
 
 from src.nlp import PRONOUN_GROUPS
 from src.nlp import get_pronoun_mappings
-from src.llm import validate_pronouns_with_llm 
+from src.llm import validate_pronouns_with_llm
+from src.logger import log_info, log_debug, log_cluster_mapping, log_validation_results
 
 
 def sanitize_content(content, mentions):
@@ -22,7 +23,7 @@ def sanitize_content(content, mentions):
 
 def validate_pronouns_with_nlp(content, mentions):
     pronoun_mappings = get_pronoun_mappings(content, mentions)
-    print(f"\n{pronoun_mappings}\n")
+    log_cluster_mapping(pronoun_mappings)
 
     results = []
 
@@ -59,16 +60,15 @@ def validate_pronouns_with_nlp(content, mentions):
 def validate_mentions_in_text(original_content, mentions):
     # Remove name tags from content text, then apply NLP to extract clusters
     content = sanitize_content(original_content, mentions)
+    log_debug("Running NLP analysis...")
     nlp_results = validate_pronouns_with_nlp(content, mentions)
 
     # Perform a secondary check with LLM scan
+    log_debug("Running LLM analysis...")
     llm_results = validate_pronouns_with_llm(content, mentions)
 
-    print("\nNLP results:")
-    print(nlp_results)
-
-    print("\nLLM results:")
-    print(llm_results)
+    log_validation_results(nlp_results, "NLP")
+    log_validation_results(llm_results, "LLM")
 
 
     # Convert list of dicts into a dict keyed by name for easy lookup
@@ -102,8 +102,7 @@ def validate_mentions_in_text(original_content, mentions):
             "pronouns_match": pronouns_match_both
         })
 
-    print("\nFinal conservative results:")
-    print(final_results)
+    log_debug("Combining NLP / LLM results with OR logic")
 
     return final_results
 

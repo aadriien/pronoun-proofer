@@ -8,6 +8,7 @@
 import re
 import spacy
 from pathlib import Path
+from src.logger import log_info, log_original_text
 
 
 def apply_nlp(text):
@@ -143,31 +144,28 @@ if __name__ == "__main__":
 
 
     # import torch
-    # print(torch.backends.mps.is_available())   # True means MPS is usable
-    # print(torch.backends.mps.is_built())       # True means MPS was built into torch
-
-    # import spacy
+    # Debug GPU/MPS availability 
+    # import torch
+    # log_info(f"MPS available: {torch.backends.mps.is_available()}")
+    # log_info(f"MPS built: {torch.backends.mps.is_built()}")
+    # 
     # from thinc.api import prefer_gpu
-
-    # print(prefer_gpu())  # True if spaCy can use GPU/MPS
+    # log_info(f"spaCy GPU support: {prefer_gpu()}")
 
 
 
     doc = apply_nlp(text)
-
-    print("\n")
-    print(f"Original text input -> {text}\n")
-
-    # print(doc.spans)
-
+    
+    log_original_text(text)
+    
+    log_info("Detected clusters:")
     for cluster in doc.spans:
-        print(f"{cluster}: {doc.spans[cluster]}")
+        log_info(f"  {cluster}: {doc.spans[cluster]}")
 
     mappings = map_names_to_pronouns(doc)
 
-    print("\nName —> Pronouns Mapping:\n")
-
+    log_info("Name -> Pronouns Mapping:")
     for name, pronouns in mappings.items():
-        print(f"{name}: {pronouns}")
+        log_info(f"  {name}: {pronouns}")
 
 

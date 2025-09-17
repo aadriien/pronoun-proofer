@@ -6,6 +6,7 @@
 
 
 import spacy
+from src.logger import log_original_text, log_debug, log_nlp_clusters
 
 
 PRONOUN_GROUPS = {
@@ -33,12 +34,13 @@ def apply_nlp(text):
 
 def get_clusters_from_text(text):
     doc = apply_nlp(text)
-
-    print("\n")
-    print(f"Original text input -> {text}\n")
-
+    
+    log_original_text(text)
+    
+    # Debug: show raw spaCy clusters
+    log_debug("Raw spaCy clusters detected:")
     for cluster in doc.spans:
-        print(f"{cluster}: {doc.spans[cluster]}")
+        log_debug(f"  {cluster}: {doc.spans[cluster]}")
 
     # Build cluster strings
     clusters = []
@@ -86,13 +88,15 @@ def map_names_to_pronouns(clusters, mentions):
 
 def get_pronoun_mappings(text, mentions):
     clusters = get_clusters_from_text(text)
+    log_nlp_clusters(clusters)
+    
     mappings = map_names_to_pronouns(clusters, mentions)
-
-    print("\nCluster Name —> Pronouns Mappings:")
+    
+    log_debug("Building pronoun mappings from clusters...")
     pronoun_mappings = {}
 
     for name, pronouns in mappings.items():
-        print(f"{name}: {pronouns}")
+        log_debug(f"  Processing cluster for '{name}': {pronouns}")
 
         pronoun_mappings[name] = [
             pronoun.lower() for pronoun in pronouns 
