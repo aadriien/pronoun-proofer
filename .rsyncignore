@@ -1,12 +1,11 @@
 coref
-deprecated/Procfile
-deprecated/Dockerfile
-deprecated/.dockerignore
-deprecated/runtime.txt
-deprecated/build-optimized.sh
+deprecated
+train-model
 .git
 .venv
 .venv-test
 .DS_Store
+__pycache__/
+.pytest_cache/
 
 
