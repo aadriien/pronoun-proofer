@@ -19,7 +19,7 @@ def test_single_pronoun_she_nearby():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
 def test_single_pronoun_he_nearby():
@@ -29,7 +29,7 @@ def test_single_pronoun_he_nearby():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
 def test_single_pronoun_they_not_nearby():
@@ -39,7 +39,7 @@ def test_single_pronoun_they_not_nearby():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert not all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert not all(r["pronouns_match"] for r in results)
 
 
 # -----------------------------
@@ -53,7 +53,7 @@ def test_multiple_pronouns_match():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
 def test_multiple_pronouns_partial_match():
@@ -64,7 +64,7 @@ def test_multiple_pronouns_partial_match():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
 # -----------------------------
@@ -77,7 +77,7 @@ def test_no_pronouns_in_tag():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
 # -----------------------------
@@ -90,7 +90,7 @@ def test_neopronouns_ze_zir():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
 def test_neopronouns_xe_xem_no_pronouns_text():
@@ -100,7 +100,7 @@ def test_neopronouns_xe_xem_no_pronouns_text():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
 def test_neopronouns_ey_em_wrong_pronouns():
@@ -110,7 +110,7 @@ def test_neopronouns_ey_em_wrong_pronouns():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert not all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert not all(r["pronouns_match"] for r in results)
 
 
 # -----------------------------
@@ -123,6 +123,6 @@ def test_any_pronouns_matches():
     )
 
     results = parser.validate_mentions_in_text(content, nametags)
-    assert all(check["pronouns_match"] for r in results for check in r["checks"])
+    assert all(r["pronouns_match"] for r in results)
 
 
