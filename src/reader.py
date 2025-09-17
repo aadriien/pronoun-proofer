@@ -5,8 +5,6 @@
 ###############################################################################
 
 
-import sys 
-
 from src.mentions import get_mentions
 from src.parser import validate_mentions_in_text
 from src.notifier import notify_writer_of_mismatch
