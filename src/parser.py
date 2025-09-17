@@ -5,9 +5,9 @@
 ###############################################################################
 
 
-from src.nlp import PRONOUN_GROUPS
-from src.nlp import get_pronoun_mappings
-from src.llm import validate_pronouns_with_llm
+from processing.nlp import PRONOUN_GROUPS
+from processing.nlp import get_pronoun_mappings
+from processing.llm import validate_pronouns_with_llm
 from src.logger import log_info, log_debug, log_cluster_mapping, log_validation_results
 
 

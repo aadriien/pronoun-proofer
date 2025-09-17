@@ -1,0 +1,33 @@
+{
+    "basic_pronouns": {
+        "simple_he": "Philip plays the bass because he loves it.",
+        "simple_she": "Sarah enjoys a nice cup of tea in the morning. She likes it with sugar & a drop of milk.",
+        "simple_they": "Alex is working on their project today. They seem focused."
+    },
+    
+    "multiple_people": {
+        "he_she_conversation": "John met Sarah at the cafe. He ordered coffee, & she chose tea. Sarah thanked him. Later, John waved at her as he left. The two of them had a good time together.",
+        "mixed_pronouns": "Dana shared her notes with the team. Charlie said they would review them later."
+    },
+    
+    "neopronouns": {
+        "ze_zir": "John met Sarah at the cafe. He ordered coffee, & ze chose tea. Sarah's tea was very hot, but ze enjoyed zir tea. Sarah thanked him. Later, John waved at zir as he left. The two of them had a good time together.",
+        "xe_xem": "Riley finished xir homework early. Xe was proud of the work xe had done.",
+        "ey_em": "Morgan said ey would be late. Em had to finish eir presentation first."
+    },
+    
+    "with_mentions": {
+        "correct_usage": "I met with @**John Smith (he/they) (S2'25)** today. They showed me what they were working on.",
+        "incorrect_usage": "I met with @**John Smith (he/they) (S2'25)** today. She showed me what she was working on.",
+        "complex_scenario": "I met with @**Viola He (they) (S2'25)** today. They showed me what they were working on. Viola's work is really cool. I love seeing their projects. I also worked with @**K Lauria (he) (S2'25)**. His ideas were great. Lauria has so many cool ideas."
+    },
+    
+    "edge_cases": {
+        "no_pronouns": "The group had fun. They discussed many things.",
+        "ambiguous_they": "Alice & Bob said they like cheese, but he prefers sushi.",
+        "wrong_pronouns": "Sarah showed me his code.",
+        "neopronoun_mistake": "Sarah showed me xyr code."
+    }
+    
+}
+

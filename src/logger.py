@@ -48,12 +48,12 @@ def log_separator(title: str = None, flush: bool = True) -> None:
 
 
 def log_section_start(title: str, flush: bool = True) -> None:
-    # Log the start of a processing section
+    # Log start of a processing section
     log_separator(f"START: {title}", flush)
 
 
 def log_section_end(title: str, flush: bool = True) -> None:
-    # Log the end of a processing section
+    # Log end of a processing section
     log_separator(f"END: {title}", flush)
 
 
@@ -88,7 +88,7 @@ def log_nlp_clusters(clusters: List[List[str]], flush: bool = True) -> None:
 
 
 def log_original_text(text: str, flush: bool = True) -> None:
-    # Log the original text input
+    # Log original text input
     log_section_start("PROCESSING TEXT INPUT")
     # Truncate very long text for readability
     display_text = text[:500] + "..." if len(text) > 500 else text
@@ -100,3 +100,6 @@ def force_flush() -> None:
     # Force flush stdout & stderr buffers
     sys.stdout.flush()
     sys.stderr.flush()
+
+
+    

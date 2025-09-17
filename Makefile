@@ -25,10 +25,10 @@ tests:
 	@$(POETRY) run pytest tests/
 
 nlp:
-	@$(POETRY) run python src/nlp_coref.py
+	@$(POETRY) run python processing/nlp_coref.py
 
 spacy:
-	@$(POETRY) run python src/nlp_spacy.py
+	@$(POETRY) run python processing/nlp_spacy.py
 
 # Auto-format Python code
 format:
@@ -41,6 +41,8 @@ clean:
 
 
 # Run on heap cluster with pyenv Python 3.10
+# NOTE: No longer needed after setup with `systemd` 
+#	—> handled by `.service` & `.timer` files
 run_heap_cluster:
 	@export PYENV_ROOT="$$HOME/.pyenv" && \
 	export PATH="$$PYENV_ROOT/bin:$$PATH:~/bin" && \
@@ -50,3 +52,5 @@ run_heap_cluster:
 
 fine_tune_model:
 	@$(POETRY) run python train-model/fine_tune_model.py
+
+
