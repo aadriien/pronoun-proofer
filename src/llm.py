@@ -78,6 +78,9 @@ def validate_pronouns_with_llm(content, mentions):
             Check the text below. ONLY validate pronouns referring to {first_name}. 
             Ignore pronouns that refer to anyone else.
 
+            If no pronouns referring to {first_name} appear in the text, that is acceptable. 
+            In this case, you should return 'true'.
+
             Text:
             \"\"\"
             {content}
