@@ -8,12 +8,12 @@
 import warnings
 warnings.filterwarnings("ignore")
 
-import spacy
-from spacy.training import Example
-import json
-import random
-from datetime import datetime
 import os
+import json
+import spacy
+
+from spacy.training import Example
+from datetime import datetime
 
 
 def load_training_data():
@@ -49,18 +49,23 @@ def create_training_examples(nlp, training_data):
                 for j, token in enumerate(doc):
                     if token.lower_ == mention_lower:
                         span_positions.append((j, j + 1))
+
+                        # Only find first occurrence to avoid duplicates
                         found = True
-                        break  # Only find first occurrence to avoid duplicates
+                        break 
                 
                 # Try multi-token matching for phrases if not found
                 if not found:
                     for start_idx in range(len(doc)):
+
                         for end_idx in range(start_idx + 1, min(start_idx + 4, len(doc) + 1)):
                             span_text = ' '.join([t.lower_ for t in doc[start_idx:end_idx]])
+                            
                             if span_text == mention_lower:
                                 span_positions.append((start_idx, end_idx))
                                 found = True
                                 break
+
                         if found:
                             break
             
@@ -88,6 +93,7 @@ def create_training_examples(nlp, training_data):
     
     return examples
 
+
 def get_latest_model():
     # Find latest fine-tuned model to continue training from
     models_dir = "models"
@@ -114,78 +120,99 @@ def get_latest_model():
         return None
 
 
-def main():
-    print("Loading base model...")
-    nlp = spacy.load("en_coreference_web_trf")
-    
+def run_one_example(nlp):
+    training_data = [
+        {
+            "text": "Alex told me that they prefer working from home because it gives them more flexibility with their schedule.",
+            "clusters": [["Alex", "they", "them", "their"]]
+        }
+    ]
+
     # Test base model first
-    test_text = "Alex told me that they prefer working from home."
+    test_text = training_data["text"]
     print(f"\nTesting base model on: '{test_text}'")
+
     doc = nlp(test_text)
     if doc.spans:
         print(f"Base model found: {[(k, [s.text for s in spans]) for k, spans in doc.spans.items()]}")
     else:
         print("Base model found no clusters")
     
-    # Create ONE simple training example manually
-    doc = nlp.make_doc(test_text)
-    spans = {"coref_clusters_1": [(0, 1), (4, 5)]}  # Alex -> they
-    annotations = {"spans": spans}
-    example = Example.from_dict(doc, annotations)
-    
-    print(f"\nCreated manual example with spans: {spans}")
-    
-    # Minimal training with aggressive learning
-    print("Starting minimal training...")
+    # Create simple training example manually
+    examples = create_training_examples(nlp, training_data)
+    print("\n\n")
+
+    coref = nlp.get_pipe("coref")
     optimizer = nlp.resume_training()
     
-    # Try much higher learning rate
-    try:
-        optimizer.learn_rate = 1e-2  # Much higher
-        print(f"Set learning rate to: {optimizer.learn_rate}")
-    except:
-        print("Could not set learning rate")
-    
-    # Try training on WRONG data to see if we can break it
-    wrong_doc = nlp.make_doc("The cat sat on the mat")
-    wrong_spans = {"coref_clusters_1": [(0, 1), (2, 3)]}  # cat -> sat (wrong!)
-    wrong_annotations = {"spans": wrong_spans}
-    wrong_example = Example.from_dict(wrong_doc, wrong_annotations)
-    
-    print("\nTrying to break model with wrong training data...")
-    for i in range(20):  # Many iterations of wrong data
+    losses = {}
+    coref.update(examples, sgd=optimizer, losses=losses)
+    print(losses)
+
+    print("\n\n")
+
+    # coref = nlp.add_pipe("experimental_coref")
+    # optimizer = nlp.initialize() 
+    # losses = coref.update(examples, sgd=optimizer)
+
+    # print(losses)
+    # print("\n\n")
+
+
+def train_several_examples(nlp, training_data):
+    examples = create_training_examples(nlp, training_data)
+    print("\n\n")
+
+    optimizer = nlp.resume_training() 
+    optimizer.learn_rate = 1e-4
+
+    # Fine-tune 1 example at a time
+    n_passes = 30
+    for epoch in range(n_passes):
         losses = {}
-        try:
-            nlp.update([wrong_example], sgd=optimizer, losses=losses)
-            if i < 5 or i % 5 == 0:
-                print(f"Iteration {i+1}: losses = {losses}")
-                
-        except Exception as e:
-            print(f"Error in iteration {i+1}: {e}")
-    
-    # Now test if anything changed
-    print(f"\nTesting after corrupting training:")
-    for test in ["The cat sat on the mat", "Alex told me that they work"]:
-        doc_test = nlp(test)
-        if doc_test.spans:
-            print(f"'{test}' -> {[(k, [s.text for s in spans]) for k, spans in doc_test.spans.items()]}")
-        else:
-            print(f"'{test}' -> No clusters")
-    
-    # Test after training
+        for example in examples:
+            nlp.update([example], sgd=optimizer, losses=losses)
+
+        print(f"Epoch {epoch+1}, losses: {losses}")
+
+    print("\n\n")
+
+
+def test_after_training(nlp, training_data):
     print(f"\nTesting after training:")
-    doc_after = nlp(test_text)
-    if doc_after.spans:
-        print(f"After training found: {[(k, [s.text for s in spans]) for k, spans in doc_after.spans.items()]}")
-    else:
-        print("After training found no clusters")
+
+    doc_after = nlp(training_data[0]["text"])
+
+    for example in training_data:
+        doc_after = nlp(example["text"])
+
+        if doc_after.spans:
+            print(f"After training found: {[(k, [s.text for s in spans]) for k, spans in doc_after.spans.items()]}")
+        else:
+            print("After training found no clusters")
     
-    # Save & test different sentence
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_path = f"models/minimal_{timestamp}"
-    os.makedirs("models", exist_ok=True)
-    nlp.to_disk(model_path)
-    print(f"\nModel saved to: {model_path}")
+
+def main():
+    print("Loading base model...")
+    nlp = spacy.load("en_coreference_web_trf")
+
+    # Try with just 1 instance (see effect of initialize vs update)
+    # run_one_example(nlp, training_data[0])
+
+    # Train with multiple examples from JSON
+    training_data = load_training_data()
+    train_several_examples(nlp, training_data)
+
+    # Test results
+    test_after_training(nlp, training_data)
+
+
+    # # Save & test different sentence
+    # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # model_path = f"models/minimal_{timestamp}"
+    # os.makedirs("models", exist_ok=True)
+    # nlp.to_disk(model_path)
+    # print(f"\nModel saved to: {model_path}")
 
 
 if __name__ == "__main__":
