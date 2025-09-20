@@ -17,7 +17,20 @@ from src.logger import (
 )
 
 
+def contents_are_valid(message):
+    for val in message.values():
+        if val == "":
+            return False
+
+    return True 
+
+
 def scan_for_mentions(message, client):
+    # Confirm all required fields available
+    # e.g. prevent Pronoun Proofer from checking its own messages
+    if not contents_are_valid(message):
+        return
+    
     content = message["content"]
     
     log_section_start("MESSAGE SCAN")
@@ -39,6 +52,7 @@ def scan_for_mentions(message, client):
                 log_info(f"Found {len(mismatches)} pronoun mismatch(es) - sending notifications")
                 for r in mismatches:
                     notify_writer_of_mismatch(message, r, client)
+                    pass
             else:
                 log_info("All pronoun usage is correct!")
         else:

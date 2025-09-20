@@ -9,6 +9,7 @@ import pytest
 from src import parser
 from src import mentions
 
+
 # -----------------------------
 # Single pronouns
 # -----------------------------

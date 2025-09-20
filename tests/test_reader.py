@@ -16,6 +16,7 @@ def test_single_pronoun_she():
     content = "@**Alice Smith (she/her) (SP1'25)** is coding"
     mentions = reader.get_mentions(content)
 
+    # add check to all TCs with len of mentions found
     assert mentions[0].name == "Alice Smith"
     assert mentions[0].pronouns == ("she", "her")
 

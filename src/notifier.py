@@ -18,7 +18,7 @@ def get_message_link(content):
     if not zulip_domain:
         raise ValueError("ZULIP_SITE must be set in .env")
     
-    if content.get("type") == "stream":
+    if content.get("message_type") == "stream":
         stream_id = content.get("stream_id")
         topic = content.get("subject")
         message_id = content.get("id")
@@ -30,7 +30,8 @@ def get_message_link(content):
 
 
 def notify_writer_of_mismatch(content, result, client):
-    sender_email = content["sender_email"]
+    sender_id = content["sender_id"]
+    # sender_email = content["sender_email"]
     sender_name = content["sender_full_name"].split()[0]
 
     mentioned_name, mentioned_pronouns = result["name"], result["pronouns"]
@@ -56,7 +57,7 @@ def notify_writer_of_mismatch(content, result, client):
 
     client.send_message({
         "type": "private",
-        "to": [sender_email],
+        "to": [sender_id],
         "content": "\n\n".join(content_lines)
     })
 

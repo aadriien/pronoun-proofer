@@ -31,9 +31,58 @@ class PronounBot:
         log_info("Bot is now listening for messages with mentions (@)")
         force_flush()
         
-        self.client.call_on_each_message(
-            lambda msg: scan_for_mentions(msg, self.client)
+        self.client.call_on_each_event(
+            lambda event: scan_for_mentions(self.event_to_msg(event), self.client), 
+            event_types=["message", "update_message"]
         )
+
+
+    def event_to_msg(self, event):
+        if not event["type"] in ["message", "update_message"]:
+            raise ValueError("ERROR: Invalid event type")
+        
+        match event["type"]:
+
+            # Construct message object from new `message` event
+            case "message":
+                msg_obj = event["message"]
+
+                return {
+                    "event_type": event.get("type", ""),
+                    "message_type": msg_obj.get("type", ""), # `type` == `stream`
+
+                    "stream_id": msg_obj.get("stream_id", ""),
+                    "subject": msg_obj.get("subject", ""),
+                    "id": msg_obj.get("id", ""),
+
+                    "sender_id": msg_obj.get("sender_id", ""),
+
+                    "sender_email": msg_obj.get("sender_email", ""),
+                    "sender_full_name": msg_obj.get("sender_full_name", ""),
+
+                    "content": msg_obj.get("content", ""),
+                }
+            
+            # Construct message object from `message_update` event (edited existing message)
+            case "update_message":
+                original_msg = self.client.get_raw_message(event["message_id"])
+                msg_obj = original_msg["message"]
+
+                return {
+                    "event_type": event.get("type", ""),
+                    "message_type": msg_obj.get("type", ""), # `type` == `stream`
+
+                    "stream_id": msg_obj.get("stream_id", ""),
+                    "subject": msg_obj.get("subject", ""),
+                    "id": event.get("message_id", ""),
+
+                    "sender_id": event.get("user_id", ""),
+
+                    "sender_email": msg_obj.get("sender_email", ""),
+                    "sender_full_name": msg_obj.get("sender_full_name", ""),
+
+                    "content": event.get("content", ""),
+                }
 
 
 if __name__ == "__main__":
