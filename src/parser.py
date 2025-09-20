@@ -89,8 +89,8 @@ def validate_mentions_in_text(original_content, mentions):
         nlp_match = nlp_dict.get(name, False)
         llm_match = llm_dict.get(name, False)
         
-        # If neither NLP nor LLM processed this name, default to True (no pronouns used)
-        if not nlp_processed and not llm_processed:
+        # If NLP didn't process this name, default to True (no pronouns used)
+        if not nlp_processed:
             pronouns_match_both = True
         else:
             # OR logic: True if either say True
