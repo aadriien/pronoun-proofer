@@ -61,20 +61,21 @@ def validate_pronouns_with_nlp(content, mentions):
 def validate_mentions_in_text(original_content, mentions):
     # Remove name tags from content text, then apply NLP to extract clusters
     content = sanitize_content(original_content, mentions)
+
     log_debug("Running NLP analysis...")
     nlp_results = validate_pronouns_with_nlp(content, mentions)
 
     # Perform a secondary check with LLM scan
-    log_debug("Running LLM analysis...")
-    llm_results = validate_pronouns_with_llm(content, mentions)
+    # log_debug("Running LLM analysis...")
+    # llm_results = validate_pronouns_with_llm(content, mentions)
 
     log_validation_results(nlp_results, "NLP")
-    log_validation_results(llm_results, "LLM")
+    # log_validation_results(llm_results, "LLM")
 
 
     # Convert list of dicts into a dict keyed by name for easy lookup
     nlp_dict = {r["name"]: r["pronouns_match"] for r in nlp_results}
-    llm_dict = {r["name"]: r["pronouns_match"] for r in llm_results}
+    # llm_dict = {r["name"]: r["pronouns_match"] for r in llm_results}
 
     # Conservative agreement: True only if both NLP & LLM agree
     final_results = []
@@ -84,17 +85,18 @@ def validate_mentions_in_text(original_content, mentions):
 
         # Check if name was processed by either NLP or LLM
         nlp_processed = name in nlp_dict
-        llm_processed = name in llm_dict
+        # llm_processed = name in llm_dict
         
         nlp_match = nlp_dict.get(name, False)
-        llm_match = llm_dict.get(name, False)
+        # llm_match = llm_dict.get(name, False)
         
         # If NLP didn't process this name, default to True (no pronouns used)
         if not nlp_processed:
             pronouns_match_both = True
         else:
             # OR logic: True if either say True
-            pronouns_match_both = nlp_match or llm_match
+            # pronouns_match_both = nlp_match or llm_match
+            pronouns_match_both = nlp_match 
 
         pronouns_display = "/".join(pronouns) if pronouns else "None"
         final_results.append({
@@ -103,7 +105,8 @@ def validate_mentions_in_text(original_content, mentions):
             "pronouns_match": pronouns_match_both
         })
 
-    log_debug("Combining NLP / LLM results with OR logic")
+    # log_debug("Combining NLP / LLM results with OR logic")
+    log_debug("Making final determination based on NLP results")
 
     return final_results
 
