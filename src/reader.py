@@ -9,7 +9,7 @@ from src.mentions import get_mentions
 from src.parser import validate_mentions_in_text
 from src.notifier import notify_writer_of_mismatch
 from src.logger import (
-    log_info, 
+    log_info, log_debug,
     log_section_start, log_section_end, 
     log_mention_info, 
     log_validation_results, 
@@ -17,9 +17,26 @@ from src.logger import (
 )
 
 
+REQUIRED_FIELDS = [
+    "event_type",
+    "message_type",
+    "stream_id",
+    "subject",
+    "id",
+    "sender_id",
+    "sender_email",
+    "sender_full_name",
+    "content"
+]
+
 def contents_are_valid(message):
+    if not all(field in message for field in REQUIRED_FIELDS):
+        log_debug("Fields missing from message, exiting...")
+        return False
+    
     for val in message.values():
         if val == "":
+            log_debug("Fields empty in message, exiting...")
             return False
 
     return True 

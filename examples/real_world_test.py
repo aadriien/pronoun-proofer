@@ -12,13 +12,23 @@ from src.logger import log_info, log_section_start, log_section_end
 
 def create_test_message_content():
     # Test message content with known pronoun patterns
-    return (
-        "I met with @**Adrien Lynch (he/they) (S2'25)** today. "
-        "They showed me what they were working on. "
-        "Adrien's work is really cool. I love seeing his projects. "
-        "I also worked with @**Test Person (she/ze) (W1'17)**. "
-        "Test has so many cool ideas in his mind. Ze are the best."
-    )
+    return {
+        "event_type": "message",
+        "message_type": "stream",
+        "stream_id": 000000,
+        "subject": "TEST",
+        "id": 0000,
+        "sender_id": 890656,
+        "sender_email": "adriienlynch@gmail.com",
+        "sender_full_name": "Adrien Lynch (he/they) (S2'25)",
+        "content": (
+            "I met with @**Adrien Lynch (he/they) (S2'25)** today. "
+            "They showed me what they were working on. "
+            "Adrien's work is really cool. I love seeing his projects. "
+            "I also worked with @**Test Person (she/ze) (W1'17)**. "
+            "Test has so many cool ideas in his mind. Ze are the best."
+        )
+    }
 
 
 def fetch_recent_message(client, channel="checkins", topic="Adrien Lynch"):
@@ -38,7 +48,13 @@ def fetch_recent_message(client, channel="checkins", topic="Adrien Lynch"):
     log_info(f"Found {len(result.get('messages', []))} message(s)")
     
     if result.get("messages"):
-        return result["messages"][0]
+        # `event_type` & `message_type` not in here, so hardcode for test
+        last_msg_obj = result["messages"][0]
+
+        last_msg_obj["event_type"] = "message"
+        last_msg_obj["message_type"] = "stream"
+
+        return last_msg_obj
     return None
 
 
@@ -54,10 +70,10 @@ def run_real_world_test(use_recent_message=False, channel="checkins", topic="Adr
         message = fetch_recent_message(client, channel, topic)
         if not message:
             log_info("No recent message found, falling back to test content")
-            message = {"content": create_test_message_content()}
+            message = create_test_message_content()
     else:
         # Test with predefined content
-        message = {"content": create_test_message_content()}
+        message = create_test_message_content()
     
     # Append additional test content if desired
     # message["content"] += "\n\nAdditional test scenarios can be added here"
