@@ -4,23 +4,32 @@
 
 Meet the `Pronoun Proofer`, a Zulip bot that validates the usage of pronouns in a given text to ensure they match the preferences of the people being referenced. This bot now leverages NLP for clever parsing!
 
-This constructive tool is designed to improve the community experience at RC by helping people identify and fix any mistaken pronouns. `Pronoun Proofer` will NOT punish, shame, or embarrass people when they slip up. Instead, it will reach out to them privately so that they are aware of the potential mismatch, encouraging them to review and edit their message to reflect the correct pronouns. With the help of this bot, folks in the community can connect with one another on a deeper and more respectful level! 
+This constructive tool is designed to improve the community experience at RC by helping people identify and fix any mistaken pronouns. `Pronoun Proofer` will NOT punish, shame, or embarrass people when they slip up. 
+
+Instead, it will reach out to them privately so that they are aware of the potential mismatch, encouraging them to review and edit their message to reflect the correct pronouns. With the help of this bot, folks in the community can connect with one another on a deeper and more respectful level! 
 
 
 ## How It Works
 
 ### *`Pronoun Proofer` runs 24/7 on [RC's Heap Community Cluster](https://www.recurse.com/blog/126-heap-sponsors-rc-community-cluster)*
 
+>#### Listening
+>1. Zulip bot is subscribed to all public streams
+>2. New message event in a stream triggers validation pipeline
+>3. Alternatively, pipeline triggered by update message (edit) event 
 
-1. Zulip bot is subscribed to all public streams
-2. New message event in a stream triggers validation pipeline
-3. Bot scans for any mentions (@) in message content
-4. Name + pronouns are extracted from Zulip name tag markdown
-5. NLP is applied to full text content, generating clusters for entities
-6. All mentioned names are linked to their cluster pronouns
-7. Mappings are reviewed to check for any discrepancies
-8. Any detected mismatches are flagged for notification service
-9. Bot privately DMs writer of message, with a link to revisit + edit
+>#### Scanning
+>4. Bot scans for any mentions (@) in message content
+>5. Name + pronouns are extracted from Zulip name tag markdown
+
+>#### Parsing
+>6. NLP is applied to full text content, generating clusters for entities
+>7. All mentioned names are linked to their cluster pronouns
+>8. Mappings are reviewed to check for any discrepancies
+
+>#### Resolving
+>9. Any detected mismatches are flagged for notification service
+>10. Bot privately DMs writer of message, with a link to revisit + edit
 
 
 ## Tools / Tech
@@ -29,7 +38,7 @@ This constructive tool is designed to improve the community experience at RC by 
 - **spaCy (NLP)**: experimental coreference pipeline
     - cluster component
     - span resolver component
-- **OpenAI (LLM)**: secondary text check
+- **OpenAI (LLM)**: secondary text check (currently disabled)
 - **Linux**: Bash scripts for RC's heap cluster
     - user instance of `systemd`
     - `.service` files run with `enable-linger`
