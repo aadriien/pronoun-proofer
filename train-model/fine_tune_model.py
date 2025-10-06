@@ -94,32 +94,6 @@ def create_training_examples(nlp, training_data):
     return examples
 
 
-def get_latest_model():
-    # Find latest fine-tuned model to continue training from
-    models_dir = "models"
-    if not os.path.exists(models_dir):
-        return None
-    
-    model_dirs = [d for d in os.listdir(models_dir) 
-                  if os.path.isdir(os.path.join(models_dir, d)) 
-                  and d.startswith("fine_tuned_")]
-    
-    if not model_dirs:
-        return None
-    
-    # Sort by timestamp in filename
-    latest_model = sorted(model_dirs)[-1]
-    model_path = os.path.join(models_dir, latest_model)
-    
-    try:
-        nlp = spacy.load(model_path)
-        print(f"Continuing from latest model: {latest_model}")
-        return nlp
-    except:
-        print(f"Failed to load {latest_model}, starting from base model")
-        return None
-
-
 def run_one_example(nlp):
     training_data = [
         {
@@ -190,11 +164,69 @@ def test_after_training(nlp, training_data):
             print(f"After training found: {[(k, [s.text for s in spans]) for k, spans in doc_after.spans.items()]}")
         else:
             print("After training found no clusters")
+
+
+def load_base_model():
+    BASE_MODEL = "en_coreference_web_trf"
+
+    # Load the base coreference model and test it works
+    print(f"Loading base model: {BASE_MODEL}")
+    try:
+        nlp = spacy.load(BASE_MODEL)
+        print(f"Successfully loaded {BASE_MODEL}")
+        return nlp
+    except OSError as e:
+        print(f"Error loading model: {e}")
+        return None
+    
+
+def save_model_version(nlp):
+    # Save model to versioned directory
+    models_dir = os.path.join(os.path.dirname(__file__), "models")
+    os.makedirs(models_dir, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    version_name = f"coref_{timestamp}"
+    model_path = os.path.join(models_dir, version_name)
+
+    nlp.to_disk(model_path)
+    print(f"Model version saved to: {model_path}")
+    return model_path
+
+
+def get_latest_model():
+    # Find latest fine-tuned model to continue training from
+    models_dir = os.path.join(os.path.dirname(__file__), "models")
+    if not os.path.exists(models_dir):
+        return None
+    
+    model_dirs = [d for d in os.listdir(models_dir) 
+                  if os.path.isdir(os.path.join(models_dir, d)) 
+                  and d.startswith("coref_")]
+    
+    if not model_dirs:
+        return None
+    
+    # Sort by timestamp in filename
+    latest_model = sorted(model_dirs)[-1]
+    model_path = os.path.join(models_dir, latest_model)
+    
+    try:
+        nlp = spacy.load(model_path)
+        print(f"Continuing from latest model: {latest_model}")
+        return nlp
+    except:
+        print(f"Failed to load {latest_model}, starting from base model")
+        return load_base_model()
     
 
 def main():
-    print("Loading base model...")
-    nlp = spacy.load("en_coreference_web_trf")
+    print("Checking for latest model...")
+    nlp = get_latest_model()
+    
+    if nlp is None:
+        print("No fine-tuned model found, loading base model...")
+        nlp = load_base_model()
 
     # Try with just 1 instance (see effect of initialize vs update)
     # run_one_example(nlp, training_data[0])
@@ -206,13 +238,8 @@ def main():
     # Test results
     test_after_training(nlp, training_data)
 
-
-    # # Save & test different sentence
-    # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    # model_path = f"models/minimal_{timestamp}"
-    # os.makedirs("models", exist_ok=True)
-    # nlp.to_disk(model_path)
-    # print(f"\nModel saved to: {model_path}")
+    # Save & test different sentence
+    model_path = save_model_version(nlp)
 
 
 if __name__ == "__main__":
