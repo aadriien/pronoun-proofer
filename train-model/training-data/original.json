@@ -1,0 +1,167 @@
+[
+    {
+        "text": "Sarah placed her violin case on the table and smiled, remembering the first concert she ever played in that very hall.",
+        "clusters": [["Sarah", "her", "she"]]
+    },
+    {
+        "text": "The teacher adjusted her glasses and glanced at the students, wondering which of them had actually done the reading.",
+        "clusters": [["The teacher", "her"], ["the students", "them"]]
+    },
+    {
+        "text": "When the cat saw the bird on the windowsill, it crouched low and flicked its tail with intent.",
+        "clusters": [["the cat", "it", "its"]]
+    },
+    {
+        "text": "Marcus carried the blueprints under his arm, determined to finish his design before the end of the week.",
+        "clusters": [["Marcus", "his", "his"]]
+    },
+    {
+        "text": "The librarian locked the heavy oak door with his sturdy key, whispering a goodnight to the quiet shelves around him.",
+        "clusters": [["The librarian", "his", "him"]]
+    },
+    {
+        "text": "The old dog trotted beside its owner, Elena. She smiled down at her dog, who wagged its tail with excitement.",
+        "clusters": [["The old dog", "its", "its"], ["Elena", "She", "her"]]
+    },
+    {
+        "text": "Professor Bennett paused his sentence mid-lecture, realizing that the projector had frozen on the wrong slide again.",
+        "clusters": [["Professor Bennett", "his"]]
+    },
+    {
+        "text": "The baker wiped flour from his hands and smiled as the morning sunlight poured through his shop window.",
+        "clusters": [["The baker", "his", "his"]]
+    },
+    {
+        "text": "Lena opened her sketchbook on the park bench, tracing the outlines of children chasing each other as they ran through the grass.",
+        "clusters": [["Lena", "her"], ["children", "they"]]
+    },
+    {
+        "text": "After the meeting, Mr. Alvarez stayed behind to erase his work from the whiteboard, thinking about the decision he'd just made.",
+        "clusters": [["Mr. Alvarez", "his", "he"]]
+    },
+    {
+        "text": "The nurse offered her patient a reassuring smile, adjusting the blanket to make sure they were warm enough.",
+        "clusters": [["The nurse", "her"], ["her patient", "they"]]
+    },
+    {
+        "text": "Tariq stared at his half-finished sculpture, realizing that he'd carved the expression all wrong again.",
+        "clusters": [["Tariq", "his", "he"]]
+    },
+    {
+        "text": "The gardener, Mr. Harrison, knelt among the rows of tulips, brushing soil from his gloves and admiring the even blooms he'd planted.",
+        "clusters": [["The gardener Mr. Harrison", "The gardener", "Mr. Harrison", "his", "he"]]
+    },
+    {
+        "text": "Elaine's cat jumped onto the counter, meowing as it knocked over the mug she had just filled with tea.",
+        "clusters": [["Elaine", "she"], ["Elaine's cat", "it"]]
+    },
+    {
+        "text": "The conductor raised his baton, preparing to lead the orchestra in front of him.",
+        "clusters": [["The conductor", "his", "him"]]
+    },
+    {
+        "text": "When Jeremiah, the pilot, announced turbulence, several passengers tightened their seatbelts and exchanged nervous looks at his announcement.",
+        "clusters": [["Jeremiah the pilot", "Jeremiah", "the pilot", "his"], ["several passengers", "their"]]
+    },
+    {
+        "text": "Nora closed her notebook gently. She then took a deep breath before turning to the next page.",
+        "clusters": [["Nora", "her", "She"]]
+    },
+    {
+        "text": "The old librarian smiled as Marcus returned to her the worn copy of the novel, telling him that it had been requested by another reader.",
+        "clusters": [["The old librarian", "her"], ["Marcus", "him"], ["the worn copy of the novel", "it"]]
+    },
+    {
+        "text": "Isla fed the stray cat behind the bakery every morning, and it purred softly when she stroked its fur.",
+        "clusters": [["Isla", "she"], ["the stray cat", "it", "its"]]
+    },
+    {
+        "text": "The pilot checked the instrument panel once more, ensuring that he had verified all of the readings within his view.",
+        "clusters": [["The pilot", "he", "his"]]
+    },
+    {
+        "text": "Rafael adjusted his glasses as he studied the faded signature at the bottom of the letter carefully.",
+        "clusters": [["Rafael", "his", "he"]]
+    },
+    {
+        "text": "The florist arranged the lilies in a glass vase, humming softly to herself while she trimmed their stems.",
+        "clusters": [["The florist", "herself", "she"], ["the lilies", "their"]]
+    },
+    {
+        "text": "Anya wrapped the gift for her friend with care, and she tied the ribbon twice so it would not come undone.",
+        "clusters": [["Anya", "her", "she"], ["the ribbon", "it"]]
+    },
+    {
+        "text": "The professor paused in the middle of her lecture to the class, realizing that half them had not absorbed what she said.",
+        "clusters": [["The professor", "her", "she"], ["the class", "them"]]
+    },
+    {
+        "text": "Oliver picked up the shiny seashell, and he held it to his ear, smiling at the faint echo it produced.",
+        "clusters": [["Oliver", "he", "his"], ["the shiny seashell", "it", "it"]]
+    },
+    {
+        "text": "Luisa the journalist scribbled a final quote in her notebook, making sure she captured the source accurately.",
+        "clusters": [["Luisa the journalist", "Luisa", "the journalist", "her", "she"]]
+    },
+    {
+        "text": "Under the flickering streetlamp, Theo practiced his speech, muttering to himself as he stumbled over the words.",
+        "clusters": [["Theo", "his", "himself", "he"]]
+    },
+    {
+        "text": "The baker sprinkled powdered sugar over his pastries. He paused to admire how golden they looked that morning.",
+        "clusters": [["The baker", "his", "He"], ["his pastries", "they"]]
+    },
+    {
+        "text": "Lina reached into her coat pocket, finding her train ticket, which she thought she had lost.",
+        "clusters": [["Lina", "her", "her", "she", "she"]]
+    },
+    {
+        "text": "The gardener knelt in the soil, whispering to the young saplings, because he believed they would grow faster with his encouragement.",
+        "clusters": [["The gardener", "he", "his"], ["the young saplings", "they"]]
+    },
+    {
+        "text": "Ava's camera clicked rapidly as the first snow began to fall, and she reviewed the images to see which ones captured the magic.",
+        "clusters": [["Ava", "she"], ["the images", "ones"]]
+    },
+    {
+        "text": "The detective studied the footprints by the riverbank. He traced their path carefully before taking notes for himself to review later.",
+        "clusters": [["The detective", "He", "himself"], ["the footprints", "their"]]
+    },
+    {
+        "text": "The violinist tuned her delicate instrument carefully, and she listened closely to ensure it sounded perfect.",
+        "clusters": [["The violinist", "her", "she"], ["her delicate instrument", "it"]]
+    },
+    {
+        "text": "Yara wrote a note on the napkin, and she tucked it into her friend's jacket before leaving the café.",
+        "clusters": [["Yara", "she", "her"], ["a note", "it"]]
+    },
+    {
+        "text": "Santiago leaned against his balcony railing, smiling to himself as he watched the city lights blink below him like a constellation in motion.",
+        "clusters": [["Santiago", "his", "himself", "he", "him"]]
+    },
+    {
+        "text": "The astronaut floated silently, a peaceful expression on her face as she marveled at how Earth shimmered beneath the spacecraft window.",
+        "clusters": [["The astronaut", "her", "she"]]
+    },
+    {
+        "text": "When the teacher dismissed the class, Liam stayed behind. He wanted to ask her one last question about the stars, which were his favorite.",
+        "clusters": [["the teacher", "her"], ["Liam", "He", "his"]]
+    },
+    {
+        "text": "Leah the painter rinsed her brushes in a jar of cloudy water, scrunching up her nose as she looked at the strange mix of colors swirling inside.",
+        "clusters": [["Leah the painter", "Leah", "the painter", "her", "her", "she"]]
+    },
+    {
+        "text": "The lighthouse keeper wound the great brass clock. Then he stepped outside of his tower to watch the tide roll in.",
+        "clusters": [["The lighthouse keeper", "he", "his"]]
+    },
+    {
+        "text": "Elias folded the map carefully, preparing himself for his next quest. He traced the mountains with his thumb to memorize their shape.",
+        "clusters": [["Elias", "himself", "his", "He", "his"], ["the mountains", "their"]]
+    },
+    {
+        "text": "The dancer, Ariana, tied her shoes with precision, and she adjusted her costume before stepping onto the stage.",
+        "clusters": [["The dancer Ariana", "The dancer", "Ariana", "her", "she", "her"]]
+    }
+]
+
