@@ -11,6 +11,7 @@ warnings.filterwarnings("ignore")
 import os
 import json
 import spacy
+import random
 
 from spacy.training import Example
 from datetime import datetime
@@ -138,14 +139,17 @@ def train_several_examples(nlp, training_data):
     print("\n\n")
 
     optimizer = nlp.resume_training() 
-    optimizer.learn_rate = 1e-4
+    optimizer.learn_rate = 1e-7
 
     # Fine-tune 1 example at a time
-    n_passes = 30
+    n_passes = 15
     for epoch in range(n_passes):
+        # Shuffle to improve generalization
+        random.shuffle(examples)
         losses = {}
+
         for example in examples:
-            nlp.update([example], sgd=optimizer, losses=losses)
+            nlp.update([example], drop=0.5, sgd=optimizer, losses=losses)
 
         print(f"Epoch {epoch+1}, losses: {losses}")
 
@@ -221,12 +225,14 @@ def get_latest_model():
     
 
 def main():
-    print("Checking for latest model...")
-    nlp = get_latest_model()
+    # print("Checking for latest model...")
+    # nlp = get_latest_model()
     
-    if nlp is None:
-        print("No fine-tuned model found, loading base model...")
-        nlp = load_base_model()
+    # if nlp is None:
+    #     print("No fine-tuned model found, loading base model...")
+    #     nlp = load_base_model()
+
+    nlp = load_base_model()
 
     # Try with just 1 instance (see effect of initialize vs update)
     # run_one_example(nlp, training_data[0])

@@ -1,0 +1,1598 @@
+[
+  {
+    "text": "Alex told me that they prefer working from home because it gives them more flexibility with their schedule.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "When Jordan arrives at the office, they usually check their email first, then they organize their tasks for the day.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            1,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            10,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Sam mentioned that they forgot their lunch today, so they will need to buy something from the cafeteria.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Riley explained that they need help with their math homework because they find calculus challenging.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Casey joined our team last month, and they have already shared their innovative ideas with everyone.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Morgan loves cooking, especially when they can experiment with their grandmother's recipes in their kitchen.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            10,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Taylor is very creative, and they spend most of their free time designing websites for their clients.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            10,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Avery studies biology because they want to become a doctor, and they believe their research can help people.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Quinn loves reading so much that they finish two books per week, often staying up late with their favorite novels.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            18,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Devon plays soccer every afternoon because they want to improve their skills before their next tournament.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            10,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Parker is an artist who paints with watercolors, and they spend hours perfecting their technique because their work needs to capture emotion.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Sage works remotely from their home office, and they really enjoy the flexibility it gives them in managing their daily schedule.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Drew loves photography so much that they travel everywhere with their camera to capture stunning images for their growing portfolio.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            10,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Phoenix studies astronomy and they use telescopes nightly because their research focuses on discovering new star formations in distant galaxies.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            9,
+            10
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Rowan teaches kindergarten and they absolutely love working with kids, especially when they can make their classroom a colorful, engaging space.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Emery is a chef who creates innovative recipes for their restaurant, and they take pride in how popular their establishment has become.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            9,
+            10
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Finley writes novels and they manage to publish new books yearly because their captivating stories always find an eager audience.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Blake runs marathons and they train every morning before work, showing their incredible dedication to the sport they love.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Reese plays violin in several orchestras, and they have developed their technique to such a flawless level that audiences always applaud enthusiastically.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            11,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Hayden builds robots in their workshop, and they spend months designing mechanical systems because their inventions need to be both clever and reliable.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "River studies marine biology and they regularly dive with sharks to conduct their important research that protects ocean ecosystems.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Cameron codes software for mobile apps, and they take great pride in ensuring their programs are both efficient and user-friendly.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "When Skyler arrives at the office, they usually bring coffee for everyone because they know their thoughtfulness makes the whole team happy.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            1,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "My colleague Remy is brilliant. They solve complex problems quickly, and their insights help everyone.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            13,
+            14
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "I know someone named Kai who teaches yoga. They have been practicing for years and their classes are popular.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            4,
+            5
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The new employee, Ash, starts Monday. They will work remotely, so their schedule is flexible.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            4,
+            5
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            15,
+            16
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "My friend Harper loves traveling. They visit new countries yearly, and their photos are stunning.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            13,
+            14
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "There's a student named Robin in my class. They ask great questions, and their essays are well-written.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            5,
+            6
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The artist, Sage, exhibits paintings downtown. They use mixed media, and their style is unique.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            3,
+            4
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            15,
+            16
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "A person named Jamie works here. They handle customer service, and their patience is remarkable.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            3,
+            4
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            13,
+            14
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "My neighbor Ellis gardens organically. They grow vegetables year-round, and their tomatoes are delicious.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The musician, Quinn, performs at local venues. They play acoustic guitar, and their voice is beautiful.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            3,
+            4
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "At the conference, Dr. Patel presented groundbreaking research. They had spent years developing this methodology, and their findings revolutionized the field completely.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            4,
+            6
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            19,
+            20
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Sam quit their job yesterday because they wanted more creative freedom.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            7
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The detective, Riley Chen, solved the case through careful investigation. When they examined the evidence, their analytical skills became apparent.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            3,
+            5
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            19,
+            20
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Have you met Jordan? They're incredibly talented at problem-solving and their approach is always innovative.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "My therapist helped me understand anxiety better. They explained that everyone processes emotions differently, and their guidance was invaluable.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Taylor's presentation went well yesterday. They answered questions confidently, though some of their slides needed more detail.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            15,
+            16
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The barista at the corner cafe knows my order by heart. They always smile warmly, and their coffee art is beautiful.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            18,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "When Alex starts their new position next month, they'll be managing a team of twelve people.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            9,
+            10
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The librarian recommended several books about climate change. They mentioned that their personal favorite deals with renewable energy solutions.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Morgan's parents are incredibly proud of them because they recently graduated summa cum laude, and their thesis on urban planning won a prestigious award.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Every Tuesday, Cameron volunteers at the animal shelter. They find it rewarding work, and their dedication helps many animals find homes.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            3,
+            4
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The chef at this restaurant is phenomenal. They source ingredients locally, and their seasonal menu changes monthly.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Avery's research focuses on marine ecosystems. They dive in coral reefs regularly, documenting how their health affects fish populations.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The contractor promised to finish the renovation by Friday. They've been working diligently, but their timeline seems optimistic.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Quinn teaches advanced mathematics at the university. They use interactive methods in their lectures, making complex concepts accessible to students.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            13,
+            14
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The nurse was exceptionally kind during my stay. They checked on patients frequently, and their compassion made recovery easier.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Devon's artwork was featured in three galleries this year. They work primarily with mixed media, and their pieces explore themes of identity.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            19,
+            20
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "My neighbor Parker grows an incredible garden. They compost all their kitchen scraps and share vegetables with everyone on the block.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            2,
+            3
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            11,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The mechanic diagnosed the problem quickly. They explained that the transmission needed replacement, and their estimate was reasonable.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Sage writes poetry that captures human emotions beautifully. They perform at open mic nights, and their words resonate with diverse audiences.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The software engineer debugged the entire system overnight. They identified the root cause efficiently, and their solution prevented future crashes.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            3
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Drew's documentary about climate refugees premiered last week. They interviewed subjects across three continents, and their storytelling brings important issues to light.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            18,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The postal worker delivers mail to our neighborhood cheerfully every day. They remember everyone's names, and their positive attitude brightens our mornings.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            3
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            19,
+            20
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Finley started their own consulting business after leaving corporate America. They specialize in organizational psychology, and their clients include Fortune 500 companies.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The physical therapist helped me recover from injury. They designed a personalized exercise program, and their expertise accelerated my healing process.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            3
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "River coordinates disaster relief efforts internationally. They've managed operations in twelve countries, and their leadership saves lives during crises.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The architect designed sustainable buildings throughout the city. They incorporate renewable energy systems, and their projects reduce environmental impact significantly.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Hayden's research on artificial intelligence ethics was groundbreaking. They published papers in top-tier journals, and their work influences policy development globally.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            20,
+            21
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The firefighter rescued three families from the burning apartment building. They showed incredible courage, and their quick thinking prevented a tragedy.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Reese performs with the symphony orchestra regularly. They play first violin beautifully, and their solos often receive standing ovations.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            15,
+            16
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The pediatrician has excellent bedside manner with children. They make visits less scary for kids, and their patience with worried parents is remarkable.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            18,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Blake founded a nonprofit organization that builds schools in underserved communities. They've established forty-three schools so far, and their impact transforms entire villages.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            23,
+            24
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The journalist investigated corruption within local government for months. They interviewed dozens of sources carefully, and their expos\u00e9 led to significant reforms.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            18,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Casey's startup develops educational technology for dyslexic students. They understand learning differences personally, and their software helps thousands of children succeed academically.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The veterinarian treated my cat with exceptional care. They explained the treatment options thoroughly, and their gentle approach calmed both pet and owner.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Jordan's food truck serves authentic Korean fusion cuisine. They learned recipes from their grandmother, and their bulgogi tacos are legendary throughout the city.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The social worker advocates tirelessly for vulnerable children. They navigate complex bureaucracy effectively, and their dedication ensures kids find safe, loving homes.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            3
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Phoenix teaches wilderness survival skills to outdoor enthusiasts. They lead expeditions in remote locations, and their expertise has prevented numerous emergencies.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "The orthodontist made the braces process much easier than expected. They used the latest technology, and their friendly staff created a welcoming environment.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            2
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            18,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "text": "Rowan's community garden project brings neighbors together. They organize workshops on organic farming, and their vision transforms vacant lots into productive spaces.",
+    "annotations": {
+      "spans": {
+        "coref_clusters_1": [
+          [
+            0,
+            1
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            17,
+            18
+          ]
+        ]
+      }
+    }
+  }
+]
