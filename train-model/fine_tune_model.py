@@ -17,14 +17,7 @@ from model_utils import (
 )
 
 
-def run_one_example(nlp):
-    training_data = [
-        {
-            "text": "Alex told me that they prefer working from home because it gives them more flexibility with their schedule.",
-            "clusters": [["Alex", "they", "them", "their"]]
-        }
-    ]
-
+def run_one_example(nlp, training_data):
     # Test base model first
     test_text = training_data["text"]
     print(f"\nTesting base model on: '{test_text}'")
@@ -36,8 +29,8 @@ def run_one_example(nlp):
         print("Base model found no clusters")
     
     # Create simple training example manually
-    examples = create_training_examples(nlp, training_data)
-    print("\n\n")
+    examples = create_training_examples(nlp, [training_data])
+    print("\n")
 
     coref = nlp.get_pipe("coref")
     optimizer = nlp.resume_training()
@@ -84,7 +77,7 @@ def train_several_examples(nlp, training_data, n_passes = 15, learn = 1e-7, drop
 
 
 def test_after_training(nlp, training_data):
-    print(f"\nTesting after training:")
+    # print(f"\nTesting after training:")
 
     for example in training_data:
         doc_after = nlp(example["text"])
@@ -110,17 +103,28 @@ def main():
 
     # Train with multiple examples from JSON
     training_data = load_training_data(json_file=THEY_THEM_DATA)
-    train_several_examples(nlp, training_data, n_passes=20, learn=1e-8, drop=0.5)
+
+    # # Test results from baseline model (no fine-tuning applied)
+    # print("\n\nTesting RESULTS from the BASE coref model:\n")
+    # test_after_training(nlp, training_data)
+
+    
+    train_several_examples(nlp, training_data, n_passes=15, learn=1e-7, drop=0.4)
 
     # training_data = load_training_data(json_file=NEOPRONOUNS_DATA)
     # train_several_examples(nlp, training_data, n_passes=5, learn=1e-8, drop=0.5)
 
     # Test results
+    print("\n\nTesting RESULTS from the FINE-TUNED coref model:\n")
     test_after_training(nlp, training_data)
 
     # Save & test different sentence
     model_path = save_model_version(nlp, trained_on_dir=THEY_THEM_DATA)
     # model_path = save_model_version(nlp, trained_on_dir=NEOPRONOUNS_DATA)
+
+
+    # for item in training_data:
+    #     run_one_example(nlp, item)
 
 
 if __name__ == "__main__":

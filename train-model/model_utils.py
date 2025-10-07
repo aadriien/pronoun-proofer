@@ -109,10 +109,10 @@ def load_base_model():
     print(f"Loading base model: {BASE_MODEL}")
     try:
         nlp = spacy.load(BASE_MODEL)
-        print(f"Successfully loaded {BASE_MODEL}")
+        print(f"Successfully loaded {BASE_MODEL}\n")
         return nlp
     except OSError as e:
-        print(f"Error loading model: {e}")
+        print(f"Error loading model: {e}\n")
         return None
 
 
@@ -135,10 +135,10 @@ def get_latest_model():
     
     try:
         nlp = spacy.load(model_path)
-        print(f"Continuing from latest model: {latest_model}")
+        print(f"Continuing from latest model: {latest_model}\n")
         return nlp
     except:
-        print(f"Failed to load {latest_model}, starting from base model")
+        print(f"Failed to load {latest_model}, starting from base model\n")
         return load_base_model()
 
 
@@ -152,7 +152,7 @@ def save_model_version(nlp, trained_on_dir = THEY_THEM_DATA):
     model_path = os.path.join(models_dir, version_name)
 
     nlp.to_disk(model_path)
-    print(f"Model version saved to: {model_path}")
+    print(f"Model version saved to: {model_path}\n")
     return model_path
     
 

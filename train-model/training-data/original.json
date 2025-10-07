@@ -116,7 +116,7 @@
         "clusters": [["Lina", "her", "her", "she", "she"]]
     },
     {
-        "text": "The gardener knelt in the soil, whispering to the young saplings, because he believed they would grow faster with his encouragement.",
+        "text": "The gardener knelt in the soil, speaking to the young saplings, because he believed they would grow faster with his encouragement.",
         "clusters": [["The gardener", "he", "his"], ["the young saplings", "they"]]
     },
     {

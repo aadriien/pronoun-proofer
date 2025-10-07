@@ -1,7 +1,7 @@
 [
     {
         "text": "Alex told me that they prefer working from home because it gives them more flexibility with their schedule.",
-        "clusters": [["Alex", "they", "them", "their"]]
+        "clusters": [["Alex", "they", "them", "their"], ["working from home", "it"]]
     },
     {
         "text": "When Jordan arrives at the office, they usually check their email first, then they organize their tasks for the day.",
@@ -286,5 +286,171 @@
     {
         "text": "Rowan's community garden project brings neighbors together. They organize workshops on organic farming, and their vision transforms vacant lots into productive spaces.",
         "clusters": [["Rowan", "They", "their"]]
+    },
+    {
+        "text": "Sarah placed their violin case on the table and smiled, remembering the first concert they ever played in that very hall.",
+        "clusters": [["Sarah", "their", "they"]]
+    },
+    {
+        "text": "The teacher adjusted their glasses and glanced at the students, wondering which of them had actually done the reading.",
+        "clusters": [["The teacher", "their"], ["the students", "them"]]
+    },
+    {
+        "text": "When the cat saw the bird on the windowsill, it crouched low and flicked its tail with intent.",
+        "clusters": [["the cat", "it", "its"]]
+    },
+    {
+        "text": "Marcus carried the blueprints under their arm, determined to finish their design before the end of the week.",
+        "clusters": [["Marcus", "their", "their"]]
+    },
+    {
+        "text": "The librarian locked the heavy oak door with their sturdy key, whispering a goodnight to the quiet shelves around them.",
+        "clusters": [["The librarian", "their", "them"]]
+    },
+    {
+        "text": "The old dog trotted beside its owner, Elena. They smiled down at their dog, who wagged its tail with excitement.",
+        "clusters": [["The old dog", "its", "its"], ["Elena", "They", "their"]]
+    },
+    {
+        "text": "Professor Bennett paused their sentence mid-lecture, realizing that the projector had frozen on the wrong slide again.",
+        "clusters": [["Professor Bennett", "their"]]
+    },
+    {
+        "text": "The baker wiped flour from their hands and smiled as the morning sunlight poured through their shop window.",
+        "clusters": [["The baker", "their", "their"]]
+    },
+    {
+        "text": "Lena opened their sketchbook on the park bench, tracing the outlines of children chasing each other as they ran through the grass.",
+        "clusters": [["Lena", "their"], ["children", "they"]]
+    },
+    {
+        "text": "After the meeting, Mx. Alvarez stayed behind to erase their work from the whiteboard, thinking about the decision they'd just made.",
+        "clusters": [["Mx. Alvarez", "their", "they"]]
+    },
+    {
+        "text": "The nurse offered their patient a reassuring smile, adjusting the blanket to make sure they were warm enough.",
+        "clusters": [["The nurse", "their"], ["their patient", "they"]]
+    },
+    {
+        "text": "Tariq stared at their half-finished sculpture, realizing that they'd carved the expression all wrong again.",
+        "clusters": [["Tariq", "their", "they"]]
+    },
+    {
+        "text": "The gardener, Mx. Harrison, knelt among the rows of tulips, brushing soil from their gloves and admiring the even blooms they'd planted.",
+        "clusters": [["The gardener Mx. Harrison", "The gardener", "Mx. Harrison", "their", "they"]]
+    },
+    {
+        "text": "Elaine's cat jumped onto the counter, meowing as it knocked over the mug they had just filled with tea.",
+        "clusters": [["Elaine", "they"], ["Elaine's cat", "it"]]
+    },
+    {
+        "text": "The conductor raised their baton, preparing to lead the orchestra in front of them.",
+        "clusters": [["The conductor", "their", "them"]]
+    },
+    {
+        "text": "When Jeremiah, the pilot, announced turbulence, several passengers tightened their seatbelts and exchanged nervous looks at their announcement.",
+        "clusters": [["Jeremiah the pilot", "Jeremiah", "the pilot", "their"], ["several passengers", "their"]]
+    },
+    {
+        "text": "Nora closed their notebook gently. They then took a deep breath before turning to the next page.",
+        "clusters": [["Nora", "their", "They"]]
+    },
+    {
+        "text": "The old librarian smiled as Marcus returned to their the worn copy of the novel, telling them that it had been requested by another reader.",
+        "clusters": [["The old librarian", "their"], ["Marcus", "them"], ["the worn copy of the novel", "it"]]
+    },
+    {
+        "text": "Isla fed the stray cat behind the bakery every morning, and it purred softly when they stroked its fur.",
+        "clusters": [["Isla", "they"], ["the stray cat", "it", "its"]]
+    },
+    {
+        "text": "The pilot checked the instrument panel once more, ensuring that they had verified all of the readings within their view.",
+        "clusters": [["The pilot", "they", "their"]]
+    },
+    {
+        "text": "Rafael adjusted their glasses as they studied the faded signature at the bottom of the letter carefully.",
+        "clusters": [["Rafael", "their", "they"]]
+    },
+    {
+        "text": "The florist arranged the lilies in a glass vase, humming softly to themself while they trimmed their stems.",
+        "clusters": [["The florist", "themself", "they"], ["the lilies", "their"]]
+    },
+    {
+        "text": "Anya wrapped the gift for their friend with care, and they tied the ribbon twice so it would not come undone.",
+        "clusters": [["Anya", "their", "they"], ["the ribbon", "it"]]
+    },
+    {
+        "text": "The professor paused in the middle of their lecture to the class, realizing that half them had not absorbed what they said.",
+        "clusters": [["The professor", "their", "they"], ["the class", "them"]]
+    },
+    {
+        "text": "Oliver picked up the shiny seashell, and they held it to their ear, smiling at the faint echo it produced.",
+        "clusters": [["Oliver", "they", "their"], ["the shiny seashell", "it", "it"]]
+    },
+    {
+        "text": "Luisa the journalist scribbled a final quote in their notebook, making sure they captured the source accurately.",
+        "clusters": [["Luisa the journalist", "Luisa", "the journalist", "their", "they"]]
+    },
+    {
+        "text": "Under the flickering streetlamp, Theo practiced their speech, muttering to themself as they stumbled over the words.",
+        "clusters": [["Theo", "their", "themself", "they"]]
+    },
+    {
+        "text": "The baker sprinkled powdered sugar over their pastries. They paused to admire how golden they looked that morning.",
+        "clusters": [["The baker", "their", "They"], ["their pastries", "they"]]
+    },
+    {
+        "text": "Lina reached into their coat pocket, finding their train ticket, which they thought they had lost.",
+        "clusters": [["Lina", "their", "their", "they", "they"]]
+    },
+    {
+        "text": "The gardener knelt in the soil, speaking to the young saplings, because they believed they would grow faster with their encouragement.",
+        "clusters": [["The gardener", "they", "their"], ["the young saplings", "they"]]
+    },
+    {
+        "text": "Ava's camera clicked rapidly as the first snow began to fall, and they reviewed the images to see which ones captured the magic.",
+        "clusters": [["Ava", "they"], ["the images", "ones"]]
+    },
+    {
+        "text": "The detective studied the footprints by the riverbank. They traced their path carefully before taking notes for themself to review later.",
+        "clusters": [["The detective", "They", "themself"], ["the footprints", "their"]]
+    },
+    {
+        "text": "The violinist tuned their delicate instrument carefully, and they listened closely to ensure it sounded perfect.",
+        "clusters": [["The violinist", "their", "they"], ["their delicate instrument", "it"]]
+    },
+    {
+        "text": "Yara wrote a note on the napkin, and they tucked it into their friend's jacket before leaving the café.",
+        "clusters": [["Yara", "they", "their"], ["a note", "it"]]
+    },
+    {
+        "text": "Santiago leaned against their balcony railing, smiling to themself as they watched the city lights blink below them like a constellation in motion.",
+        "clusters": [["Santiago", "their", "themself", "they", "them"]]
+    },
+    {
+        "text": "The astronaut floated silently, a peaceful expression on their face as they marveled at how Earth shimmered beneath the spacecraft window.",
+        "clusters": [["The astronaut", "their", "they"]]
+    },
+    {
+        "text": "When the teacher dismissed the class, Liam stayed behind. They wanted to ask their one last question about the stars, which were their favorite.",
+        "clusters": [["the teacher", "their"], ["Liam", "They", "their"]]
+    },
+    {
+        "text": "Leah the painter rinsed their brushes in a jar of cloudy water, scrunching up their nose as they looked at the strange mix of colors swirling inside.",
+        "clusters": [["Leah the painter", "Leah", "the painter", "their", "their", "they"]]
+    },
+    {
+        "text": "The lighthouse keeper wound the great brass clock. Then they stepped outside of their tower to watch the tide roll in.",
+        "clusters": [["The lighthouse keeper", "they", "their"]]
+    },
+    {
+        "text": "Elias folded the map carefully, preparing themself for their next quest. They traced the mountains with their thumb to memorize their shape.",
+        "clusters": [["Elias", "themself", "their", "They", "their"], ["the mountains", "their"]]
+    },
+    {
+        "text": "The dancer, Ariana, tied their shoes with precision, and they adjusted their costume before stepping onto the stage.",
+        "clusters": [["The dancer Ariana", "The dancer", "Ariana", "their", "they", "their"]]
     }
 ]
+
+
