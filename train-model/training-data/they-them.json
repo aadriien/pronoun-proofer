@@ -93,7 +93,7 @@
     },
     {
         "text": "My colleague Remy is brilliant. They solve complex problems quickly, and their insights help everyone.",
-        "clusters": [["Remy", "They", "their"]]
+        "clusters": [["My colleague", "Remy", "They", "their"]]
     },
     {
         "text": "I know someone named Kai who teaches yoga. They have been practicing for years and their classes are popular.",
@@ -101,19 +101,19 @@
     },
     {
         "text": "The new employee, Ash, starts Monday. They will work remotely, so their schedule is flexible.",
-        "clusters": [["Ash", "They", "their"]]
+        "clusters": [["The new employee", "Ash", "They", "their"]]
     },
     {
         "text": "My friend Harper loves traveling. They visit new countries yearly, and their photos are stunning.",
-        "clusters": [["Harper", "They", "their"]]
+        "clusters": [["My friend", "Harper", "They", "their"]]
     },
     {
         "text": "There's a student named Robin in my class. They ask great questions, and their essays are well-written.",
-        "clusters": [["Robin", "They", "their"]]
+        "clusters": [["a student named Robin", "Robin", "They", "their"]]
     },
     {
         "text": "The artist, Sage, exhibits paintings downtown. They use mixed media, and their style is unique.",
-        "clusters": [["Sage", "They", "their"]]
+        "clusters": [["The artist", "Sage", "They", "their"]]
     },
     {
         "text": "A person named Jamie works here. They handle customer service, and their patience is remarkable.",
@@ -121,11 +121,11 @@
     },
     {
         "text": "My neighbor Ellis gardens organically. They grow vegetables year-round, and their tomatoes are delicious.",
-        "clusters": [["Ellis", "They", "their"]]
+        "clusters": [["My neighbor", "Ellis", "They", "their"]]
     },
     {
         "text": "The musician, Quinn, performs at local venues. They play acoustic guitar, and their voice is beautiful.",
-        "clusters": [["Quinn", "They", "their"]]
+        "clusters": [["The musician", "Quinn", "They", "their"]]
     },
     {
         "text": "At the conference, Dr. Patel presented groundbreaking research. They had spent years developing this methodology, and their findings revolutionized the field completely.",
@@ -137,7 +137,7 @@
     },
     {
         "text": "The detective, Riley Chen, solved the case through careful investigation. When they examined the evidence, their analytical skills became apparent.",
-        "clusters": [["Riley Chen", "they", "their"]]
+        "clusters": [["The detective", "Riley Chen", "they", "their"]]
     },
     {
         "text": "Have you met Jordan? They're incredibly talented at problem-solving and their approach is always innovative.",
@@ -153,7 +153,7 @@
     },
     {
         "text": "The barista at the corner cafe knows my order by heart. They always smile warmly, and their coffee art is beautiful.",
-        "clusters": [["The barista", "They", "their"]]
+        "clusters": [["The barista", "The barista at the corner cafe", "They", "their"]]
     },
     {
         "text": "When Alex starts their new position next month, they'll be managing a team of twelve people.",
@@ -197,7 +197,7 @@
     },
     {
         "text": "My neighbor Parker grows an incredible garden. They compost all their kitchen scraps and share vegetables with everyone on the block.",
-        "clusters": [["Parker", "They", "their"]]
+        "clusters": [["My neighbor Parker", "Parker", "They", "their"]]
     },
     {
         "text": "The mechanic diagnosed the problem quickly. They explained that the transmission needed replacement, and their estimate was reasonable.",

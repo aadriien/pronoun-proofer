@@ -134,22 +134,27 @@ def run_one_example(nlp):
     # print("\n\n")
 
 
-def train_several_examples(nlp, training_data):
+def train_several_examples(nlp, training_data, n_passes = 15, learn = 1e-7, drop = 0.5):
     examples = create_training_examples(nlp, training_data)
-    print("\n\n")
+    print("\n")
+
+    print(f"Resuming training with configs:\n")
+    print(f"    Epochs (passes): {n_passes}")
+    print(f"    Learn rate: {learn}")
+    print(f"    Dropout: {drop}")
+    print("\n")
 
     optimizer = nlp.resume_training() 
-    optimizer.learn_rate = 1e-7
+    optimizer.learn_rate = learn
 
-    # Fine-tune 1 example at a time
-    n_passes = 15
     for epoch in range(n_passes):
         # Shuffle to improve generalization
         random.shuffle(examples)
         losses = {}
 
+        # Fine-tune 1 example at a time
         for example in examples:
-            nlp.update([example], drop=0.5, sgd=optimizer, losses=losses)
+            nlp.update([example], drop=drop, sgd=optimizer, losses=losses)
 
         print(f"Epoch {epoch+1}, losses: {losses}")
 
@@ -158,8 +163,6 @@ def train_several_examples(nlp, training_data):
 
 def test_after_training(nlp, training_data):
     print(f"\nTesting after training:")
-
-    doc_after = nlp(training_data[0]["text"])
 
     for example in training_data:
         doc_after = nlp(example["text"])
@@ -239,7 +242,7 @@ def main():
 
     # Train with multiple examples from JSON
     training_data = load_training_data()
-    train_several_examples(nlp, training_data)
+    train_several_examples(nlp, training_data, n_passes=15, learn=1e-7, drop=0.6)
 
     # Test results
     test_after_training(nlp, training_data)
