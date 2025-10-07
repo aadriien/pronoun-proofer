@@ -11,7 +11,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 from model_utils import (
-    THEY_THEM_DATA,
+    THEY_THEM_DATA, NEOPRONOUNS_DATA,
     load_training_data, create_training_examples, 
     load_base_model, get_latest_model, save_model_version
 )
@@ -110,13 +110,17 @@ def main():
 
     # Train with multiple examples from JSON
     training_data = load_training_data(json_file=THEY_THEM_DATA)
-    train_several_examples(nlp, training_data, n_passes=15, learn=1e-7, drop=0.5)
+    train_several_examples(nlp, training_data, n_passes=20, learn=1e-8, drop=0.5)
+
+    # training_data = load_training_data(json_file=NEOPRONOUNS_DATA)
+    # train_several_examples(nlp, training_data, n_passes=5, learn=1e-8, drop=0.5)
 
     # Test results
     test_after_training(nlp, training_data)
 
     # Save & test different sentence
-    model_path = save_model_version(nlp)
+    model_path = save_model_version(nlp, trained_on_dir=THEY_THEM_DATA)
+    # model_path = save_model_version(nlp, trained_on_dir=NEOPRONOUNS_DATA)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,82 @@
+[
+    {
+        "text": "Michael played eir instrument with precision, and later ey adjusted the melody to match the choir's tone.",
+        "clusters": [["Michael", "eir", "ey"]]
+    },
+    {
+        "text": "The painter, Rowan, bought more paint for zir project that ze has been working on for several months.",
+        "clusters": [["The painter", "Rowan", "zir", "ze"]]
+    },
+    {
+        "text": "A famous scientist, Esther Smith, developed a renewable energy prototype, and faer invention could transform rural communities if fae receives funding.",
+        "clusters": [["A famous scientist", "Esther Smith", "faer", "fae"]]
+    },
+    {
+        "text": "Jordan redesigned xir website over the weekend, and xe made sure that every page reflected xir personal aesthetic.",
+        "clusters": [["Jordan", "xir", "xe", "xir"]]
+    },
+    {
+        "text": "The architect Morgan finalized the blueprints for faer latest project, ensuring faer design balanced elegance with sustainability.",
+        "clusters": [["The architect", "Morgan", "faer", "faer"]]
+    },
+    {
+        "text": "Elio loves composing ambient music, and ze says zir creativity flourishes most when zir workspace is completely silent.",
+        "clusters": [["Elio", "ze", "zir", "zir"]]
+    },
+    {
+        "text": "The chef Avery tasted eir new recipe several times before ey decided the flavors were balanced enough for the restaurant menu.",
+        "clusters": [["The chef", "Avery", "eir", "ey"]]
+    },
+    {
+        "text": "Kai opened a small robotics lab, and xe often shares xir discoveries with local students who admire xir ingenuity.",
+        "clusters": [["Kai", "xe", "xir", "xir"]]
+    },
+    {
+        "text": "The journalist, Sage, completed faer article about social reform, and fae submitted it to a major publication for review.",
+        "clusters": [["The journalist", "Sage", "faer", "fae"]]
+    },
+    {
+        "text": "Lior edited zir novel carefully, making sure ze revised every sentence that didn't reflect zir intended tone.",
+        "clusters": [["Lior", "zir", "ze", "zir"]]
+    },
+    {
+        "text": "The engineer designed a new solar array, and ey plan to test eir prototype during next month's energy conference.",
+        "clusters": [["The engineer", "ey", "eir"]]
+    },
+    {
+        "text": "Taylor, a marine biologist, tracks coral reef recovery, and fae uses faer research to influence environmental policy.",
+        "clusters": [["Taylor", "fae", "faer"]]
+    },
+    {
+        "text": "Phoenix curated an art exhibit showcasing faer digital installations, and fae invited local students to explore the creative process behind them.",
+        "clusters": [["Phoenix", "faer", "fae"]]
+    },
+    {
+        "text": "The programmer Quinn refactored eir application overnight, and ey added new accessibility features to improve user experience.",
+        "clusters": [["The programmer", "Quinn", "eir", "ey"]]
+    },
+    {
+        "text": "Hayden brought zir sketches to class, and ze explained how zir illustrations reflect changing cultural identities.",
+        "clusters": [["Hayden", "zir", "ze", "zir"]]
+    },
+    {
+        "text": "The tinkerer restored a vintage piano in faer workshop, and fae plans to record music using the instrument once faer repairs are complete.",
+        "clusters": [["The tinkerer", "faer", "fae", "faer"]]
+    },
+    {
+        "text": "Rowan the filmmaker edited eir documentary late into the night because ey wanted to perfect the emotional pacing.",
+        "clusters": [["Rowan", "Rowan the filmmaker", "eir", "ey"]]
+    },
+    {
+        "text": "Jamison wrote zir first research paper on digital ethics, and zir advisor praised the clarity and originality ze demonstrated.",
+        "clusters": [["Jamison", "zir", "zir", "ze"]]
+    },
+    {
+        "text": "Cameron taught faer students how to build robots, emphasizing the teamwork skills fae believes are vital in engineering.",
+        "clusters": [["Cameron", "faer", "fae"]]
+    },
+    {
+        "text": "Emery the photographer adjusted eir camera settings to capture the golden light, and ey smiled when eir shot came out perfectly balanced.",
+        "clusters": [["Emery", "Emery the photographer", "eir", "ey", "eir"]]
+    }
+]

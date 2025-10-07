@@ -22,12 +22,13 @@ NEW_MODELS_PREFIX = "coref_"
 NEW_MODELS_FOLDER = "models"
 TRAINING_DATA_FOLDER = "training-data"
 
-THEY_THEM_DATA = "they-them.json"
+THEY_THEM_DATA = "they-them"
+NEOPRONOUNS_DATA = "neopronouns"
 
 
 def load_training_data(json_file = THEY_THEM_DATA):
     # Load training examples from JSON file
-    filepath = os.path.join(os.path.dirname(__file__), TRAINING_DATA_FOLDER, json_file)
+    filepath = os.path.join(os.path.dirname(__file__), TRAINING_DATA_FOLDER, f"{json_file}.json")
     with open(filepath, "r") as f:
         return json.load(f)
 
@@ -141,9 +142,9 @@ def get_latest_model():
         return load_base_model()
 
 
-def save_model_version(nlp):
+def save_model_version(nlp, trained_on_dir = THEY_THEM_DATA):
     # Save model to versioned directory
-    models_dir = os.path.join(os.path.dirname(__file__), NEW_MODELS_FOLDER)
+    models_dir = os.path.join(os.path.dirname(__file__), f"{NEW_MODELS_FOLDER}/{trained_on_dir}")
     os.makedirs(models_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
