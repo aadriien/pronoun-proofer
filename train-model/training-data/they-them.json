@@ -16,8 +16,8 @@
         "clusters": [["Riley", "they", "their", "they"]]
     },
     {
-        "text": "Casey joined our team last month, and they have already shared their innovative ideas with everyone.",
-        "clusters": [["Casey", "they", "their"]]
+        "text": "Casey joined our team last month, and they have already shared their innovative ideas with everyone. We love them!",
+        "clusters": [["Casey", "they", "their", "them"], ["our team", "We"]]
     },
     {
         "text": "Morgan loves cooking, especially when they can experiment with their grandmother's recipes in their kitchen.",
@@ -32,16 +32,16 @@
         "clusters": [["Avery", "they", "they", "their"]]
     },
     {
-        "text": "Quinn loves reading so much that they finish two books per week, often staying up late with their favorite novels.",
-        "clusters": [["Quinn", "they", "their"]]
+        "text": "My best friend Quinn loves reading so much that they finish two books per week, often staying up late with their favorite novels.",
+        "clusters": [["My best friend Quinn", "My best friend", "Quinn", "they", "their"]]
     },
     {
         "text": "Devon plays soccer every afternoon because they want to improve their skills before their next tournament.",
         "clusters": [["Devon", "they", "their", "their"]]
     },
     {
-        "text": "Parker is an artist who paints with watercolors, and they spend hours perfecting their technique because their work needs to capture emotion.",
-        "clusters": [["Parker", "they", "their", "their"]]
+        "text": "Parker, the famous artist who paints with watercolors, spends hours perfecting their technique because they believe their work needs to capture emotion.",
+        "clusters": [["Parker the famous artist", "Parker", "the famous artist", "their", "they", "their"]]
     },
     {
         "text": "Sage works remotely from their home office, and they really enjoy the flexibility it gives them in managing their daily schedule.",
@@ -60,20 +60,20 @@
         "clusters": [["Rowan", "they", "they", "their"]]
     },
     {
-        "text": "Emery is a chef who creates innovative recipes for their restaurant, and they take pride in how popular their establishment has become.",
-        "clusters": [["Emery", "their", "they", "their"]]
+        "text": "The newest chef in our city, Emery Lee, creates innovative recipes for their restaurant, and they take pride in how popular their establishment has become.",
+        "clusters": [["The newest chef in our city Emery Lee", "The newest chef in our city", "Emery Lee", "their", "they", "their"]]
     },
     {
         "text": "Finley writes novels and they manage to publish new books yearly because their captivating stories always find an eager audience.",
         "clusters": [["Finley", "they", "their"]]
     },
     {
-        "text": "Blake runs marathons and they train every morning before work, showing their incredible dedication to the sport they love.",
+        "text": "Blake runs marathons, and they train every morning before work, showing their incredible dedication to the sport they love.",
         "clusters": [["Blake", "they", "their", "they"]]
     },
     {
-        "text": "Reese plays violin in several orchestras, and they have developed their technique to such a flawless level that audiences always applaud enthusiastically.",
-        "clusters": [["Reese", "they", "their"]]
+        "text": "The violinist, Reese, plays in several orchestras, and they have developed their technique to such a flawless level that audiences always applaud enthusiastically.",
+        "clusters": [["The violinist Reese", "The violinist", "Reese", "they", "their"]]
     },
     {
         "text": "Hayden builds robots in their workshop, and they spend months designing mechanical systems because their inventions need to be both clever and reliable.",
@@ -84,8 +84,8 @@
         "clusters": [["River", "they", "their"]]
     },
     {
-        "text": "Cameron codes software for mobile apps, and they take great pride in ensuring their programs are both efficient and user-friendly.",
-        "clusters": [["Cameron", "they", "their"]]
+        "text": "Cameron the engineer codes software for mobile apps, and they take great pride in ensuring their programs are both efficient and user-friendly.",
+        "clusters": [["Cameron the engineer", "Cameron", "the engineer", "they", "their"]]
     },
     {
         "text": "When Skyler arrives at the office, they usually bring coffee for everyone because they know their thoughtfulness makes the whole team happy.",
@@ -93,7 +93,7 @@
     },
     {
         "text": "My colleague Remy is brilliant. They solve complex problems quickly, and their insights help everyone.",
-        "clusters": [["My colleague", "Remy", "They", "their"]]
+        "clusters": [["My colleague Remy", "My colleague", "Remy", "They", "their"]]
     },
     {
         "text": "I know someone named Kai who teaches yoga. They have been practicing for years and their classes are popular.",
@@ -101,11 +101,11 @@
     },
     {
         "text": "The new employee, Ash, starts Monday. They will work remotely, so their schedule is flexible.",
-        "clusters": [["The new employee", "Ash", "They", "their"]]
+        "clusters": [["The new employee Ash", "The new employee", "Ash", "They", "their"]]
     },
     {
         "text": "My friend Harper loves traveling. They visit new countries yearly, and their photos are stunning.",
-        "clusters": [["My friend", "Harper", "They", "their"]]
+        "clusters": [["My friend Harper", "My friend", "Harper", "They", "their"]]
     },
     {
         "text": "There's a student named Robin in my class. They ask great questions, and their essays are well-written.",
@@ -121,11 +121,11 @@
     },
     {
         "text": "My neighbor Ellis gardens organically. They grow vegetables year-round, and their tomatoes are delicious.",
-        "clusters": [["My neighbor", "Ellis", "They", "their"]]
+        "clusters": [["My neighbor Ellis", "My neighbor", "Ellis", "They", "their"]]
     },
     {
         "text": "The musician, Quinn, performs at local venues. They play acoustic guitar, and their voice is beautiful.",
-        "clusters": [["The musician", "Quinn", "They", "their"]]
+        "clusters": [["The musician Quinn", "The musician", "Quinn", "They", "their"]]
     },
     {
         "text": "At the conference, Dr. Patel presented groundbreaking research. They had spent years developing this methodology, and their findings revolutionized the field completely.",
@@ -137,15 +137,15 @@
     },
     {
         "text": "The detective, Riley Chen, solved the case through careful investigation. When they examined the evidence, their analytical skills became apparent.",
-        "clusters": [["The detective", "Riley Chen", "they", "their"]]
+        "clusters": [["The detective Riley Chen", "The detective", "Riley Chen", "they", "their"]]
     },
     {
         "text": "Have you met Jordan? They're incredibly talented at problem-solving and their approach is always innovative.",
         "clusters": [["Jordan", "They", "their"]]
     },
     {
-        "text": "My therapist helped me understand anxiety better. They explained that everyone processes emotions differently, and their guidance was invaluable.",
-        "clusters": [["My therapist", "They", "their"]]
+        "text": "My therapist helped me understand my anxiety better. They explained that everyone processes emotions differently, and their guidance was invaluable.",
+        "clusters": [["My therapist", "They", "their"], ["me", "my"]]
     },
     {
         "text": "Taylor's presentation went well yesterday. They answered questions confidently, though some of their slides needed more detail.",
@@ -153,7 +153,7 @@
     },
     {
         "text": "The barista at the corner cafe knows my order by heart. They always smile warmly, and their coffee art is beautiful.",
-        "clusters": [["The barista", "The barista at the corner cafe", "They", "their"]]
+        "clusters": [["The barista at the corner cafe", "The barista", "They", "their"]]
     },
     {
         "text": "When Alex starts their new position next month, they'll be managing a team of twelve people.",
@@ -173,7 +173,7 @@
     },
     {
         "text": "The chef at this restaurant is phenomenal. They source ingredients locally, and their seasonal menu changes monthly.",
-        "clusters": [["The chef", "They", "their"]]
+        "clusters": [["The chef at this restaurant", "The chef", "They", "their"]]
     },
     {
         "text": "Avery's research focuses on marine ecosystems. They dive in coral reefs regularly, documenting how their health affects fish populations.",
@@ -197,7 +197,7 @@
     },
     {
         "text": "My neighbor Parker grows an incredible garden. They compost all their kitchen scraps and share vegetables with everyone on the block.",
-        "clusters": [["My neighbor Parker", "Parker", "They", "their"]]
+        "clusters": [["My neighbor Parker", "My neighbor", "Parker", "They", "their"]]
     },
     {
         "text": "The mechanic diagnosed the problem quickly. They explained that the transmission needed replacement, and their estimate was reasonable.",
@@ -248,8 +248,8 @@
         "clusters": [["Reese", "They", "their"]]
     },
     {
-        "text": "The pediatrician has excellent bedside manner with children. They make visits less scary for kids, and their patience with worried parents is remarkable.",
-        "clusters": [["The pediatrician", "They", "their"]]
+        "text": "Jamie the pediatrician has excellent bedside manner with children. They make visits less scary for kids, and their patience with worried parents is remarkable.",
+        "clusters": [["Jamie the pediatrician", "Jamie", "The pediatrician", "They", "their"]]
     },
     {
         "text": "Blake founded a nonprofit organization that builds schools in underserved communities. They've established forty-three schools so far, and their impact transforms entire villages.",
@@ -268,8 +268,8 @@
         "clusters": [["The veterinarian", "They", "their"]]
     },
     {
-        "text": "Jordan's food truck serves authentic Korean fusion cuisine. They learned recipes from their grandmother, and their bulgogi tacos are legendary throughout the city.",
-        "clusters": [["Jordan", "They", "their", "their"]]
+        "text": "Jordan's food truck serves authentic Korean fusion cuisine. They learned recipes from their grandmother, Irena, who was well-known for her bulgogi tacos.",
+        "clusters": [["Jordan", "They", "their"], ["their grandmother Irena", "their grandmother", "Irena", "her"]]
     },
     {
         "text": "The social worker advocates tirelessly for vulnerable children. They navigate complex bureaucracy effectively, and their dedication ensures kids find safe, loving homes.",
