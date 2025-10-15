@@ -9,6 +9,8 @@ import os
 from dotenv import load_dotenv
 from urllib.parse import quote_plus
 
+from src.logger import log_info, log_section_start, log_divider
+
 
 load_dotenv()
 
@@ -32,7 +34,8 @@ def get_message_link(content):
 def notify_writer_of_mismatch(content, result, client):
     sender_id = content["sender_id"]
     # sender_email = content["sender_email"]
-    sender_name = content["sender_full_name"].split()[0]
+    sender_full_name = content["sender_full_name"]
+    sender_name = sender_full_name.split()[0]
 
     mentioned_name, mentioned_pronouns = result["name"], result["pronouns"]
 
@@ -44,6 +47,12 @@ def notify_writer_of_mismatch(content, result, client):
     # Add link if message is from a stream
     zulip_message_link = get_message_link(content)
     content_lines.append(f"You can review your original message here: {zulip_message_link}")
+
+    # Log main DM content that will be sent to writer (without info overview)
+    log_divider()
+    log_section_start("SENDING DM NOTIFICATION")
+    log_info(f"Recipient: {sender_full_name} (ID: {sender_id})")
+    log_info(f"Main DM Content: {' '.join(content_lines)}")
 
     testing_bot_disclaimer = [
         f"\n—\n"

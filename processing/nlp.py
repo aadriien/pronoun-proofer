@@ -10,7 +10,7 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.logger import log_original_text, log_debug, log_nlp_clusters
+from src.logger import log_original_text, log_debug, log_nlp_clusters, log_divider
 
 
 PRONOUN_GROUPS = {
@@ -40,6 +40,7 @@ def get_clusters_from_text(text):
     doc = apply_nlp(text)
     
     log_original_text(text)
+    log_divider()
     
     # Debug: show raw spaCy clusters
     log_debug("Raw spaCy clusters detected:")

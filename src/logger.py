@@ -10,6 +10,10 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 
+# Consistent separator length for all dividers
+SEPARATOR_LENGTH = 80
+
+
 def log_with_timestamp(message: str, level: str = "INFO", flush: bool = True) -> None:
     # Log a message with timestamp & level
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
@@ -39,11 +43,11 @@ def log_warning(message: str, flush: bool = True) -> None:
 
 def log_separator(title: str = None, flush: bool = True) -> None:
     # Log a visual separator with optional title
-    separator = "=" * 80
+    separator = "=" * SEPARATOR_LENGTH
     if title:
         title_line = f" {title} "
-        padding = (80 - len(title_line)) // 2
-        separator = "=" * padding + title_line + "=" * (80 - padding - len(title_line))
+        padding = (SEPARATOR_LENGTH - len(title_line)) // 2
+        separator = "=" * padding + title_line + "=" * (SEPARATOR_LENGTH - padding - len(title_line))
     print(separator, flush=flush)
 
 
@@ -94,6 +98,16 @@ def log_original_text(text: str, flush: bool = True) -> None:
     display_text = text[:500] + "..." if len(text) > 500 else text
     log_info(f"Text: {display_text}", flush)
     log_info(f"Length: {len(text)} characters", flush)
+
+
+def log_blank_line(flush: bool = True) -> None:
+    # Log a blank line for spacing
+    print("", flush=flush)
+
+
+def log_divider(char: str = "-", flush: bool = True) -> None:
+    # Log a divider line (matches separator length)
+    print(char * SEPARATOR_LENGTH, flush=flush)
 
 
 def force_flush() -> None:

@@ -12,7 +12,8 @@ from src.logger import (
     log_info, log_debug,
     log_section_start, log_section_end, 
     log_mention_info, 
-    log_validation_results, 
+    log_validation_results,
+    log_blank_line, log_divider,
     force_flush
 )
 
@@ -50,6 +51,7 @@ def scan_for_mentions(message, client):
     
     content = message["content"]
     
+    log_blank_line()
     log_section_start("MESSAGE SCAN")
     
     if "@" in content:
@@ -78,5 +80,6 @@ def scan_for_mentions(message, client):
         log_info("No mentions (@) found in message")
     
     log_section_end("MESSAGE SCAN")
+    log_blank_line()
     force_flush()
 
