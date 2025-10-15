@@ -17,7 +17,8 @@ SEPARATOR_LENGTH = 80
 def log_with_timestamp(message: str, level: str = "INFO", flush: bool = True) -> None:
     # Log a message with timestamp & level
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
-    formatted_message = f"[{timestamp}] [{level}] {message}"
+    # Add padding before brackets to align consistently (DEBUG is 5 chars)
+    formatted_message = f"[{timestamp}] [{level}] {message}" if len(level) == 5 else f"[{timestamp}]  [{level}] {message}"
     print(formatted_message, flush=flush)
 
 
@@ -53,12 +54,16 @@ def log_separator(title: str = None, flush: bool = True) -> None:
 
 def log_section_start(title: str, flush: bool = True) -> None:
     # Log start of a processing section
+    print("=" * SEPARATOR_LENGTH, flush=flush)
     log_separator(f"START: {title}", flush)
+    print("=" * SEPARATOR_LENGTH, flush=flush)
 
 
 def log_section_end(title: str, flush: bool = True) -> None:
     # Log end of a processing section
+    print("=" * SEPARATOR_LENGTH, flush=flush)
     log_separator(f"END: {title}", flush)
+    print("=" * SEPARATOR_LENGTH, flush=flush)
 
 
 def log_mention_info(mention, flush: bool = True) -> None:
@@ -97,6 +102,7 @@ def log_original_text(text: str, flush: bool = True) -> None:
     # Truncate very long text for readability
     display_text = text[:500] + "..." if len(text) > 500 else text
     log_info(f"Text: {display_text}", flush)
+    log_divider("-", flush)
     log_info(f"Length: {len(text)} characters", flush)
 
 

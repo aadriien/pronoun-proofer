@@ -10,7 +10,7 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.logger import log_original_text, log_debug, log_nlp_clusters, log_divider
+from src.logger import log_original_text, log_debug, log_nlp_clusters, log_section_start
 
 
 PRONOUN_GROUPS = {
@@ -40,8 +40,9 @@ def get_clusters_from_text(text):
     doc = apply_nlp(text)
     
     log_original_text(text)
-    log_divider()
+    log_section_start("NLP ANALYSIS")
     
+    log_debug("Running coreference model...")
     # Debug: show raw spaCy clusters
     log_debug("Raw spaCy clusters detected:")
     for cluster in doc.spans:
@@ -93,7 +94,6 @@ def map_names_to_pronouns(clusters, mentions):
 
 def get_pronoun_mappings(text, mentions):
     clusters = get_clusters_from_text(text)
-    log_nlp_clusters(clusters)
     
     mappings = map_names_to_pronouns(clusters, mentions)
     

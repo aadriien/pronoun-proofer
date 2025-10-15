@@ -59,6 +59,7 @@ def scan_for_mentions(message, client):
         
         if mentions:
             log_info(f"Found {len(mentions)} mention(s) to process")
+            log_divider()
             for mention in mentions:
                 log_mention_info(mention)
             

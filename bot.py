@@ -5,9 +5,12 @@
 ###############################################################################
 
 
+import warnings
+warnings.filterwarnings("ignore")
+
 from src.setup import create_client, subscribe_to_all_public_streams
 from src.reader import scan_for_mentions
-from src.logger import log_info, log_section_start, log_section_end, force_flush
+from src.logger import log_info, log_section_start, log_section_end, log_blank_line, force_flush
     
 from examples.real_world_test import run_real_world_test
 
@@ -24,6 +27,7 @@ class PronounBot:
         log_info(f"Subscribed to {len(self.subscribed_streams)} streams")
 
         log_section_end("PRONOUN BOT INITIALIZATION")
+        log_blank_line()
         force_flush()
 
     def run(self):

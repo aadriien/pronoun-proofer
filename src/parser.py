@@ -9,7 +9,7 @@ from processing.nlp import PRONOUN_GROUPS
 from processing.nlp import get_pronoun_mappings
 from processing.llm import validate_pronouns_with_llm
 
-from src.logger import log_debug, log_cluster_mapping, log_validation_results
+from src.logger import log_debug, log_cluster_mapping, log_validation_results, log_divider
 
 
 def sanitize_content(content, mentions):
@@ -62,7 +62,6 @@ def validate_mentions_in_text(original_content, mentions):
     # Remove name tags from content text, then apply NLP to extract clusters
     content = sanitize_content(original_content, mentions)
 
-    log_debug("Running NLP analysis...")
     nlp_results = validate_pronouns_with_nlp(content, mentions)
 
     # Perform a secondary check with LLM scan
@@ -106,6 +105,7 @@ def validate_mentions_in_text(original_content, mentions):
         })
 
     # log_debug("Combining NLP / LLM results with OR logic")
+    log_divider()
     log_debug("Making final determination based on NLP results")
 
     return final_results

@@ -49,9 +49,9 @@ def notify_writer_of_mismatch(content, result, client):
     content_lines.append(f"You can review your original message here: {zulip_message_link}")
 
     # Log main DM content that will be sent to writer (without info overview)
-    log_divider()
     log_section_start("SENDING DM NOTIFICATION")
     log_info(f"Recipient: {sender_full_name} (ID: {sender_id})")
+    log_divider()
     log_info(f"Main DM Content: {' '.join(content_lines)}")
 
     testing_bot_disclaimer = [
