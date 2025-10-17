@@ -17,7 +17,7 @@ def sanitize_content(content, mentions):
 
     # Replace all name tag instances (full_match) with readable name
     for m in mentions:
-        sanitized = sanitized.replace(m.full_match, m.name)
+        sanitized = sanitized.replace(m.full_match, m.first_name)
 
     return sanitized
 
