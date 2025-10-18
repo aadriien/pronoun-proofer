@@ -2,11 +2,15 @@
 
 POETRY ?= poetry
 VENV_DIR = .venv
-PYTHON_VERSION = python3
+PYTHON_VERSION = python3.10
 
-.PHONY: setup run tests format clean run_heap_cluster fine_tune_model 
+MODEL_WHL = en_coreference_web_trf-3.4.0a2-py3-none-any.whl
+ACTIVATE_VENV = source $(VENV_DIR)/bin/activate &&
 
-all: setup run 
+.PHONY: setup install-model run-prod run-dev tests format clean run_heap_cluster fine_tune_model
+
+all: setup install-model run-prod
+
 
 # Install Poetry dependencies & set up venv
 setup:
@@ -18,17 +22,26 @@ setup:
 		$(POETRY) install --no-root --quiet; \
 	fi
 
-run: 
-	@$(POETRY) run python bot.py
+# Install spaCy coref model (NLP) from wheel file
+install-model:
+	@$(ACTIVATE_VENV) python -c "import spacy; spacy.load('en_coreference_web_trf')" 2>/dev/null && echo "Model already installed" || $(POETRY) run pip install $(MODEL_WHL)
+
+# Run bot in prod as 24/7 server to listen & respond 
+run-prod:
+	@$(ACTIVATE_VENV) $(POETRY) run python bot.py --prod
+
+# Run bot dev script as one-off testing instance
+run-dev:
+	@$(ACTIVATE_VENV) $(POETRY) run python bot.py --dev
 
 tests:
-	@$(POETRY) run pytest tests/
+	@$(ACTIVATE_VENV) @$(POETRY) run pytest tests/
 
 nlp:
-	@$(POETRY) run python processing/nlp_coref.py
+	@$(ACTIVATE_VENV) @$(POETRY) run python processing/nlp_coref.py
 
 spacy:
-	@$(POETRY) run python processing/nlp_spacy.py
+	@$(ACTIVATE_VENV) @$(POETRY) run python processing/nlp_spacy.py
 
 # Auto-format Python code
 format:
@@ -51,6 +64,6 @@ run_heap_cluster:
 
 
 fine_tune_model:
-	@$(POETRY) run python train-model/fine_tune_model.py
+	@$(ACTIVATE_VENV) @$(POETRY) run python train-model/fine_tune_model.py
 
 
