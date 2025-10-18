@@ -39,6 +39,7 @@ def validate_pronouns_with_nlp(content, mentions):
 
         if any_allowed or not clustered_pronouns:
             pronouns_match = True
+            mismatches = []
         else:
             # All pronoun forms (specific that person) flattened
             valid_pronouns = [
@@ -46,9 +47,8 @@ def validate_pronouns_with_nlp(content, mentions):
                 for form in PRONOUN_GROUPS.get(pronoun, [])
             ]
 
+            # Check for complete match, & record any mismatches 
             pronouns_match = all(p in valid_pronouns for p in clustered_pronouns)
-
-            # Record any mismatches 
             mismatches = [p for p in clustered_pronouns if p not in valid_pronouns]
 
         pronouns_display = "/".join(pronouns) if pronouns else "None"

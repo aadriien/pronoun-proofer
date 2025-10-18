@@ -65,25 +65,25 @@ def get_clusters_from_text(text):
 
 
 def map_names_to_pronouns(clusters, mentions):
-    # Build lookup: full name -> NameTag
-    full_name_to_mention = {m.name: m for m in mentions}
+    # Build lookup: first name -> NameTag
+    first_name_to_mention = {m.first_name: m for m in mentions}
 
     name_to_cluster = {}
 
     for cluster in clusters:
         cluster_tokens = [t.strip() for t in cluster]
 
-        # Try to match a full name in cluster first
-        matched_full_name = None
-        for full_name, mention in full_name_to_mention.items():
+        # Try to match a first name in cluster, then try any others
+        matched_first_name = None
+        for first_name, mention in first_name_to_mention.items():
             if any(
-                token == mention.name or token in mention.other_names 
+                token == mention.first_name or token in mention.other_names 
                 for token in cluster_tokens
             ):
-                matched_full_name = full_name
+                matched_first_name = first_name
                 break
 
-        main_name = matched_full_name if matched_full_name else cluster_tokens[0]
+        main_name = matched_first_name if matched_first_name else cluster_tokens[0]
 
         # Map main name to everything in cluster (deduplicated)
         existing = set(name_to_cluster.get(main_name, []))
