@@ -12,6 +12,24 @@ from urllib.parse import quote_plus
 from src.logger import log_info, log_section_start, log_divider
 
 
+BOT_CREATOR_TAG = "@**Adrien Lynch (he/they) (S2'25)**"
+
+SPACY_OVERVIEW_URL = "https://explosion.ai/blog/coref"
+SPACY_LINK_MARKDOWN = f"[coreference model]({SPACY_OVERVIEW_URL})"
+
+GITHUB_REPO_URL = "https://github.com/aadriien/pronoun-proofer"
+GITHUB_LINK_MARKDOWN = f"[work in progress]({GITHUB_REPO_URL})"
+
+testing_bot_disclaimer = [
+    f"\n—\n"
+    f"**Note from the creator:** This bot is using spaCy's experimental " 
+    f"{SPACY_LINK_MARKDOWN} (NLP) to detect pronoun references in a given "
+    f"text and generate corresponding clusters. "
+    f"It's still a {GITHUB_LINK_MARKDOWN}, so please reach out to "
+    f"{BOT_CREATOR_TAG} if you notice any bugs or have questions!"
+]
+
+
 load_dotenv()
 
 def get_message_link(content):
@@ -39,9 +57,14 @@ def notify_writer_of_mismatch(content, result, client):
 
     mentioned_name, mentioned_pronouns = result["name"], result["pronouns"]
 
+    if result["mismatches"]:
+        quoted_mismatches = [f'\"{mismatch}\"' for mismatch in result["mismatches"]]
+        mismatches_str = ", ".join(quoted_mismatches) 
+
     content_lines = [
         f"Hi {sender_name.strip()}! I noticed your recent message may have used pronouns "
-        f"that don't match {mentioned_name}'s preferences ({mentioned_pronouns})."
+        f"that don't match {mentioned_name}'s preferences ({mentioned_pronouns}). "
+        f"NLP detected the following mismatches: {mismatches_str}"
     ]
 
     # Add link if message is from a stream
@@ -53,14 +76,6 @@ def notify_writer_of_mismatch(content, result, client):
     log_info(f"Recipient: {sender_full_name} (ID: {sender_id})")
     log_divider()
     log_info(f"Main DM Content: {' '.join(content_lines)}")
-
-    testing_bot_disclaimer = [
-        f"\n—\n"
-        f"**Note from the creator:** This bot is very new, and its approach to " 
-        f"pronoun detection is still a work in progress. Please reach out to "
-        f"@**Adrien Lynch (he/they) (S2'25)** if you notice any bugs or have questions. "
-        f"Adrien is actively working on NLP for the bot and would love to pair!"
-    ]
 
     content_lines.extend(testing_bot_disclaimer)
 
