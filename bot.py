@@ -8,6 +8,8 @@
 import warnings
 warnings.filterwarnings("ignore")
 
+import click # for args via CLI 
+
 from src.setup import create_client, subscribe_to_all_public_streams
 from src.reader import scan_for_mentions
 from src.logger import log_info, log_section_start, log_section_end, log_blank_line, force_flush
@@ -89,11 +91,41 @@ class PronounBot:
                 }
 
 
-if __name__ == "__main__":
-    bot = PronounBot()
-    bot.run()
-    
-    # For testing with real Zulip messages:
-    # run_real_world_test(use_recent_message=False)
+# Instantiate bot just once as a global so Click can access it 
+bot = PronounBot()
 
+
+@click.command()
+@click.option("--prod", is_flag=True, help="Run in server mode (24/7 live bot)")
+@click.option("--dev", is_flag=True, help="Run in dev mode (one-off test)")
+def launch_program(prod, dev):
+    # Ensure only 1 mode specified
+    flags = [prod, dev]
+    if sum(flags) != 1:
+        raise click.UsageError("ERROR: You must provide exactly one of --prod or --dev")
+
+    # Bot acts as a live server running 24/7 to listen for messages
+    if prod:
+        click.echo("Running in prod (server) mode...")
+        bot.run()
+
+    # Bot acts as a one-off script (real world Zulip message example) to test locally
+    elif dev:
+        click.echo(f"Running in dev (test) mode...")
+        run_real_world_test(use_recent_message=False)
+
+    else:
+        raise click.UsageError("ERROR: Please specify --prod or --dev")
+
+
+if __name__ == "__main__":
+    # Python Click to pass CLI arguments
+    # For example,
+    #   `python3 bot.py --prod`
+    #   `python3 bot.py --dev`
+    # Or alternativey, with Makefile rules
+    #   `make run-prod`
+    #   `make run-dev`
+
+    launch_program()
 
