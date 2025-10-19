@@ -60,7 +60,7 @@ run_heap_cluster:
 	@export PYENV_ROOT="$$HOME/.pyenv" && \
 	export PATH="$$PYENV_ROOT/bin:$$PATH:~/bin" && \
 	eval "$$(pyenv init - bash)" && \
-	$(POETRY) run python bot.py
+	$(POETRY) run python bot.py --prod
 
 
 fine_tune_model: install-model
