@@ -45,6 +45,45 @@ Instead, it will reach out to them privately so that they are aware of the poten
     - `.timer` file to act as cron job for log extraction
 
 
+## Getting Started
+
+Python dependencies are managed by Poetry.
+
+To **install** dependencies:
+```
+make setup
+```
+
+For a **fast run**:
+```
+make all
+```
+
+### For the Zulip bot:
+
+To run bot in **production** (listen for and respond to messages 24/7):
+```
+make run-prod
+```
+
+To run bot in **development** (one-off real-world testing instance):
+```
+make run-dev
+```
+
+To run a series of **unit tests** for the bot:
+```
+make tests
+```
+
+### For NLP coreference model:
+
+To iteratively **fine-tune** the model:
+```
+make fine_tune_model
+```
+
+
 ## Acknowledgements
 
 ### People
