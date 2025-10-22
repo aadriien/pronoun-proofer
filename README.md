@@ -76,9 +76,9 @@ To run a series of **unit tests** for the bot:
 make tests
 ```
 
-### For NLP coreference model:
+### For the coreference model (NLP):
 
-To iteratively **fine-tune** the model:
+To iteratively **fine-tune** model:
 ```
 make fine_tune_model
 ```

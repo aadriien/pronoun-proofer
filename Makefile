@@ -54,8 +54,8 @@ clean:
 
 
 # Run on heap cluster with pyenv Python 3.10
-# NOTE: No longer needed after setup with `systemd` 
-#	—> handled by `.service` & `.timer` files
+# Command referenced in `.service` file (called upon by `systemd`)
+#	—> daily logs handled by `.service` & `.timer` files
 run_heap_cluster:
 	@export PYENV_ROOT="$$HOME/.pyenv" && \
 	export PATH="$$PYENV_ROOT/bin:$$PATH:~/bin" && \
