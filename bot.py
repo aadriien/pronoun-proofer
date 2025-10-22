@@ -10,7 +10,8 @@ warnings.filterwarnings("ignore")
 
 import click # for args via CLI 
 
-from src.setup import create_client, subscribe_to_all_public_streams
+from src.setup import create_client
+from src.utils import subscribe_to_all_public_streams
 from src.reader import scan_for_mentions
 from src.logger import log_info, log_section_start, log_section_end, log_blank_line, force_flush
     
