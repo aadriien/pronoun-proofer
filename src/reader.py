@@ -7,6 +7,7 @@
 
 from src.mentions import get_mentions
 from src.parser import validate_mentions_in_text
+from src.context import check_previous_messages, reconcile_context_window
 from src.notifier import notify_writer_of_mismatch
 from src.logger import (
     log_info, log_debug,
@@ -50,6 +51,7 @@ def scan_for_mentions(message, client):
         return
     
     content = message["content"]
+    stream_id, subject = message["stream_id"], message["subject"]
     
     log_blank_line()
     log_section_start("MESSAGE SCAN")
@@ -69,10 +71,16 @@ def scan_for_mentions(message, client):
             # Check for mismatches & notify
             mismatches = [r for r in results if not r['pronouns_match']]
             if mismatches:
-                log_info(f"Found {len(mismatches)} pronoun mismatch(es) - sending notifications")
-                for r in mismatches:
-                    notify_writer_of_mismatch(message, r, client)
-                    pass
+                log_info(f"Found {len(mismatches)} initial mismatch(es) - performing additional check")
+
+                context_mismatches = check_previous_messages(client, stream_id, subject, mentions)
+                reconciled = reconcile_context_window(mismatches, context_mismatches)
+
+                if reconciled:
+                    log_info(f"Found {len(reconciled)} pronoun mismatch(es) - sending notifications")
+                    for r in reconciled:
+                        notify_writer_of_mismatch(message, r, client)
+                        pass
             else:
                 log_info("All pronoun usage is correct!")
         else:
