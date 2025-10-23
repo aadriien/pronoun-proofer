@@ -73,8 +73,10 @@ def scan_for_mentions(message, client):
             if mismatches:
                 log_info(f"Found {len(mismatches)} initial mismatch(es) - performing additional check")
 
+                log_section_start("CONTEXT WINDOW CHECK")
                 context_mismatches = check_previous_messages(client, stream_id, subject, mentions)
                 reconciled = reconcile_context_window(mismatches, context_mismatches)
+                log_section_end("CONTEXT WINDOW CHECK")
 
                 if reconciled:
                     log_info(f"Found {len(reconciled)} pronoun mismatch(es) - sending notifications")

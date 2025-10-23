@@ -51,7 +51,7 @@ def fetch_latest_messages(client, channel_stream_id, topic_subject_id, count = 5
     })
 
     log_info("Recent message fetch result:")
-    log_info(f"Found {len(result.get('messages', []))} message(s)")
+    log_info(f"Fetching last {len(result.get('messages', []))} message(s) from {channel_stream_id} > {topic_subject_id}")
 
     # Stored as array of message objects
     return result.get("messages", [])
