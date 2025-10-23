@@ -83,6 +83,8 @@ def scan_for_mentions(message, client):
                     for r in reconciled:
                         notify_writer_of_mismatch(message, r, client)
                         pass
+                else:
+                    log_info("All pronoun usage is correct!")
             else:
                 log_info("All pronoun usage is correct!")
         else:

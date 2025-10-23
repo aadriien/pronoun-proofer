@@ -7,6 +7,7 @@
 
 from src.utils import fetch_latest_messages
 from src.parser import validate_mentions_in_text
+from src.logger import log_validation_results
 
 
 def check_previous_messages(client, channel_stream_id, topic_subject_id, mentions):
@@ -20,6 +21,7 @@ def check_previous_messages(client, channel_stream_id, topic_subject_id, mention
     full_str = "\n".join(msgs_content)
 
     results = validate_mentions_in_text(full_str, mentions)
+    log_validation_results(results, "Final Validation")
 
     contextual_mismatches = [r for r in results if not r['pronouns_match']]
     return contextual_mismatches
