@@ -38,7 +38,9 @@ PRONOUNS_ANY = {
 }
 
 
-@dataclass
+# Frozen dataclass since fields are immutable
+# Note: without specifying `frozen=True`, unhashable type error
+@dataclass(frozen=True)
 class NameTag:
     full_match: str
 
@@ -112,7 +114,10 @@ class NameTag:
 
 
 def get_mentions(content: str):
-    return [NameTag.from_match(m) for m in MENTION_PATTERN.finditer(content)]
+    all_mentions = [NameTag.from_match(m) for m in MENTION_PATTERN.finditer(content)]
+    unique_mentions = set(all_mentions)
+    
+    return list(unique_mentions)
 
 
 
