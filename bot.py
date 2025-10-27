@@ -97,7 +97,7 @@ bot = PronounBot()
 
 
 @click.command()
-@click.option("--prod", is_flag=True, help="Run in server mode (24/7 live bot)")
+@click.option("--prod", is_flag=True, help="Run in service mode (24/7 live bot)")
 @click.option("--dev", is_flag=True, help="Run in dev mode (one-off test)")
 def launch_program(prod, dev):
     # Ensure only 1 mode specified
@@ -105,9 +105,9 @@ def launch_program(prod, dev):
     if sum(flags) != 1:
         raise click.UsageError("ERROR: You must provide exactly one of --prod or --dev")
 
-    # Bot acts as a live server running 24/7 to listen for messages
+    # Bot acts as a live service running 24/7 to listen for messages
     if prod:
-        click.echo("Running in prod (server) mode...")
+        click.echo("Running in prod (service) mode...")
         bot.run()
 
     # Bot acts as a one-off script (real world Zulip message example) to test locally

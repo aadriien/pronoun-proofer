@@ -26,7 +26,7 @@ setup:
 install-model:
 	@$(ACTIVATE_VENV) python -c "import spacy; spacy.load('en_coreference_web_trf')" 2>/dev/null && echo "Model already installed" || $(POETRY) run pip install $(MODEL_WHL)
 
-# Run bot in prod as 24/7 server to listen & respond 
+# Run bot in prod as 24/7 service to listen & respond 
 run-prod: install-model
 	@$(ACTIVATE_VENV) $(POETRY) run python bot.py --prod
 

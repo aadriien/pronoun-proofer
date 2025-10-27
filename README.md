@@ -40,7 +40,8 @@ Instead, it will reach out to them privately so that they are aware of the poten
 ## Tools / Tech
 
 - **Python**: logic with Zulip client
-    - CLI arguments processed via Python's `Click` library
+    - CLI arguments processed via Python's `Click` package
+        - easily run as client or service
 - **spaCy (NLP)**: experimental coreference pipeline
     - cluster component
     - span resolver component
