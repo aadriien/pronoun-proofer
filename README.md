@@ -28,8 +28,13 @@ Instead, it will reach out to them privately so that they are aware of the poten
 >8. Mappings are reviewed to check for any discrepancies
 
 >#### Resolving
->9. Any detected mismatches are flagged for notification service
->10. Bot privately DMs writer of message, with a link to revisit + edit
+>9. Any detected mismatches are flagged for a secondary context check
+>10. Context window is expanded by retrieving previous 5 messages in thread
+>11. NLP is again applied, this time to the larger stream history
+
+>#### Responding
+>12. If no mismatches, or if false positives clarified by context window, no action
+>13. If wrong pronouns, bot privately DMs writer of message, with link to revisit + edit
 
 
 ## Tools / Tech
