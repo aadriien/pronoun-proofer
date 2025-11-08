@@ -7,7 +7,7 @@ PYTHON_VERSION = python3.10
 MODEL_WHL = en_coreference_web_trf-3.4.0a2-py3-none-any.whl
 ACTIVATE_VENV = source $(VENV_DIR)/bin/activate &&
 
-.PHONY: setup install-model run-prod run-dev tests format clean run_heap_cluster fine_tune_model
+.PHONY: setup install-model run-prod run-dev tests format clean run_heap_cluster fine_tune_model build_best_model
 
 all: setup run-prod
 
@@ -65,5 +65,10 @@ run_heap_cluster:
 
 fine_tune_model: install-model
 	@$(ACTIVATE_VENV) $(POETRY) run python train-model/fine_tune_model.py
+
+build_best_model: install-model
+	@echo "Building the best coreference model through hyperparameter optimization..."
+	@echo "This process includes training, evaluation, and model selection."
+	@$(ACTIVATE_VENV) $(POETRY) run python train-model/generate_best_model.py
 
 
