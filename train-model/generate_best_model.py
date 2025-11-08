@@ -446,33 +446,55 @@ def test_evaluation_system():
         print("Failed to load model or data for testing")
 
 
-def simple_optimization():
-    """Simple optimization with just a few parameter combinations"""
-    print("Simple Model Optimization - Testing 3 configurations")
-    print("=" * 50)
+def comprehensive_optimization():
+    """Comprehensive optimization testing many parameter combinations"""
+    print("Comprehensive Model Optimization - Finding Best Configuration")
+    print("=" * 60)
     
     # Load training data
     training_data = load_training_data(json_file=THEY_THEM_DATA)
     print(f"Loaded {len(training_data)} training examples")
     
-    # Generate training examples once
+    # Generate training examples ONCE - this is expensive
     print("Generating training examples (this may take a moment)...")
     base_nlp = load_base_model()
     if not base_nlp:
         print("Failed to load base model")
         return
     
-    # Use a subset for speed and generate examples once
-    subset_data = training_data[:30]
+    # Use more data for better optimization
+    subset_data = training_data[:50]  # Increased from 30
     training_examples = create_training_examples(base_nlp, subset_data)
     print(f"Generated {len(training_examples)} training examples\n")
     
-    # Simple parameter combinations to test
+    # Focus on parameters that actually make a difference
     param_combinations = [
-        {'n_passes': 5, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 4},
-        {'n_passes': 10, 'learn_rate': 5e-8, 'dropout': 0.3, 'batch_size': 4},
-        {'n_passes': 5, 'learn_rate': 1e-6, 'dropout': 0.5, 'batch_size': 2}
+        # Conservative learning rate with extended training
+        {'n_passes': 25, 'learn_rate': 1e-8, 'dropout': 0.3, 'batch_size': 4},
+        {'n_passes': 30, 'learn_rate': 5e-9, 'dropout': 0.3, 'batch_size': 4},
+        {'n_passes': 40, 'learn_rate': 1e-9, 'dropout': 0.2, 'batch_size': 4},
+        
+        # Medium learning rates with substantial training
+        {'n_passes': 20, 'learn_rate': 5e-8, 'dropout': 0.4, 'batch_size': 4},
+        {'n_passes': 25, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 4},
+        {'n_passes': 30, 'learn_rate': 1e-7, 'dropout': 0.3, 'batch_size': 4},
+        
+        # Aggressive learning rates with careful training
+        {'n_passes': 15, 'learn_rate': 5e-7, 'dropout': 0.5, 'batch_size': 4},
+        {'n_passes': 12, 'learn_rate': 1e-6, 'dropout': 0.6, 'batch_size': 4},
+        {'n_passes': 10, 'learn_rate': 5e-6, 'dropout': 0.7, 'batch_size': 4},
+        
+        # Very long training with tiny steps
+        {'n_passes': 50, 'learn_rate': 1e-9, 'dropout': 0.2, 'batch_size': 2},
+        {'n_passes': 35, 'learn_rate': 5e-9, 'dropout': 0.3, 'batch_size': 2},
+        
+        # Balanced approaches
+        {'n_passes': 20, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 4},  # baseline
+        {'n_passes': 25, 'learn_rate': 7e-8, 'dropout': 0.35, 'batch_size': 4},
+        {'n_passes': 30, 'learn_rate': 3e-8, 'dropout': 0.3, 'batch_size': 4},
     ]
+    
+    print(f"Will test {len(param_combinations)} different configurations")
     
     best_score = -1
     best_params = None
@@ -513,10 +535,12 @@ def simple_optimization():
             print(f"  Score: {score:.4f}")
             evaluator.print_evaluation_summary(verbose=False)
             
+            metrics = evaluator.get_detailed_metrics()
             results.append({
                 'params': params,
                 'score': score,
-                'model': nlp
+                'model': nlp,
+                'metrics': metrics
             })
             
             if score > best_score:
@@ -553,7 +577,7 @@ def simple_optimization():
 
 
 def main():
-    simple_optimization()
+    comprehensive_optimization()
 
 
 if __name__ == "__main__":
