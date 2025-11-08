@@ -29,41 +29,45 @@ def comprehensive_optimization():
     print("Comprehensive Model Optimization - Finding Best Configuration")
     print("=" * 60)
     
-    # Load training data
-    training_data = load_training_data(json_file=THEY_THEM_DATA)
-    print(f"Loaded {len(training_data)} training examples")
+    # Load ALL available pronoun training data
+    they_them_data = load_training_data(json_file=THEY_THEM_DATA)
+    neopronoun_data = load_training_data(json_file=NEOPRONOUNS_DATA)
     
-    # Generate training examples ONCE - this is expensive
-    print("Generating training examples (this may take a moment)...")
+    print(f"They/them examples: {len(they_them_data)}")
+    print(f"Neopronoun examples: {len(neopronoun_data)}")
+    
+    # Use ALL data + emphasize neopronouns (completely new to the model)
+    combined_data = they_them_data + neopronoun_data * 3  # 3x neopronouns for emphasis
+    print(f"Total training examples: {len(combined_data)} (includes 3x neopronoun repetition)")
+    
     base_nlp = load_base_model()
     if not base_nlp:
         print("Failed to load base model")
         return
     
-    # Use more data for better optimization
-    subset_data = training_data[:50]  # Increased from 30
-    training_examples = create_training_examples(base_nlp, subset_data)
-    print(f"Generated {len(training_examples)} training examples\n")
-    
-    # Focus on optimal range: LR 5e-8 to 5e-7, epochs 15-30, dropout 0.3-0.5
+    # Optimized for learning new pronouns while preserving existing clustering knowledge
     param_combinations = [
-        # Sweet spot variations around best performers
-        {'n_passes': 15, 'learn_rate': 5e-7, 'dropout': 0.5, 'batch_size': 4},  # Best from previous
-        {'n_passes': 18, 'learn_rate': 3e-7, 'dropout': 0.45, 'batch_size': 4},
-        {'n_passes': 20, 'learn_rate': 2e-7, 'dropout': 0.4, 'batch_size': 4},
-        {'n_passes': 22, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 4},
-        {'n_passes': 25, 'learn_rate': 8e-8, 'dropout': 0.35, 'batch_size': 4},
-        {'n_passes': 28, 'learn_rate': 6e-8, 'dropout': 0.3, 'batch_size': 4},
-        {'n_passes': 30, 'learn_rate': 5e-8, 'dropout': 0.3, 'batch_size': 4},
+        # Standard 1e-7 range with proper regularization
+        {'n_passes': 30, 'learn_rate': 1e-7, 'dropout': 0.5, 'batch_size': 4},  # balanced
+        {'n_passes': 35, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 4},  # more training
+        {'n_passes': 25, 'learn_rate': 1e-7, 'dropout': 0.6, 'batch_size': 4},  # high regularization
         
-        # Explore slightly higher LR with more regularization
-        {'n_passes': 12, 'learn_rate': 7e-7, 'dropout': 0.6, 'batch_size': 4},
-        {'n_passes': 15, 'learn_rate': 4e-7, 'dropout': 0.55, 'batch_size': 4},
+        # Conservative but thorough - good for new vocabulary
+        {'n_passes': 40, 'learn_rate': 8e-8, 'dropout': 0.4, 'batch_size': 4},
+        {'n_passes': 50, 'learn_rate': 6e-8, 'dropout': 0.3, 'batch_size': 4},
+        {'n_passes': 60, 'learn_rate': 5e-8, 'dropout': 0.3, 'batch_size': 4},
         
-        # Test batch size variations with optimal LR range
-        {'n_passes': 20, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 2},
-        {'n_passes': 20, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 6},
-        {'n_passes': 20, 'learn_rate': 1e-7, 'dropout': 0.4, 'batch_size': 8},
+        # Gentle long training for vocabulary acquisition
+        {'n_passes': 45, 'learn_rate': 7e-8, 'dropout': 0.4, 'batch_size': 4},
+        {'n_passes': 35, 'learn_rate': 9e-8, 'dropout': 0.4, 'batch_size': 4},
+        
+        # Test batch effects on clustering quality
+        {'n_passes': 30, 'learn_rate': 1e-7, 'dropout': 0.5, 'batch_size': 2},  # smaller batches
+        {'n_passes': 30, 'learn_rate': 1e-7, 'dropout': 0.5, 'batch_size': 6},  # larger batches
+        
+        # Very conservative for stability
+        {'n_passes': 80, 'learn_rate': 3e-8, 'dropout': 0.2, 'batch_size': 4},
+        {'n_passes': 70, 'learn_rate': 4e-8, 'dropout': 0.3, 'batch_size': 4},
     ]
     
     print(f"Will test {len(param_combinations)} different configurations")
@@ -86,23 +90,20 @@ def comprehensive_optimization():
                 print("Failed to load base model")
                 continue
             
-            # Use the working training function from fine_tune_model.py with the subset data
-            print(f"  Training with working batch processing...")
+            # Train on ALL pronoun data (they/them + neopronouns)
+            print(f"  Training on {len(combined_data)} examples with batch processing...")
             train_several_examples(
                 nlp, 
-                subset_data,  # Use the subset we prepared
+                combined_data,  # Use ALL pronoun data
                 n_passes=params['n_passes'],
                 learn=params['learn_rate'],
                 drop=params['dropout'],
                 batch_size=params['batch_size']
             )
             
-            # Values for evaluation
-            total_loss = 100.0  # Will be calculated properly by evaluator
-            examples_processed = len(subset_data)
-            
-            # Evaluate the model using the same subset we trained on
-            score = evaluator.evaluate_model(nlp, subset_data, total_loss, examples_processed, sample_size=len(subset_data))
+            # Evaluate on a test subset (different from training)
+            test_data = they_them_data[100:150] + neopronoun_data  # Mix for evaluation
+            score = evaluator.evaluate_model(nlp, test_data, 0, len(combined_data), sample_size=len(test_data))
             
             print(f"  Score: {score:.4f}")
             evaluator.print_evaluation_summary(verbose=False)
