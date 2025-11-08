@@ -49,6 +49,7 @@ def create_training_examples(nlp, training_data):
         spans = {}
         for i, cluster in enumerate(clusters):
             span_positions = []
+            used_positions = set()  # Track used token positions to avoid duplicates
             
             # Find token positions for each mention in cluster
             for mention in cluster:
@@ -57,22 +58,27 @@ def create_training_examples(nlp, training_data):
                 
                 # Try exact token matching first
                 for j, token in enumerate(doc):
-                    if token.lower_ == mention_lower:
+                    if token.lower_ == mention_lower and j not in used_positions:
                         span_positions.append((j, j + 1))
-
-                        # Only find first occurrence to avoid duplicates
+                        used_positions.add(j)
                         found = True
                         break 
                 
                 # Try multi-token matching for phrases if not found
                 if not found:
                     for start_idx in range(len(doc)):
-
+                        if start_idx in used_positions:
+                            continue
+                            
                         for end_idx in range(start_idx + 1, min(start_idx + 4, len(doc) + 1)):
+                            if any(idx in used_positions for idx in range(start_idx, end_idx)):
+                                continue
+                                
                             span_text = ' '.join([t.lower_ for t in doc[start_idx:end_idx]])
                             
                             if span_text == mention_lower:
                                 span_positions.append((start_idx, end_idx))
+                                used_positions.update(range(start_idx, end_idx))
                                 found = True
                                 break
 
@@ -80,26 +86,84 @@ def create_training_examples(nlp, training_data):
                             break
             
             if span_positions:
-                spans[f"coref_clusters_{i+1}"] = span_positions
+                # Use consistent cluster naming for batch processing
+                spans[f"coref_clusters_{i}"] = span_positions
         
         # Only add examples that have spans
         if spans:
             annotations = {"spans": spans}
             example = Example.from_dict(doc, annotations)
             examples.append(example)
+    
+    return examples
+
+
+def create_batch_training_examples(nlp, training_data_batch):
+    # Create training examples that work with batch processing
+    # Key insight: Create raw docs first, then add annotations, then process through pipeline
+    examples = []
+    
+    # Step 1: Create raw docs and annotations without processing through pipeline
+    docs_and_annotations = []
+    for batch_idx, item in enumerate(training_data_batch):
+        text = item["text"]
+        clusters = item["clusters"]
+        
+        # Create raw doc (tokenization only, no pipeline processing)
+        doc = nlp.make_doc(text)
+        
+        # Create span annotations
+        spans = {}
+        for cluster_idx, cluster in enumerate(clusters):
+            span_positions = []
+            used_positions = set()
             
-            # Debug first few examples
-            if debug_count < 3:
-                print(f"  Debug example {debug_count + 1}: '{text}'")
-                print(f"    Clusters: {clusters}")
-                print(f"    Spans: {spans}")
-                debug_count += 1
-        else:
-            # Debug why no spans were found
-            if debug_count < 3:
-                print(f"  No spans found for: '{text}'")
-                print(f"    Tokens: {[t.text for t in doc]}")
-                print(f"    Clusters: {clusters}")
+            for mention in cluster:
+                mention_lower = mention.lower().strip()
+                found = False
+                
+                # Exact token matching
+                for j, token in enumerate(doc):
+                    if token.lower_ == mention_lower and j not in used_positions:
+                        span_positions.append((j, j + 1))
+                        used_positions.add(j)
+                        found = True
+                        break
+                
+                # Multi-token matching
+                if not found:
+                    for start_idx in range(len(doc)):
+                        if start_idx in used_positions:
+                            continue
+                        
+                        for end_idx in range(start_idx + 1, min(start_idx + 4, len(doc) + 1)):
+                            if any(idx in used_positions for idx in range(start_idx, end_idx)):
+                                continue
+                            
+                            span_text = ' '.join([t.lower_ for t in doc[start_idx:end_idx]])
+                            
+                            if span_text == mention_lower:
+                                span_positions.append((start_idx, end_idx))
+                                used_positions.update(range(start_idx, end_idx))
+                                found = True
+                                break
+                        
+                        if found:
+                            break
+            
+            if span_positions:
+                # Use simple cluster naming that works with batches
+                cluster_id = f"coref_clusters_{cluster_idx}"
+                spans[cluster_id] = span_positions
+        
+        if spans:
+            annotations = {"spans": spans}
+            docs_and_annotations.append((doc, annotations))
+    
+    # Step 2: Create examples from raw docs and annotations
+    for doc, annotations in docs_and_annotations:
+        example = Example.from_dict(doc, annotations)
+        examples.append(example)
     
     return examples
 
