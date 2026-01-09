@@ -7,7 +7,12 @@ PYTHON_VERSION = python3.10
 MODEL_WHL = en_coreference_web_trf-3.4.0a2-py3-none-any.whl
 ACTIVATE_VENV = source $(VENV_DIR)/bin/activate &&
 
-.PHONY: setup install-model run-prod run-dev tests format clean run_heap_cluster deploy_to_heap fine_tune_model build_best_model
+.PHONY: setup install-model \
+		run-prod run-dev \
+		tests \
+		format clean \
+		run_heap_cluster deploy_to_heap \
+		fine_tune_model build_best_model
 
 all: setup run-prod
 
