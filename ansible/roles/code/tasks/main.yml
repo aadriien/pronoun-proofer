@@ -1,0 +1,28 @@
+- file:
+    path: "{{ tgt }}"
+    state: directory
+
+- name: Copy project directories
+  copy:
+    src: "{{ repo }}/{{ item }}/"
+    dest: "{{ tgt }}/{{ item }}/"
+    mode: "0644"
+  loop:
+    - src
+    - examples
+    - processing
+    - tests
+ 
+- name: Copy necessary files
+  copy:
+    src: "{{ repo }}/{{ item }}"
+    dest: "{{ tgt }}/{{ item }}"
+    mode: 0600
+  with_items:
+    - bot.py
+    - Makefile
+    - poetry.lock
+    - pyproject.toml
+    - .env
+    - run_logs_extraction.sh
+

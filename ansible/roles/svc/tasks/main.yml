@@ -1,0 +1,60 @@
+- file:
+    path: "{{ home }}/.config/systemd/user"
+    state: directory
+    mode: "0755"
+
+- copy:
+    dest: "{{ home }}/.config/systemd/user/pronoun-proofer.service"
+    content: |
+      [Unit]
+      Description=Pronoun-Proofer
+      After=network.target
+
+      [Service]
+      ExecStart=/usr/bin/make -C /home/adrien/pronoun-proofer/ run_heap_cluster POETRY=/home/adrien/.local/bin/poetry
+      Restart=on-failure
+
+      [Install]
+      WantedBy=default.target
+
+- copy:
+    dest: "{{ home }}/.config/systemd/user/pronoun-proofer-logs.service"
+    content: |
+      [Unit]
+      Description=Dump pronoun-proofer logs to a file
+
+      [Service]
+      Type=oneshot
+      ExecStart=/home/adrien/pronoun-proofer/run_logs_extraction.sh
+
+- copy:
+    dest: "{{ home }}/.config/systemd/user/pronoun-proofer-logs.timer"
+    content: |
+      [Unit]
+      Description=Nightly dump of pronoun-proofer logs
+
+      [Timer]
+      OnCalendar=*-*-* 00:05:00 UTC
+      Persistent=true
+
+      [Install]
+      WantedBy=timers.target
+
+- name: Reload user systemd
+  systemd:
+    scope: user
+    daemon_reload: true
+
+- name: Enable and start pronoun-proofer service
+  systemd:
+    name: pronoun-proofer.service
+    scope: user
+    enabled: true
+    state: restarted
+
+- name: Enable and start pronoun-proofer logs timer
+  systemd:
+    name: pronoun-proofer-logs.timer
+    scope: user
+    enabled: true
+    state: started
