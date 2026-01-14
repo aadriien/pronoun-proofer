@@ -11,7 +11,7 @@
       After=network.target
 
       [Service]
-      ExecStart=/usr/bin/make -C /home/adrien/pronoun-proofer/ run_heap_cluster POETRY=/home/adrien/.local/bin/poetry
+      ExecStart=/usr/bin/make -C {{ home }}/pronoun-proofer/ run_heap_cluster POETRY=/{{ home }}/.local/bin/poetry
       Restart=on-failure
 
       [Install]
@@ -25,7 +25,7 @@
 
       [Service]
       Type=oneshot
-      ExecStart=/home/adrien/pronoun-proofer/run_logs_extraction.sh
+      ExecStart={{ home }}/pronoun-proofer/run_logs_extraction.sh
 
 - copy:
     dest: "{{ home }}/.config/systemd/user/pronoun-proofer-logs.timer"
