@@ -24,5 +24,10 @@
     - poetry.lock
     - pyproject.toml
     - .env
-    - run_logs_extraction.sh
+
+- name: Copy executable script
+  copy:
+    src: "{{ repo }}/run_logs_extraction.sh"
+    dest: "{{ tgt }}/run_logs_extraction.sh"
+    mode: 0755
 
