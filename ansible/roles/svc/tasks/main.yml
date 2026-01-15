@@ -11,7 +11,7 @@
       After=network.target
 
       [Service]
-      ExecStart=/usr/bin/make -C {{ home }}/pronoun-proofer/ run_heap_cluster POETRY=/{{ home }}/.local/bin/poetry
+      ExecStart=/usr/bin/make -C {{ home }}/pronoun-proofer/ run_heap_cluster POETRY={{ home }}/.local/bin/poetry
       Restart=on-failure
 
       [Install]
